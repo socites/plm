@@ -1,0 +1,27 @@
+{
+  "type": "control",
+  "id": "new-control-model",
+  "dependencies": {
+    "controls": [
+      "paper-button"
+    ],
+    "code": {
+      "application/model/code": "User"
+    }
+  },
+  "properties": {
+    "userId": "String"
+  },
+  "methods": [
+    "refresh"
+  ],
+  "js": [
+    "js/controller.js",
+    "js/state.js",
+    "js/actions.js"
+  ],
+  "jsx": {
+    "path": "jsx",
+    "files": "*"
+  }
+}

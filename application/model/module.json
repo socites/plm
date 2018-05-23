@@ -1,13 +1,12 @@
 {
-  "type": "code",
-  "js": [
-    "student.js",
-    "students.js",
-    "define.js"
-  ],
-  "dependencies": {
-    "code": {
-      "libraries/plm/main": "plm"
-    }
+  "server": "./server",
+  "code": {
+    "js": [
+      "student.js",
+      "students.js",
+      "define.js"
+    ]
   }
+
+
 }
