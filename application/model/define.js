@@ -1,4 +1,4 @@
-define(['libraries/plm/main'], function (plm) {
+define(['libraries/plm/main/code'], function (plm) {
 
     module.plm = plm;
 

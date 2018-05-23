@@ -5,5 +5,10 @@
     "styles.css",
     "bootstrap.css"
   ],
+  "imports": {
+    "libraries": [
+      "plm/v1"
+    ]
+  },
   "connect": true
 }
