@@ -1,0 +1,9 @@
+{
+  "version": "0.1",
+  "static": [
+    "index.html",
+    "styles.css",
+    "bootstrap.css"
+  ],
+  "connect": true
+}
