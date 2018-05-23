@@ -1,0 +1,12 @@
+{
+  "type": "code",
+  "js": [
+    "student.js",
+    "students.js"
+  ],
+  "dependencies": {
+    "code": {
+      "libraries/plm/main": "plm"
+    }
+  }
+}
