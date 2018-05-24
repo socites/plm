@@ -1,6 +1,6 @@
 {
   "page": {
-    "route": "/page",
+    "route": "/home",
     "dependencies": {
       "controls": [
         "paper-toolbar",

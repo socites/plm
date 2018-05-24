@@ -6,7 +6,7 @@
       "paper-button"
     ],
     "code": {
-      "application/model/code": "User"
+      "application/model/code": "model"
     }
   },
   "properties": {
