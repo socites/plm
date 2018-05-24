@@ -6,7 +6,6 @@ define(['libraries/plm/main/code'], function (plm) {
     plm.factories.register('students', Student);
 
     return {
-        'Student': Student,
         'Students': Students
     };
 
