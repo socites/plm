@@ -7,4 +7,5 @@ function Students(specs) {
     specs.factory = 'students';
 
     var collection = new Collection(this, specs);
+
 }
