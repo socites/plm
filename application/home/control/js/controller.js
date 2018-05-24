@@ -2,9 +2,8 @@ function Controller(change, dependencies, properties, specs) {
     "use strict";
 
     var model = dependencies.model;
-    var students = new model.Student();
+    var students = new model.Students();
 
-    console.log(students);
     students.load();
     Object.defineProperty(this, 'ready', {
         'get': function () {
