@@ -1,8 +1,11 @@
 function Student(id, timeUpdated) {
 
-
     var Item = module.plm.Item;
     var item = new Item(this, id, timeUpdated);
+
+    item.module = module;
+
+    item.fetch = {'action': 'students/get'};
 
     item.setData = function (data) {
 
@@ -13,11 +16,6 @@ function Student(id, timeUpdated) {
     };
 
     item.recover = function (data) {
-
-    };
-
-    item.actionsPaths = {'itemGet': 'students/get'};
-    item.setFetchParams = function () {
 
     };
 

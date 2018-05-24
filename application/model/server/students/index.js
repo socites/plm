@@ -1,6 +1,6 @@
 module.exports = function () {
     "use strict";
 
-    this.students = new (require('./students'))();
+    this.get = require('./get');
 
 };

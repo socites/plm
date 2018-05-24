@@ -9,9 +9,6 @@
       "application/model/code": "model"
     }
   },
-  "properties": {
-    "userId": "String"
-  },
   "methods": [
     "refresh"
   ],

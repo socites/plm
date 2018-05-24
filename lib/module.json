@@ -12,6 +12,7 @@
     "item/cache.js",
     "item/item.js",
     "collection/fetch.js",
+    "collection/load.js",
     "collection/collection.js",
     "define.js"
   ]
