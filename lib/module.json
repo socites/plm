@@ -5,10 +5,10 @@
   "js": [
     "factories/item.js",
     "factories/factories.js",
-    "properties.js",
     "model.js",
     "item/fetch/batch.js",
     "item/fetch/fetch.js",
+    "item/fetch/load.js",
     "item/cache.js",
     "item/item.js",
     "collection/fetch.js",

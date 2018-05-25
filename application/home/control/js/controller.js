@@ -11,7 +11,7 @@ function Controller(change, dependencies, properties, specs) {
     });
 
     students.bind('change', change);
-    students.load();
+    students.load({'items': true});
 
     Object.defineProperty(this, 'ready', {
         'get': function () {

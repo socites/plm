@@ -3,7 +3,7 @@ define(['libraries/plm/main/code'], function (plm) {
     module.plm = plm;
 
     // Register Student factory
-    plm.factories.register('students', Student);
+    plm.registry.add('students', Student);
 
     return {
         'Students': Students
