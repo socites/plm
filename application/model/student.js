@@ -1,7 +1,7 @@
 function Student(id, timeUpdated) {
 
-    let plm = module.plm;
-    let item = plm.factory.get('students', id);
+    let Item = module.plm.Item;
+    let item = new Item(this);
 
     item.set = function (data) {
 
