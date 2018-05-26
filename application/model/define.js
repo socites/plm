@@ -3,7 +3,7 @@ define(['libraries/plm/main/code'], function (plm) {
     module.plm = plm;
 
     // Register Student factory
-    plm.registry.add(Student, {
+    plm.registry.add('students', Student, {
         'module': module,
         'paths': {
             'fetch': 'students/get'
@@ -11,7 +11,8 @@ define(['libraries/plm/main/code'], function (plm) {
     });
 
     return {
-        'Students': Students
+        'Students': Students,
+        'Student': Student
     };
 
 });

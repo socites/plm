@@ -1,7 +1,7 @@
 function Student(id, timeUpdated) {
 
     let plm = module.plm;
-    let item = plm.factory.get(this, id, timeUpdated);
+    let item = plm.factory.get('students', id);
 
     let comments = new Graphs();
 
