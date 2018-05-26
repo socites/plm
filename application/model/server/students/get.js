@@ -1,40 +1,16 @@
 module.exports = require('async')(function* (resolve, reject, params, context) {
     "use strict";
 
-    let timeUpdated = Date.now();
+    let data, response;
+    data = require('./data.js');
 
     if (params.data === 'timeUpdated') {
-
-        resolve(
-            {'a1': timeUpdated - 1000},
-            {'a2': timeUpdated - 10000},
-            {'a3': timeUpdated - 100000}
-        );
-
+        response = data.get(params.ids, {'data': 'time_updated'});
     }
     else {
-
-        resolve(
-            {
-                'a1': {
-                    'timeUpdated': timeUpdated - 1000,
-                    'field': 'value'
-                }
-            },
-            {
-                'a2': {
-                    'timeUpdated': timeUpdated - 10000,
-                    'field': 'value'
-                }
-            },
-            {
-                'a3': {
-                    'timeUpdated': timeUpdated - 100000,
-                    'field': 'value'
-                }
-            }
-        );
-
+        response = data.get(params.ids);
     }
+
+    resolve(response);
 
 });

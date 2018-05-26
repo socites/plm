@@ -8,10 +8,7 @@ function Students(specs) {
 
     collection.module = module;
     collection.fetch = {
-        'action': 'students/get',
-        'params': function () {
-            return {'hello': 'world'};
-        }
+        'action': 'students/get'
     };
 
 }
