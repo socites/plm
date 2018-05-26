@@ -15,7 +15,6 @@ exports = module.react.createControl({
         );
 
         state.students.map(function (student) {
-            console.log(student);
             output.push(<div key={student.id}>
                 {student.id} {student.timeUpdated}
             </div>);
