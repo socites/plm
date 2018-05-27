@@ -1,7 +1,7 @@
-function Student(id, timeUpdated) {
+function Student(id) {
 
     let Item = module.plm.Item;
-    let item = new Item(this);
+    let item = new Item(this, id);
 
     item.set = function (data) {
 
