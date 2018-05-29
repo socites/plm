@@ -6,13 +6,13 @@ define(['libraries/plm/main/code'], function (plm) {
     // Register Student factory
     registries.items.add(Student, {
         'module': module,
-        'paths': {
+        'actions': {
             'fetch': 'students/get'
         }
     });
     registries.collections.add(Students, Student, {
         'module': module,
-        'paths': {
+        'actions': {
             'fetch': 'students/get'
         }
     });
