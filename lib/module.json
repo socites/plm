@@ -26,6 +26,7 @@
     "item/item/load/fetch.js",
     "item/item/load/load.js",
     "item/item/events.js",
+    "item/item/updated.js",
     "item/item/data.js",
     "item/item/base.js",
     "item/item/item.js",
