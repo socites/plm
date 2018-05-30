@@ -13,7 +13,8 @@ define(['libraries/plm/main/code'], function (plm) {
     registries.collections.add(Students, Student, {
         'module': module,
         'actions': {
-            'fetch': 'students/get'
+            'fetch': 'students/get',
+            'tu': 'students/get'
         }
     });
 
