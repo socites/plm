@@ -7,14 +7,14 @@ define(['libraries/plm/main/code'], function (plm) {
     registries.items.add(Student, {
         'module': module,
         'actions': {
-            'fetch': 'students/get'
+            'data': 'students/data',
+            'tu': 'students/tu'
         }
     });
     registries.collections.add(Students, Student, {
         'module': module,
         'actions': {
-            'fetch': 'students/get',
-            'tu': 'students/get'
+            'fetch': 'students/list'
         }
     });
 

@@ -21,6 +21,7 @@
     "item/registry/factory.js",
     "item/registry/item.js",
     "item/registry/registry.js",
+    "item/batcher/dispatcher.js",
     "item/batcher/batcher.js",
     "item/item/load/specs.js",
     "item/item/load/fetch.js",
