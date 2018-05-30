@@ -14,11 +14,27 @@ exports = module.react.createControl({
             </h3>
         );
 
+        let list = [];
         state.students.map(function (student) {
-            output.push(<div key={student.id}>
+
+            let item = [];
+            item.push(<div key="data">
                 {student.id} {student.timeUpdated} {student.name}
+                {(student.updating) ? 'updating' : ''} {(student.fetching) ? 'fetching' : ''}
+                {(student.fetched) ? 'fetched' : ''}
             </div>);
+
+            item.push(
+                <paper-button data-id={student.id} onClick={actions.update} key="button">
+                    update
+                </paper-button>
+            );
+
+            list.push(item);
+
         });
+
+        output.push(list);
 
         return (
             <div>{output}</div>
