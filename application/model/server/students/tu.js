@@ -6,6 +6,9 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
     }
 
     let db = require('./db.js');
-    resolve(db.tu(params.ids));
+
+    setTimeout(function () {
+        resolve(db.tu(params.ids));
+    }, 1000);
 
 });
