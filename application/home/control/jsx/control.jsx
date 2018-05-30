@@ -19,9 +19,10 @@ exports = module.react.createControl({
 
             let item = [];
             item.push(<div key="data">
-                {student.id} {student.timeUpdated} {student.name}
-                {(student.updating) ? 'updating' : ''} {(student.fetching) ? 'fetching' : ''}
-                {(student.fetched) ? 'fetched' : ''}
+                {student.id} {student.name}
+                {(student.updating) ? ' updating' : ''} {(student.fetching) ? ' fetching' : ''}
+                {(student.fetched) ? ' fetched' : ''}
+                {(student.timeUpdated) ? ' ' + student.timeUpdated : ''}
             </div>);
 
             item.push(

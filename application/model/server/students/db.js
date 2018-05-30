@@ -6,6 +6,13 @@ module.exports = new (function () {
     data.set('3', {'id': '3', 'time_updated': 30, 'name': 'Juan'});
     data.set('4', {'id': '4', 'time_updated': 40, 'name': 'Felix'});
 
+    let tu = 10;
+    setInterval(function () {
+        let item = data.get('1');
+        item.time_updated++;
+        item.name = `Henry ${item.time_updated}`;
+    }, 10000);
+
     this.list = function () {
 
         let output = [];

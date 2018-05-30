@@ -5,6 +5,12 @@ function Student(id) {
 
     let data = item.data;
 
+    Object.defineProperty(this, 'timeUpdated', {
+        'get': function () {
+            return data.time_updated;
+        }
+    });
+
     Object.defineProperty(this, 'name', {
         'get': function () {
             return data.name;
