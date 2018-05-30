@@ -15,7 +15,7 @@ exports = module.react.createControl({
         );
 
         let list = [];
-        state.students.map(function (student) {
+        state.students.map(function (student, index) {
 
             let item = [];
             item.push(<div key="data">
@@ -25,7 +25,7 @@ exports = module.react.createControl({
             </div>);
 
             item.push(
-                <paper-button data-id={student.id} onClick={actions.update} key="button">
+                <paper-button data-index={index} onClick={actions.update} key="button">
                     update
                 </paper-button>
             );

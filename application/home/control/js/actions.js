@@ -3,8 +3,12 @@ function Actions(controller, properties) {
 
     this.update = function (event) {
 
-        let id = event.currentTarget.dataset.id;
-        let student = controller.students.get(id);
+        let index = event.currentTarget.dataset.index;
+        let student = controller.students.entries[index];
+
+        student.update().then(function () {
+            beyond.showMessage('Item updated');
+        });
 
     };
 
