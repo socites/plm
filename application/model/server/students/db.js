@@ -2,9 +2,9 @@ module.exports = new (function () {
 
     let data = new Map();
     data.set('1', {'id': '1', 'time_updated': 10, 'name': 'Henry'});
-    data.set('2', {'id': '1', 'time_updated': 20, 'name': 'Julio'});
-    data.set('3', {'id': '1', 'time_updated': 30, 'name': 'Juan'});
-    data.set('4', {'id': '1', 'time_updated': 40, 'name': 'Felix'});
+    data.set('2', {'id': '2', 'time_updated': 20, 'name': 'Julio'});
+    data.set('3', {'id': '3', 'time_updated': 30, 'name': 'Juan'});
+    data.set('4', {'id': '4', 'time_updated': 40, 'name': 'Felix'});
 
     this.list = function () {
 

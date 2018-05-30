@@ -16,7 +16,7 @@ exports = module.react.createControl({
 
         state.students.map(function (student) {
             output.push(<div key={student.id}>
-                {student.id} {student.timeUpdated}
+                {student.id} {student.timeUpdated} {student.name}
             </div>);
         });
 
