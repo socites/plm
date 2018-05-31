@@ -14,6 +14,9 @@ function Student(id) {
     Object.defineProperty(this, 'name', {
         'get': function () {
             return data.name;
+        },
+        'set': function (value) {
+            data.name = value;
         }
     });
 
