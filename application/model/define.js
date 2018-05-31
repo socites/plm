@@ -9,7 +9,8 @@ define(['libraries/plm/main/code'], function (plm) {
         'actions': {
             'data': 'students/data',
             'tu': 'students/tu'
-        }
+        },
+        'fields': ['time_updated', 'name']
     });
     registries.collections.add(Students, Student, {
         'module': module,
