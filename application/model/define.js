@@ -10,13 +10,15 @@ define(['libraries/plm/main/code'], function (plm) {
             'data': 'students/data',
             'tu': 'students/tu'
         },
-        'fields': ['time_updated', 'name']
+        'fields': ['time_updated', 'name'],
+        'cache': 'student'
     });
     registries.collections.add(Students, Student, {
         'module': module,
         'actions': {
             'fetch': 'students/list'
-        }
+        },
+        'cache': 'students'
     });
 
     return {
