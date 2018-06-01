@@ -13,6 +13,7 @@
     "collection/collection/load/fetch.js",
     "collection/collection/load/load.js",
     "collection/collection/attributes.js",
+    "collection/collection/cache.js",
     "collection/collection/entries.js",
     "collection/collection/clean.js",
     "collection/collection/events.js",
