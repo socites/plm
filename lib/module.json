@@ -3,6 +3,8 @@
   "id": "beyond.model",
   "multilanguage": false,
   "js": [
+    "cache/storage.js",
+    "cache/cache.js",
     "collection/registry/auth.js",
     "collection/registry/factory.js",
     "collection/registry/collection.js",
@@ -27,6 +29,7 @@
     "item/item/load/load.js",
     "item/item/events.js",
     "item/item/updater.js",
+    "item/item/cache.js",
     "item/item/data/field.js",
     "item/item/data/data.js",
     "item/item/base.js",
