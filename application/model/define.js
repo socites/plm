@@ -18,7 +18,10 @@ define(['libraries/plm/main/code'], function (plm) {
         'actions': {
             'fetch': 'students/list'
         },
-        'cache': 'students'
+        'cache': {
+            'key': 'students',
+            'max': 30
+        }
     });
 
     return {
