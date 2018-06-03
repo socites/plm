@@ -14,10 +14,15 @@ exports = React.createClass({
 
         let state = this.props.state;
 
+        let disabled = {};
+        if (state.properties.processing) {
+            disabled.disabled = true;
+        }
+
         return (
             <form key="form" is="iron-form" ref="form">
-                <paper-input key="name" value={state.student.name}></paper-input>
-                <paper-button onClick={this.send}>Guardar</paper-button>
+                <paper-input {...disabled} key="name" value={state.student.name}></paper-input>
+                <paper-button {...disabled} onClick={this.send}>Guardar</paper-button>
             </form>
         );
 

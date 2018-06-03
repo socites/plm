@@ -8,6 +8,6 @@ function updateState(controller, state, properties) {
         'name': student.name
     };
 
-    properties.processing = !student.fetched;
+    properties.processing = !student.fetched || student.fetching || student.updating;
 
 }
