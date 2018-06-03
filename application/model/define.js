@@ -8,7 +8,8 @@ define(['libraries/plm/main/code'], function (plm) {
         'module': module,
         'actions': {
             'data': 'students/data',
-            'tu': 'students/tu'
+            'tu': 'students/tu',
+            'publish': 'students/publish'
         },
         'fields': ['time_updated', 'name'],
         'cache': 'student'
