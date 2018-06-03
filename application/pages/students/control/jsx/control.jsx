@@ -37,8 +37,14 @@ exports = module.react.createControl({
             </div>);
 
             item.push(
-                <paper-button data-index={index} onClick={actions.update} key="button">
+                <paper-button data-index={index} onClick={actions.update} key="update">
                     update
+                </paper-button>
+            );
+
+            item.push(
+                <paper-button data-id={student.id} onClick={actions.edit} key="edit">
+                    edit
                 </paper-button>
             );
 

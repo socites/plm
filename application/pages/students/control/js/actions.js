@@ -10,6 +10,10 @@ function Actions(controller, properties) {
 
     };
 
+    this.edit = function (event) {
+        beyond.navigate(`/student/edit/${event.currentTarget.dataset.id}`);
+    };
+
     this.load = function () {
         controller.students.load();
     };
