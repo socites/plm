@@ -9,17 +9,21 @@ exports = module.react.createControl({
         let output = [];
 
         output.push(
-            <h3 className="page-header" key="header">
-                Progressive loading Model
-            </h3>
-        );
-
-        output.push(
             <div key="collection-actions">
                 <paper-button onClick={actions.loadFromCache}>Fetch only from cache</paper-button>
                 <paper-button onClick={actions.load}>Load</paper-button>
             </div>
         );
+
+        if (state.students.length) {
+
+            output.push(
+                <h3 className="page-header" key="header">
+                    List of students
+                </h3>
+            );
+
+        }
 
         let list = [];
         state.students.map(function (student, index) {

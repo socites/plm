@@ -15,38 +15,11 @@ exports = module.react.createControl({
             </div>
         );
 
-        if (state.students.length) {
-
-            output.push(
-                <h3 className="page-header" key="header">
-                    List of students
-                </h3>
-            );
-
-        }
-
-        let list = [];
-        state.students.map(function (student, index) {
-
-            let item = [];
-            item.push(<div key="data">
-                {student.id} {student.name}
-                {(student.updating) ? ' updating' : ''} {(student.fetching) ? ' fetching' : ''}
-                {(student.fetched) ? ' fetched' : ''}
-                {(student.timeUpdated) ? ' ' + student.timeUpdated : ''}
-            </div>);
-
-            item.push(
-                <paper-button data-index={index} onClick={actions.update} key="button">
-                    update
-                </paper-button>
-            );
-
-            list.push(item);
-
-        });
-
-        output.push(list);
+        output.push(
+            <h3 className="page-header" key="header">
+                Edit form
+            </h3>
+        );
 
         return (
             <div>{output}</div>
