@@ -14,6 +14,13 @@ exports = module.react.createControl({
             </h3>
         );
 
+        output.push(
+            <div key="collection-actions">
+                <paper-button onClick={actions.loadFromCache}>Fetch only from cache</paper-button>
+                <paper-button onClick={actions.load}>Load</paper-button>
+            </div>
+        );
+
         let list = [];
         state.students.map(function (student, index) {
 

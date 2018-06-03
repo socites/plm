@@ -10,4 +10,13 @@ function Actions(controller, properties) {
 
     };
 
+    this.load = function () {
+        controller.students.load();
+    };
+
+    this.loadFromCache = function () {
+        console.log('load from cache');
+        controller.students.load({'update': false, 'fetch': false});
+    };
+
 }
