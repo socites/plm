@@ -18,4 +18,19 @@ function Student(id) {
         }
     });
 
+    let classroom;
+    Object.defineProperty(this, 'classroom', {
+        'get': function () {
+            return classroom;
+        }
+    });
+
+    this.load = function (params) {
+
+        item.load(params).then(function (specs) {
+            console.log('continue loading...', specs);
+        });
+
+    };
+
 }
