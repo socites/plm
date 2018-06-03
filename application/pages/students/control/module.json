@@ -1,6 +1,6 @@
 {
   "type": "control",
-  "id": "new-control-model",
+  "id": "students-list",
   "dependencies": {
     "controls": [
       "paper-button"

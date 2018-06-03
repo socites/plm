@@ -1,11 +1,11 @@
 {
   "page": {
-    "route": "/home",
+    "route": "/student",
     "dependencies": {
       "controls": [
         "paper-toolbar",
         "paper-button",
-        "new-control-model"
+        "student-edit"
       ]
     },
     "js": "page.js",

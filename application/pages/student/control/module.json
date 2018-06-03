@@ -1,0 +1,24 @@
+{
+  "type": "control",
+  "id": "student-edit",
+  "dependencies": {
+    "controls": [
+      "paper-button"
+    ],
+    "code": {
+      "application/model/code": "model"
+    }
+  },
+  "methods": [
+    "refresh"
+  ],
+  "js": [
+    "js/controller.js",
+    "js/state.js",
+    "js/actions.js"
+  ],
+  "jsx": {
+    "path": "jsx",
+    "files": "*"
+  }
+}

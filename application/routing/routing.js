@@ -6,6 +6,6 @@ beyond.bind('routing', function (pathname, done) {
         return;
     }
 
-    done({'pathname': '/home'});
+    done({'pathname': '/students'});
 
 });

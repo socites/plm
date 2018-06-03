@@ -1,0 +1,15 @@
+{
+  "page": {
+    "route": "/students",
+    "dependencies": {
+      "controls": [
+        "paper-toolbar",
+        "paper-button",
+        "students-list"
+      ]
+    },
+    "js": "page.js",
+    "html": "page.html",
+    "less": "styles.less"
+  }
+}
