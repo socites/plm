@@ -29,6 +29,7 @@
     "item/item/load/load.js",
     "item/item/events.js",
     "item/item/updater.js",
+    "item/item/publish.js",
     "item/item/cache.js",
     "item/item/data/field.js",
     "item/item/data/data.js",

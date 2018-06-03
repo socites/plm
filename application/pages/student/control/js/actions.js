@@ -2,7 +2,13 @@ function Actions(controller, properties) {
     "use strict";
 
     this.publish = function () {
-        console.log('publish item');
+
+        let student = controller.student;
+
+        student.publish().then(function () {
+            beyond.showMessage('Item has been saved');
+        });
+
     };
 
     this.refresh = function () {
