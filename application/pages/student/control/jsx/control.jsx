@@ -9,16 +9,16 @@ exports = module.react.createControl({
         let output = [];
 
         output.push(
-            <div key="collection-actions">
-                <paper-button onClick={actions.loadFromCache}>Fetch only from cache</paper-button>
-                <paper-button onClick={actions.load}>Load</paper-button>
-            </div>
-        );
-
-        output.push(
             <h3 className="page-header" key="header">
                 Edit form
             </h3>
+        );
+
+        output.push(
+            <form key="form" is="iron-form">
+                <paper-input key="name" value={state.student.name}></paper-input>
+                <paper-button>Guardar</paper-button>
+            </form>
         );
 
         return (

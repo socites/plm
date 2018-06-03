@@ -1,14 +1,18 @@
 {
   "page": {
-    "route": "/student",
+    "route": "/student/edit",
     "dependencies": {
       "controls": [
         "paper-toolbar",
         "paper-button",
-        "student-edit"
+        "student-edit",
+        "paper-spinner"
       ]
     },
-    "js": "page.js",
+    "js": [
+      "toolbar.js",
+      "page.js"
+    ],
     "html": "page.html",
     "less": "styles.less"
   }

@@ -3,7 +3,8 @@
   "id": "student-edit",
   "dependencies": {
     "controls": [
-      "paper-button"
+      "paper-button",
+      "paper-input"
     ],
     "code": {
       "application/model/code": "model"
@@ -12,6 +13,13 @@
   "methods": [
     "refresh"
   ],
+  "properties": {
+    "studentId": "string",
+    "processing": {
+      "type": "boolean",
+      "notify": true
+    }
+  },
   "js": [
     "js/controller.js",
     "js/state.js",
