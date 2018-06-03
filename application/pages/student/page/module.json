@@ -4,9 +4,13 @@
     "dependencies": {
       "controls": [
         "paper-toolbar",
+        "paper-spinner",
+        "paper-icon-button",
+        "iron-iconset",
+        "iron-icons",
+        "iron-form",
         "paper-button",
-        "student-edit",
-        "paper-spinner"
+        "student-edit"
       ]
     },
     "js": [
