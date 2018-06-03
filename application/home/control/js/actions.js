@@ -15,7 +15,6 @@ function Actions(controller, properties) {
     };
 
     this.loadFromCache = function () {
-        console.log('load from cache');
         controller.students.load({'update': false, 'fetch': false});
     };
 
