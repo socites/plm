@@ -1,4 +1,4 @@
-function Actions(controller, properties) {
+function Actions(controller) {
     "use strict";
 
     this.publish = function () {
