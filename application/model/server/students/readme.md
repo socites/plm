@@ -4,7 +4,7 @@
 ### Parameters
 * next
 ### Returns
-Array of {id: time_updated}
+Array of {id, time_updated}
 
 ## /data
 ### Parameters
