@@ -3,16 +3,24 @@
 ## /list
 ### Parameters
 * next
+### Returns
+Array of {id: time_updated}
 
 ## /data
 ### Parameters
 * ids
+### Returns
+{id: data}
 
 ## /tu
 ### Parameters
 * ids
+### Returns
+{id: time_updated}
 
 ## /publish
 ### Parameters
 * id
 * name
+### Returns
+{id, time_updated, fields}
