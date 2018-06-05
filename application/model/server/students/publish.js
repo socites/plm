@@ -4,7 +4,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
     let db = require('./db.js');
 
     setTimeout(function () {
-        resolve();
+        resolve(db.save(params));
     }, 1000);
 
 });

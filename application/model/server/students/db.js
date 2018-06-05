@@ -104,4 +104,16 @@ module.exports = new (function () {
 
     };
 
+    this.save = function (specs) {
+
+        let item;
+        if (specs.id) {
+            item = getItem(specs.id);
+
+        }
+        else {
+
+        }
+    };
+
 });
