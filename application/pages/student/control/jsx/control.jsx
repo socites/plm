@@ -7,13 +7,22 @@ exports = module.react.createControl({
         }
 
         let output = [];
-        output.push(
-            <h3 className="page-header" key="header">
-                {(state.fetched) ? 'Edit form' : 'Loading...'}
-            </h3>
-        );
 
-        if (state.fetched) {
+        if (!state.new) {
+            output.push(
+                <h3 className="page-header" key="header">
+                    {(state.fetched) ? 'Edit form' : 'Loading...'}
+                </h3>
+            );
+        }
+        else {
+            output.push(
+                <h3 className="page-header" key="header">Add new student.</h3>
+            );
+        }
+
+
+        if (state.fetched || state.new) {
             output.push(<react.form key="form" actions={actions} state={state}/>);
         }
 

@@ -1,24 +1,68 @@
 module.exports = new (function () {
 
-    let data = new Map();
-    data.set('1', {'id': '1', 'time_updated': 10, 'name': 'Henry'});
-    data.set('2', {'id': '2', 'time_updated': 20, 'name': 'Julio'});
-    data.set('3', {'id': '3', 'time_updated': 30, 'name': 'Juan'});
-    data.set('4', {'id': '4', 'time_updated': 40, 'name': 'Felix'});
+    let data = [
+        {'id': '1', 'time_updated': 10, 'name': 'Henry'},
+        {'id': '3', 'time_updated': 30, 'name': 'Juan'},
+        {'id': '4', 'time_updated': 40, 'name': 'Felix'},
+        {'id': '2', 'time_updated': 20, 'name': 'Julio'}
+    ];
+
 
     let tu = 10;
     setInterval(function () {
-        let item = data.get('1');
+        let item = getItem('1');
         item.time_updated++;
         item.name = `Henry ${item.time_updated}`;
     }, 10000);
 
-    this.list = function () {
 
-        let output = [];
-        data.forEach(function (item, id) {
-            output.push({'id': item.id, 'time_updated': data.time_updated});
-        });
+    function getItem(id) {
+
+        let output;
+
+        for (let key in data) {
+            let item = data[key];
+            if (item.id == id) {
+                output = item;
+            }
+        }
+
+        return output;
+
+    }
+
+    function order(a, b) {
+
+        if (a.id > b.id) {
+            return -1;
+        }
+        return 1;
+
+    }
+
+    this.list = function (specs) {
+
+        let total = (!!specs.limit && specs.limit < data.length) ? specs.limit : data.length;
+        let output = {'records': [], 'next': ''};
+        let next = (!!specs.next) ? specs.next : 1;
+        data.sort(order);
+
+        for (var key in data) {
+
+            let item = data[key];
+            if (next < item.id) {
+                continue;
+            }
+
+            if (!total) {
+                output.next = item.id;
+                continue;
+            }
+            --total;
+            output.records.push({'id': item.id, 'time_updated': data.time_updated});
+
+
+        }
 
         return output;
 
@@ -29,7 +73,7 @@ module.exports = new (function () {
         let output = {};
         for (let id of ids) {
 
-            let item = data.get(id);
+            let item = getItem(id);
             if (!item) {
                 continue;
             }
@@ -47,7 +91,7 @@ module.exports = new (function () {
         let output = {};
         for (let id of ids) {
 
-            let item = data.get(id);
+            let item = getItem(id);
             if (!item) {
                 continue;
             }

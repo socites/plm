@@ -5,7 +5,10 @@
 * next
 ### Returns
 Array of {id, time_updated}
-
+example : 
+```
+{"records": [], "next": value}
+```
 ## /data
 ### Parameters
 * ids

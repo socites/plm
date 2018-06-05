@@ -4,6 +4,12 @@ function Controller(change, dependencies, properties, specs) {
     let model = dependencies.model;
 
     let student;
+    let newStudent = false;
+    Object.defineProperty(this, 'new', {
+        'get': function () {
+            return newStudent;
+        }
+    });
     Object.defineProperty(this, 'student', {
         'get': function () {
             return student;
@@ -12,7 +18,7 @@ function Controller(change, dependencies, properties, specs) {
 
     Object.defineProperty(this, 'ready', {
         'get': function () {
-            return !!student;
+            return !!student || newStudent;
         }
     });
 
@@ -35,9 +41,18 @@ function Controller(change, dependencies, properties, specs) {
             return;
         }
 
+        if (properties.studentId == "new") {
+            newStudent = true;
+            properties.studentId = undefined;
+        }
+
         student = new model.Student(properties.studentId);
+        console.log("student", student);
         student.bind('change', change);
-        student.load({'update': true});
+        if (!!properties.studentId) {
+            student.load({'update': true});
+        }
+
 
     };
 

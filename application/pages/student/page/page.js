@@ -8,6 +8,7 @@ function Page($container, vdir) {
         .append($page);
 
     let control = $container.children('student-edit').get(0);
+
     control.studentId = vdir;
 
     new Toolbar($container);
