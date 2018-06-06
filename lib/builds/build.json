@@ -4,7 +4,7 @@
     "build": "../.."
   },
   "libraries": {
-    "beyond-plm": "../library.json"
+    "plm": "../library.json"
   },
   "types": [
     "../../node_modules/beyond/types"
