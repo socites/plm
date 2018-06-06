@@ -1,0 +1,14 @@
+{
+  "name": "beyond-pml",
+  "author": "socites",
+  "files": [
+    "library.json",
+    "v1"
+  ],
+  "dependencies": {
+    "beyond": ">=0.0.100"
+  },
+  "engines": {
+    "node": ">= 0.12.0"
+  }
+}
