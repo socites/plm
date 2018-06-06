@@ -5,6 +5,7 @@
       "controls": [
         "paper-toolbar",
         "paper-button",
+        "paper-spinner",
         "students-list"
       ]
     },

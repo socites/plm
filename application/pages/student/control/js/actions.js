@@ -8,8 +8,8 @@ function Actions(controller) {
     this.publish = function () {
 
         let student = controller.student;
-
-        student.publish({'name': refs.name}).then(function () {
+        console.log(refs, refs.name.value);
+        student.publish({'name': refs.name.value}).then(function () {
             beyond.showMessage('Item has been saved');
         });
 

@@ -7,6 +7,13 @@
     ],
     "code": {
       "application/model/code": "model"
+    },
+    "properties": {
+      "processing": {
+        "type": "Boolean",
+        "notify": true,
+        "readOnly": true
+      }
     }
   },
   "methods": [

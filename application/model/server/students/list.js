@@ -17,8 +17,9 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
         let data = db.collection();
         let total = (!!specs.limit && specs.limit < data.length) ? specs.limit : data.length;
+
         let output = {'records': [], 'next': ''};
-        let next = (!!specs.next) ? specs.next : 1;
+        let next = (!!specs.next) ? specs.next : data.length;
 
         data.sort(function (a, b) {
 
