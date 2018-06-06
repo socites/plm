@@ -16,7 +16,11 @@ module.exports = new (function () {
     }, 10000);
 
 
-    function getItem(id) {
+    this.collection = function () {
+        return data;
+    };
+
+    function getItem(id, pos) {
 
         let output;
 
@@ -24,6 +28,10 @@ module.exports = new (function () {
             let item = data[key];
             if (item.id == id) {
                 output = item;
+
+                if (pos) {
+                    return key;
+                }
             }
         }
 
@@ -31,89 +39,28 @@ module.exports = new (function () {
 
     }
 
-    function order(a, b) {
 
-        if (a.id > b.id) {
-            return -1;
-        }
-        return 1;
+    this.item = getItem;
 
-    }
+    this.publish = function (specs) {
 
-    this.list = function (specs) {
-
-        let total = (!!specs.limit && specs.limit < data.length) ? specs.limit : data.length;
-        let output = {'records': [], 'next': ''};
-        let next = (!!specs.next) ? specs.next : 1;
-        data.sort(order);
-
-        for (var key in data) {
-
-            let item = data[key];
-            if (next < item.id) {
-                continue;
-            }
-
-            if (!total) {
-                output.next = item.id;
-                continue;
-            }
-            --total;
-            output.records.push({'id': item.id, 'time_updated': data.time_updated});
-
-
-        }
-
-        return output;
-
-    };
-
-    this.tu = function (ids) {
-
-        let output = {};
-        for (let id of ids) {
-
-            let item = getItem(id);
-            if (!item) {
-                continue;
-            }
-
-            output[id] = item.time_updated;
-
-        }
-
-        return output;
-
-    };
-
-    this.data = function (ids) {
-
-        let output = {};
-        for (let id of ids) {
-
-            let item = getItem(id);
-            if (!item) {
-                continue;
-            }
-
-            output[id] = item;
-
-        }
-
-        return output;
-
-    };
-
-    this.save = function (specs) {
-
-        let item;
+        let item = {};
         if (specs.id) {
-            item = getItem(specs.id);
-
+            let position = getItem(specs.id, true);
+            item = data[position];
         }
         else {
-
+            item.id = data.length + 1;
         }
+
+        item.name = specs.name;
+        item.time_updated = Math.floor(Date.now() / 1000);
+
+        if (!specs.id) {
+            data.push(item);
+        }
+
+        console.log(data);
     };
 
 });

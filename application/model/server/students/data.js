@@ -7,8 +7,26 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
     let db = require('./db.js');
 
+    function data() {
+
+        let output = {};
+        for (let id of params.ids) {
+
+            let item = db.item(id);
+            if (!item) {
+                continue;
+            }
+
+            output[id] = item;
+
+        }
+
+        return output;
+
+    };
+
     setTimeout(function () {
-        resolve(db.data(params.ids));
+        resolve(data());
     }, 2000);
 
 });

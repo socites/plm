@@ -3,8 +3,8 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
     let db = require('./db.js');
 
-    let specs = {'limit': 2, 'next': 3};
-
+    // let specs = {'limit': 2, 'next': 3};
+    let specs = {};
     if (params.limit) {
         specs.limit = params.limit;
     }
@@ -13,8 +13,45 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
         specs.next = params.next;
     }
 
+    function list() {
+
+        let data = db.collection();
+        let total = (!!specs.limit && specs.limit < data.length) ? specs.limit : data.length;
+        let output = {'records': [], 'next': ''};
+        let next = (!!specs.next) ? specs.next : 1;
+
+        data.sort(function (a, b) {
+
+            if (a.id > b.id) {
+                return -1;
+            }
+            return 1;
+
+        });
+
+        for (var key in data) {
+
+            let item = data[key];
+            if (next < item.id) {
+                continue;
+            }
+
+            if (!total) {
+                output.next = item.id;
+                continue;
+            }
+            --total;
+            output.records.push({'id': item.id, 'time_updated': data.time_updated});
+
+
+        }
+
+        return output;
+
+    }
+
     setTimeout(function () {
-        resolve(db.list(specs));
+        resolve(list(specs));
     }, 1000);
 
 });
