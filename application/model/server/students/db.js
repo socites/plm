@@ -18,11 +18,6 @@ module.exports = new (function () {
         item.name = `Henry ${item.time_updated}`;
     }, 10000);
 
-
-    this.collection = function () {
-        return data;
-    };
-
     function getItem(id, pos) {
 
         let output;
@@ -42,6 +37,50 @@ module.exports = new (function () {
 
     }
 
+    function getPosition(id) {
+
+        for (let key in data) {
+
+            let item = data[key];
+            if (item.id == id) {
+                return key;
+            }
+
+        }
+
+    }
+
+    this.update = function (id, params) {
+
+        let position = getPosition(id);
+        if (!position) {
+            return;
+        }
+
+        let item = data[position];
+        data[position] = Object.assign(item, params);
+
+        return data[position];
+
+    };
+
+    this.insert = function (data) {
+
+        if (!entry.id) {
+            entry.id = data.length + 1;
+        }
+
+        data.push(entry);
+
+    };
+
+    this.select = function (entry) {
+
+    };
+
+    this.collection = function () {
+        return data;
+    };
 
     this.item = getItem;
 
