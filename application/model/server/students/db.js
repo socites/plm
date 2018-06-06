@@ -74,7 +74,23 @@ module.exports = new (function () {
 
     };
 
-    this.select = function (entry) {
+    function filter(ids) {
+
+        for (let id in ids) {
+
+        }
+
+    }
+
+    this.select = function (ids) {
+
+        if (!ids) {
+            return data;
+        }
+
+        if (ids instanceof Array) {
+            return filter(ids);
+        }
 
     };
 
