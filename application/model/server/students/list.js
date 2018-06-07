@@ -46,7 +46,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
 
         }
-        console.log("in list", output);
+
         return output;
 
     }
