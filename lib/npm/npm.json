@@ -1,0 +1,8 @@
+{
+  "client": {
+    "package": "./npm/package.json",
+    "version": "./npm/npm-version.json",
+    "publish": "./npm/publish.js",
+    "readme": "./npm/README.md"
+  }
+}

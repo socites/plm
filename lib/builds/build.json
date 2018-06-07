@@ -1,0 +1,12 @@
+{
+  "paths": {
+    "code": "./",
+    "build": "../.."
+  },
+  "libraries": {
+    "plm": "../library.json"
+  },
+  "types": [
+    "../../node_modules/beyond/types"
+  ]
+}

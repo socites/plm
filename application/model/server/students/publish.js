@@ -3,8 +3,19 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
     let db = require('./db.js');
 
+    function publish() {
+
+        if (params.id) {
+            db.update(params.id, params);
+        }
+        else {
+            db.insert(params);
+        }
+
+    }
+
     setTimeout(function () {
-        resolve(db.publish(params));
+        resolve(publish(params));
     }, 1000);
 
 });
