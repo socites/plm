@@ -6,10 +6,10 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
     function publish() {
 
         if (params.id) {
-            db.update(params.id, params);
+            return db.update(params.id, params);
         }
         else {
-            db.insert(params);
+            return db.insert(params);
         }
 
     }

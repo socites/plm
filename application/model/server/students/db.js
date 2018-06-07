@@ -23,13 +23,11 @@ module.exports = new (function () {
         for (let key in data) {
 
             let item = data[key];
-            if (item.id == id) {
+            if (item.id === id) {
                 return key;
             }
 
         }
-
-        return;
 
     }
 
@@ -40,20 +38,27 @@ module.exports = new (function () {
             return;
         }
 
-        let item = data[position];
-        data[position] = Object.assign(item, params);
+        let item = Object.assign(data[position], {
+            'time_updated': tu,
+            'name': params.name
+        });
+        data[position] = item;
 
-        return data[position];
+        return item;
 
     };
 
-    this.insert = function (data) {
+    this.insert = function (params) {
 
-        if (!entry.id) {
-            entry.id = data.length + 1;
-        }
+        let item = {
+            'id': params.length + 1,
+            'time_updated': tu,
+            'name': params.name
+        };
 
-        data.push(entry);
+        data.push(item);
+
+        return item;
 
     };
 
