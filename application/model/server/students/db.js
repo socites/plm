@@ -13,29 +13,10 @@ module.exports = new (function () {
 
     let tu = 10;
     setInterval(function () {
-        let item = getItem('1');
+        let item = data[getPosition('1')];
         item.time_updated++;
         item.name = `Henry ${item.time_updated}`;
     }, 10000);
-
-    function getItem(id, pos) {
-
-        let output;
-
-        for (let key in data) {
-            let item = data[key];
-            if (item.id == id) {
-                output = item;
-
-                if (pos) {
-                    return key;
-                }
-            }
-        }
-
-        return output;
-
-    }
 
     function getPosition(id) {
 
@@ -47,6 +28,8 @@ module.exports = new (function () {
             }
 
         }
+
+        return;
 
     }
 
@@ -76,9 +59,16 @@ module.exports = new (function () {
 
     function filter(ids) {
 
-        for (let id in ids) {
+        let output = [];
+        for (let id of ids) {
 
+            let position = getPosition(id);
+            if (position) {
+                output.push(data[position]);
+            }
         }
+
+        return output;
 
     }
 
@@ -94,31 +84,5 @@ module.exports = new (function () {
 
     };
 
-    this.collection = function () {
-        return data;
-    };
-
-    this.item = getItem;
-
-    this.publish = function (specs) {
-
-        let item = {};
-        if (specs.id) {
-            let position = getItem(specs.id, true);
-            item = data[position];
-        }
-        else {
-            item.id = data.length + 1;
-        }
-
-        item.name = specs.name;
-        item.time_updated = Math.floor(Date.now() / 1000);
-
-        if (!specs.id) {
-            data.push(item);
-        }
-
-        console.log(data);
-    };
 
 });

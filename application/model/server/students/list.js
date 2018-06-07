@@ -15,7 +15,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
     function list() {
 
-        let data = db.collection();
+        let data = db.select();
         let total = (!!specs.limit && specs.limit < data.length) ? specs.limit : data.length;
 
         let output = {'records': [], 'next': ''};
@@ -46,7 +46,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
 
         }
-
+        console.log("in list", output);
         return output;
 
     }

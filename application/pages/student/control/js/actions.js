@@ -1,4 +1,4 @@
-function Actions(controller) {
+function Actions(controller, properties) {
     "use strict";
 
     let refs;
@@ -8,8 +8,15 @@ function Actions(controller) {
     this.publish = function () {
 
         let student = controller.student;
+        let specs = {
+            'name': refs.name.value
+        };
 
-        student.publish({'name': refs.name.value}).then(function () {
+        if (properties.studentId && properties.studentId != 'new') {
+            specs.id = properties.studentId;
+        }
+
+        student.publish(specs).then(function () {
             beyond.showMessage('Item has been saved');
         });
 

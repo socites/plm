@@ -9,25 +9,19 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
     function data() {
 
-        let output = {};
         if (!params.ids) {
             return;
         }
 
-        for (let id of params.ids) {
-
-            let item = db.item(id);
-            if (!item) {
-                continue;
-            }
-
-            output[id] = item;
-
+        let data = db.select(params.ids);
+        let output = {};
+        for (let item of data) {
+            output[item.id] = item;
         }
 
         return output;
 
-    };
+    }
 
     setTimeout(function () {
         resolve(data());

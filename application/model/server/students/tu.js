@@ -10,15 +10,10 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
     function tu() {
 
         let output = {};
+        let data = db.select(params.ids);
 
-        for (let id of params.ids) {
-
-            let item = db.item(id);
-            if (!item) {
-                continue;
-            }
-            output[id] = item.time_updated;
-
+        for (let item of data) {
+            output[item.id] = item.time_updated;
         }
 
         return output;
