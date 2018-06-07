@@ -7,18 +7,18 @@
     ],
     "code": {
       "application/model/code": "model"
-    },
-    "properties": {
-      "processing": {
-        "type": "Boolean",
-        "notify": true,
-        "readOnly": true
-      }
     }
   },
   "methods": [
     "refresh"
   ],
+  "properties": {
+    "processing": {
+      "type": "boolean",
+      "notify": true,
+      "readOnly": true
+    }
+  },
   "js": [
     "js/controller.js",
     "js/state.js",

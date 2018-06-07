@@ -12,6 +12,9 @@ function Controller(change, dependencies, properties, specs) {
 
     students.bind('change', change);
 
+    // Load from cache, and update the collection.
+    students.load({'update': true});
+
     Object.defineProperty(this, 'ready', {
         'get': function () {
             return true;

@@ -4,7 +4,8 @@ function Actions(controller, properties) {
     let refs;
     this.addRefs = function (references) {
         refs = references;
-    }
+    };
+
     this.publish = function () {
 
         let student = controller.student;
@@ -12,7 +13,7 @@ function Actions(controller, properties) {
             'name': refs.name.value
         };
 
-        if (properties.studentId && properties.studentId != 'new') {
+        if (properties.studentId && properties.studentId !== 'new') {
             specs.id = properties.studentId;
         }
 

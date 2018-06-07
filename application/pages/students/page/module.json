@@ -4,12 +4,18 @@
     "dependencies": {
       "controls": [
         "paper-toolbar",
-        "paper-button",
         "paper-spinner",
+        "paper-icon-button",
+        "iron-iconset",
+        "iron-icons",
+        "paper-button",
         "students-list"
       ]
     },
-    "js": "page.js",
+    "js": [
+      "toolbar.js",
+      "page.js"
+    ],
     "html": "page.html",
     "less": "styles.less"
   }
