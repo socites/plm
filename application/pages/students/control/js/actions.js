@@ -15,7 +15,7 @@ function Actions(controller, properties) {
     };
 
     this.load = function () {
-        controller.students.load();
+        controller.students.load({'update': true});
     };
 
     this.loadFromCache = function () {

@@ -10,6 +10,10 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
     function data() {
 
         let output = {};
+        if (!params.ids) {
+            return;
+        }
+
         for (let id of params.ids) {
 
             let item = db.item(id);

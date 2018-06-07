@@ -2,7 +2,7 @@ define(['libraries/plm/main/code'], function (plm) {
 
     module.plm = plm;
     let registries = plm.registries;
-
+    let auth = plm.auth;
     // Register Student factory
     registries.items.add(Student, {
         'module': module,
@@ -11,6 +11,7 @@ define(['libraries/plm/main/code'], function (plm) {
             'tu': 'students/tu',
             'publish': 'students/publish'
         },
+       'auth': auth,
         'fields': ['time_updated', 'name'],
         'cache': 'student'
     });

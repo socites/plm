@@ -47,7 +47,7 @@ function Controller(change, dependencies, properties, specs) {
         }
 
         student = new model.Student(properties.studentId);
-        console.log("student", student);
+        student.accessToken = '123456';
         student.bind('change', change);
         if (!!properties.studentId) {
             student.load({'update': true});

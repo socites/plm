@@ -2,6 +2,18 @@ function Student(id) {
 
     let Item = module.plm.Item;
     let item = new Item(this, id);
+    let auth = module.plm.auth;
+
+    let accessToken;
+    Object.defineProperty(this, 'accessToken', {
+        'get': function () {
+            return accessToken;
+        },
+        'set': function (at) {
+            accessToken = at;
+            auth.accessToken = accessToken;
+        }
+    });
 
     Object.defineProperty(this, 'timeUpdated', {
         'get': function () {
