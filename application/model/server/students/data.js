@@ -14,6 +14,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
         }
 
         let data = db.select(params.ids);
+
         let output = {};
         for (let item of data) {
             output[item.id] = item;

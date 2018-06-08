@@ -51,7 +51,7 @@ module.exports = new (function () {
     this.insert = function (params) {
 
         let item = {
-            'id': params.length + 1,
+            'id': (data.length + 1).toString(),
             'time_updated': tu,
             'name': params.name
         };

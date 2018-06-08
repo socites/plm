@@ -18,10 +18,6 @@ function Actions(controller, properties) {
         controller.students.load({'update': true});
     };
 
-    this.loadFromCache = function () {
-        controller.students.load({'update': false, 'fetch': false});
-    };
-
     this.add = function () {
         beyond.navigate('/student/edit/new');
     };

@@ -9,10 +9,10 @@ exports = module.react.createControl({
         let output = [];
 
         output.push(
-            <div key="collection-actions">
-                <paper-button onClick={actions.loadFromCache}>Fetch only from cache</paper-button>
-                <paper-button onClick={actions.load}>Load</paper-button>
-                <paper-button primary onClick={actions.add}>Add Student</paper-button>
+            <div key="actions">
+                <paper-button primary onClick={actions.add}>
+                    Add Student
+                </paper-button>
             </div>
         );
 

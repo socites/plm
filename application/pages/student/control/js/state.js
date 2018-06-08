@@ -9,7 +9,7 @@ function updateState(controller, state, properties) {
     };
 
     state.new = controller.new;
-    properties.processing = (!state.new && !student.fetched) || student.fetching || student.updating;
+    properties.processing = (!state.new && !student.fetched) || student.fetching || student.publishing;
 
 
 }

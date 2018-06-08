@@ -30,7 +30,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
         });
 
-        for (var key in data) {
+        for (let key in data) {
 
             let item = data[key];
             if (next < item.id) {
@@ -43,7 +43,6 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
             }
             --total;
             output.records.push({'id': item.id, 'time_updated': data.time_updated});
-
 
         }
 
