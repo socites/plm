@@ -6,7 +6,7 @@
       "paper-button"
     ],
     "code": {
-      "application/model/code": "model"
+      "application/model/learning/code": "model"
     }
   },
   "methods": [
