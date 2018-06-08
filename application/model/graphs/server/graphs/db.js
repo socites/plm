@@ -4,7 +4,13 @@
 module.exports = new (function () {
 
     let data = [
-        {'id': '1', 'time_updated': 10, 'entity_id': '7', 'container_id': 'user', 'description': 'Mi primer post'},
+        {
+            'id': '1',
+            'time_updated': 10,
+            'entity_id': '7',
+            'container_id': 'user',
+            'description': 'Mi primer post'
+        },
         {
             'id': '2',
             'time_updated': 10,
@@ -12,7 +18,13 @@ module.exports = new (function () {
             'container_id': '1',
             'description': 'Comentario del primer post'
         },
-        {'id': '3', 'time_updated': 10, 'entity_id': '7', 'container_id': 'user', 'description': 'Mi segundo post'},
+        {
+            'id': '3',
+            'time_updated': 10,
+            'entity_id': '7',
+            'container_id': 'user',
+            'description': 'Mi segundo post'
+        },
         {
             'id': '4',
             'time_updated': 10,
