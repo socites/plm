@@ -27,8 +27,8 @@ define(['libraries/plm/main/code'], function (plm) {
             'key': 'students',
             'max': 30
         },
-        'push': function (collection, item) {
-            console.log(collection, item);
+        'unshift': function () {
+            return true;
         }
     });
 
