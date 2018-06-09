@@ -7,32 +7,33 @@ module.exports = new (function () {
     let data = [
         {
             'id': '1',
-            'time_updated': 10,
-            'entity_id': '7',
-            'container_id': 'user',
-            'description': 'Mi primer post'
+            'comment': 'Something to say',
+            'post_id': 100,
+            'entity_id': 7,
+            'container_id': 2
         },
         {
-            'id': '2',
-            'time_updated': 10,
-            'entity_id': '22',
-            'container_id': '1',
-            'description': 'Comentario del primer post'
+            'id': '1',
+            'comment': 'Something to say',
+            'post_id': 200,
+            'entity_id': 7,
+            'container_id': 2
         },
         {
-            'id': '3',
-            'time_updated': 10,
-            'entity_id': '7',
-            'container_id': 'user',
-            'description': 'Mi segundo post'
+            'id': '1',
+            'comment': 'Something to say',
+            'post_id': 100,
+            'entity_id': 7,
+            'container_id': 1
         },
         {
-            'id': '4',
-            'time_updated': 10,
-            'entity_id': '22',
-            'container_id': '3',
-            'description': 'Comentario del segundo post'
+            'id': '1',
+            'comment': 'Something to say',
+            'post_id': 200,
+            'entity_id': 7,
+            'container_id': 1
         }
+
     ];
 
 

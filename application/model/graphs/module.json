@@ -1,0 +1,10 @@
+{
+  "server": "./server",
+  "code": {
+    "js": [
+      "channel.js",
+      "graphs.js",
+      "define.js"
+    ]
+  }
+}
