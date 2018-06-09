@@ -1,12 +1,15 @@
 {
   "server": "./server",
   "code": {
-    "js": [
-      "channel.js",
-      "channel-entry.js",
-      "graphs.js",
-      "graph.js",
-      "define.js"
-    ]
+    "js": {
+      "path": "client",
+      "files": [
+        "channel.js",
+        "channel-entry.js",
+        "graphs.js",
+        "graph.js",
+        "define.js"
+      ]
+    }
   }
 }
