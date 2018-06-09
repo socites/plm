@@ -1,12 +1,12 @@
 {
   "type": "control",
-  "id": "students-list",
+  "id": "plm-graphs-channel",
   "dependencies": {
     "controls": [
       "paper-button"
     ],
     "code": {
-      "application/model/learning/code": "model"
+      "application/model/graphs/code": "model"
     }
   },
   "methods": [

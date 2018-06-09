@@ -13,7 +13,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
             return;
         }
 
-        let data = db.select(params.ids);
+        let data = db.select(params);
 
         let output = {};
         for (let item of data) {

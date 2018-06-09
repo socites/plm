@@ -1,0 +1,22 @@
+{
+  "page": {
+    "route": "/channel",
+    "dependencies": {
+      "controls": [
+        "paper-toolbar",
+        "paper-spinner",
+        "paper-icon-button",
+        "iron-iconset",
+        "iron-icons",
+        "paper-button",
+        "plm-graphs-channel"
+      ]
+    },
+    "js": [
+      "toolbar.js",
+      "page.js"
+    ],
+    "html": "page.html",
+    "less": "styles.less"
+  }
+}

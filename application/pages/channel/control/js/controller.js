@@ -3,13 +3,15 @@ function Controller(change, dependencies, properties, specs) {
 
     let model = dependencies.model;
 
-    let students = new model.Students();
+    var channel = model.Channel();
+    Object.defineProperty(this, 'channel', {
+        'get': function () {
+            return channel;
+        }
+    });
 
-
-    students.bind('change', change);
-
-    // Load from cache, and update the collection.
-    students.load({'update': true});
+    channel.bind('change', change);
+    channel.load({'update': true});
 
     Object.defineProperty(this, 'ready', {
         'get': function () {

@@ -3,7 +3,9 @@
   "code": {
     "js": [
       "channel.js",
+      "channel-entry.js",
       "graphs.js",
+      "graph.js",
       "define.js"
     ]
   }

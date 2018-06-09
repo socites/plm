@@ -30,7 +30,7 @@ module.exports = new (function () {
             'id': '4',
             'time_updated': 10,
             'entity_id': '22',
-            'container_id': '3',
+            'container_id': '1',
             'description': 'Comentario del segundo post'
         }
     ];

@@ -9,29 +9,29 @@ module.exports = new (function () {
             'id': '1',
             'comment': 'Something to say',
             'post_id': 100,
-            'entity_id': 7,
-            'container_id': 2
+            'entity_id': '7',
+            'container_id': 'user'
         },
         {
             'id': '1',
             'comment': 'Something to say',
             'post_id': 200,
-            'entity_id': 7,
-            'container_id': 2
+            'entity_id': '7',
+            'container_id': 'user'
         },
         {
             'id': '1',
             'comment': 'Something to say',
             'post_id': 100,
-            'entity_id': 7,
-            'container_id': 1
+            'entity_id': '22',
+            'container_id': '1'
         },
         {
             'id': '1',
             'comment': 'Something to say',
             'post_id': 200,
-            'entity_id': 7,
-            'container_id': 1
+            'entity_id': '22',
+            'container_id': '1'
         }
 
     ];
@@ -44,12 +44,14 @@ module.exports = new (function () {
         item.name = `Henry ${item.time_updated}`;
     }, 10000);
 
-    function getPosition(id) {
+    function getPosition(value, field) {
+
+        field = (!!field) ? 'id' : field;
 
         for (let key in data) {
 
             let item = data[key];
-            if (item.id === id) {
+            if (item[field] === value) {
                 return key;
             }
 
@@ -88,13 +90,22 @@ module.exports = new (function () {
 
     };
 
-    function filter(ids) {
+    function filter(ids, specs) {
 
         let output = [];
         for (let id of ids) {
 
             let position = getPosition(id);
             if (position) {
+
+                var entry = data[position];
+
+                if (!!specs.container_id && specs.container_id != entry.container_id ||
+                    !!specs.entity_id && specs.entity_id != entry.entity_id
+                ) {
+                    return;
+                }
+
                 output.push(data[position]);
             }
         }
@@ -103,17 +114,33 @@ module.exports = new (function () {
 
     }
 
-    this.select = function (ids) {
+    this.select = function (specs) {
 
-        if (!ids) {
-            return data;
-        }
+        let ids = specs.ids;
+        let output = [];
 
         if (ids instanceof Array) {
-            return filter(ids);
+            output = filter(ids, specs);
+        }
+        else if (!!specs.container_id || !!specs.entity_id) {
+
+            let output = [];
+            for (let item of data) {
+
+                if ((!!specs.container_id && specs.container_id != item.container_id) ||
+                    !!specs.entity_id && specs.entity_id != item.entity_id
+                ) {
+                    continue;
+                }
+                output.push(item);
+            }
+
+        }
+        else {
+            output = data;
         }
 
-    };
+        return output;
 
-
-});
+    }
+);

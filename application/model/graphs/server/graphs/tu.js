@@ -7,17 +7,13 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
     let db = require('./db.js');
 
-    function data() {
-
-        if (!params.ids) {
-            return;
-        }
-
-        let data = db.select(params);
+    function tu() {
 
         let output = {};
+        let data = db.select(params);
+
         for (let item of data) {
-            output[item.id] = item;
+            output[item.id] = item.time_updated;
         }
 
         return output;
@@ -25,7 +21,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
     }
 
     setTimeout(function () {
-        resolve(data());
-    }, 2000);
+        resolve(tu());
+    }, 1000);
 
 });
