@@ -4,8 +4,11 @@ function Controller(change, dependencies, properties, specs) {
     let model = dependencies.model;
 
     let students = new model.Students();
-
-
+    Object.defineProperty(this, 'students', {
+        'get': function () {
+            return students;
+        }
+    });
     students.bind('change', change);
 
     // Load from cache, and update the collection.

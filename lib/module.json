@@ -7,6 +7,7 @@
     "cache/cache.js",
     "collection/registry/auth.js",
     "collection/registry/factory.js",
+    "collection/registry/items.js",
     "collection/registry/collection.js",
     "collection/registry/registry.js",
     "load-specs.js",
@@ -36,6 +37,7 @@
     "item/item/item.js",
     "auth.js",
     "data-source.js",
+    "registries.js",
     "define.js"
   ]
 }
