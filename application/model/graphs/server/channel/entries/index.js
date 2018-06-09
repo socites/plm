@@ -13,9 +13,17 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
         specs.next = params.next;
     }
 
+    if(params.entityId) {
+        specs.entity_id = params.entityId;
+    }
+
+    if(params.containerId) {
+        specs.container_id = params.containerId;
+    }
+
     function list() {
 
-        let data = db.select();
+        let data = db.select(specs);
         let total = (!!specs.limit && specs.limit < data.length) ? specs.limit : data.length;
 
         let output = {'records': [], 'next': ''};
