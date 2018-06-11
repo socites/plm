@@ -5,6 +5,9 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
     function publish() {
 
+        if (params.accessToken !== '1234') {
+            throw new Error('User is not allowed to process this action.');
+        }
         if (params.id) {
             return db.update(params.id, params);
         }
