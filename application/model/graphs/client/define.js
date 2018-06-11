@@ -52,8 +52,7 @@ define(['libraries/plm/main/code'], function (plm) {
         'Channel': Channel,
         'ChannelEntry': ChannelEntry,
         'GraphsCollection': GraphsCollection,
-        'GraphItem': GraphItem,
-
+        'GraphItem': GraphItem
     };
 
 });
