@@ -4,10 +4,11 @@
     "js": {
       "path": "client",
       "files": [
-        "channel.js",
-        "channel-entry.js",
-        "graphs.js",
-        "graph.js",
+        "channel/entries.js",
+        "channel/entry.js",
+        "graphs/graphs.js",
+        "graphs/graph.js",
+        "auth.js",
         "define.js"
       ]
     }

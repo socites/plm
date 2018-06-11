@@ -3,7 +3,7 @@ function Controller(change, dependencies, properties, specs) {
 
     let model = dependencies.model;
 
-    var channel = model.Channel();
+    let channel = new model.ChannelEntries();
     Object.defineProperty(this, 'channel', {
         'get': function () {
             return channel;

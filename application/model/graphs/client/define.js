@@ -2,20 +2,24 @@ define(['libraries/plm/main/code'], function (plm) {
 
     module.plm = plm;
     let registries = plm.registries;
-    let auth = plm.auth;
 
-    registries.items.add(ChannelEntry, {
+    new AuthManager(plm.auth);
+
+    // Register ChannelEntry item
+    registries.items.register(ChannelEntry, {
         'module': module,
         'actions': {
             'data': 'channel/data',
             'tu': 'channel/tu',
             'publish': 'channel/publish'
         },
-        'auth': auth,
+        'auth': true,
         'fields': ['time_updated', 'name'],
         'cache': 'chanelEntry'
     });
-    registries.collections.add(Channel, ChannelEntry, {
+
+    // Register ChannelEntries collection
+    registries.collections.register(ChannelEntries, ChannelEntry, {
         'module': module,
         'actions': {
             'fetch': 'channel/list'
@@ -26,18 +30,21 @@ define(['libraries/plm/main/code'], function (plm) {
         }
     });
 
-    registries.items.add(GraphItem, {
+    // Register Graph item
+    registries.items.register(GraphItem, {
         'module': module,
         'actions': {
             'data': 'graphs/data',
             'tu': 'graphs/tu',
             'publish': 'graphs/publish'
         },
-        'auth': auth,
+        'auth': true,
         'fields': ['time_updated', 'name'],
         'cache': 'graph'
     });
-    registries.collections.add(GraphsCollection, GraphItem, {
+
+    // Register Graphs collection
+    registries.collections.register(GraphsCollection, GraphItem, {
         'module': module,
         'actions': {
             'fetch': 'graphs/list'
@@ -49,7 +56,7 @@ define(['libraries/plm/main/code'], function (plm) {
     });
 
     return {
-        'Channel': Channel,
+        'ChannelEntries': ChannelEntries,
         'ChannelEntry': ChannelEntry,
         'GraphsCollection': GraphsCollection,
         'GraphItem': GraphItem
