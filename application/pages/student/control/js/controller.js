@@ -41,15 +41,15 @@ function Controller(change, dependencies, properties, specs) {
             return;
         }
 
-        if (properties.studentId == "new") {
+        if (properties.studentId === "new") {
             newStudent = true;
             properties.studentId = undefined;
         }
 
-        student = new model.Student(properties.studentId);
-        student.accessToken = '123456';
+        student = new model.Student(properties.studentId, 'session.key.default');
         student.bind('change', change);
-        if (!!properties.studentId) {
+
+        if (!newStudent) {
             student.load({'update': true});
         }
 

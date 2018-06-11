@@ -4,9 +4,8 @@
     "js": [
       "student.js",
       "students.js",
+      "auth.js",
       "define.js"
     ]
   }
-
-
 }

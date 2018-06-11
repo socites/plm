@@ -2,7 +2,8 @@ define(['libraries/plm/main/code'], function (plm) {
 
     module.plm = plm;
     let registries = plm.registries;
-    let auth = plm.auth;
+
+    new AuthManager(plm.auth);
 
     // Register Student item.
     registries.items.register(Student, {
@@ -12,7 +13,7 @@ define(['libraries/plm/main/code'], function (plm) {
             'tu': 'students/tu',
             'publish': 'students/publish'
         },
-        'auth': auth,
+        'auth': true,
         'fields': ['time_updated', 'name'],
         'cache': 'student'
     });
