@@ -20,7 +20,6 @@
     "collection/collection/events.js",
     "collection/collection/base.js",
     "collection/collection/collection.js",
-    "item/registry/auth.js",
     "item/registry/factory.js",
     "item/registry/item.js",
     "item/registry/registry.js",
@@ -36,7 +35,9 @@
     "item/item/data/data.js",
     "item/item/base.js",
     "item/item/item.js",
-    "auth.js",
+    "auth/session.js",
+    "auth/sessions.js",
+    "auth/auth.js",
     "data-source.js",
     "registries.js",
     "define.js"
