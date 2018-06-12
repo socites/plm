@@ -1,19 +1,8 @@
-function GraphItem(id) {
+function Graph(id, session) {
+    'use strict';
 
     let Item = module.plm.Item;
-    let item = new Item(this, id);
-    let auth = module.plm.auth;
-
-    let accessToken;
-    Object.defineProperty(this, 'accessToken', {
-        'get': function () {
-            return accessToken;
-        },
-        'set': function (at) {
-            accessToken = at;
-            auth.accessToken = accessToken;
-        }
-    });
+    let item = new Item(this, id, session);
 
     Object.defineProperty(this, 'timeUpdated', {
         'get': function () {
@@ -30,9 +19,9 @@ function GraphItem(id) {
         }
     });
 
-    this.load = function (params) {
+    this.load = function (specs) {
 
-        item.load(params).then(function (specs) {
+        item.load(specs).then(function (specs) {
 
             // TODO: continue loading student
 

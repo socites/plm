@@ -8,30 +8,22 @@ module.exports = new (function () {
         {
             'id': '1',
             'comment': 'Something to say',
-            'post_id': 100,
-            'entity_id': '7',
-            'container_id': 'user'
+            'graph_id': '1',
         },
         {
             'id': '2',
             'comment': 'Something to say',
-            'post_id': 200,
-            'entity_id': '7',
-            'container_id': 'user'
+            'graph_id': '2',
         },
         {
             'id': '3',
             'comment': 'Something to say',
-            'post_id': 100,
-            'entity_id': '22',
-            'container_id': '1'
+            'graph_id': '3',
         },
         {
             'id': '4',
             'comment': 'Something to say',
-            'post_id': 200,
-            'entity_id': '22',
-            'container_id': '1'
+            'graph_id': '4',
         }
     ];
 

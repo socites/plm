@@ -1,4 +1,5 @@
 define(['libraries/plm/main/code'], function (plm) {
+    'use strict';
 
     module.plm = plm;
     let registries = plm.registries;

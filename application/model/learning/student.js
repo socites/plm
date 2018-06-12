@@ -18,9 +18,9 @@ function Student(id, session) {
         }
     });
 
-    this.load = function (params) {
+    this.load = function (specs) {
 
-        item.load(params).then(function (specs) {
+        item.load(specs).then(function (specs) {
 
             // TODO: continue loading student
 

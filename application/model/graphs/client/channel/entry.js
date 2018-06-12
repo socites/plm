@@ -1,19 +1,8 @@
-function ChannelEntry(id) {
+function ChannelEntry(id, session) {
+    'use strict';
 
     let Item = module.plm.Item;
-    let item = new Item(this, id);
-    let auth = module.plm.auth;
-
-    let accessToken;
-    Object.defineProperty(this, 'accessToken', {
-        'get': function () {
-            return accessToken;
-        },
-        'set': function (at) {
-            accessToken = at;
-            auth.accessToken = accessToken;
-        }
-    });
+    let item = new Item(this, id, session);
 
     Object.defineProperty(this, 'timeUpdated', {
         'get': function () {
@@ -21,18 +10,25 @@ function ChannelEntry(id) {
         }
     });
 
-    Object.defineProperty(this, 'name', {
+    Object.defineProperty(this, 'comment', {
         'get': function () {
-            return item.name;
+            return item.comment;
         },
         'set': function (value) {
-            item.name = value;
+            item.comment = value;
         }
     });
 
-    this.load = function (params) {
+    let graph;
+    Object.defineProperty(this, 'graph', {
+        'get': function () {
+            return graph;
+        }
+    });
 
-        item.load(params).then(function (specs) {
+    this.load = function (specs) {
+
+        item.load(specs).then(function (specs) {
 
             // TODO: continue loading student
 
