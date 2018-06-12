@@ -9,9 +9,9 @@ define(['libraries/plm/main/code'], function (plm) {
     registries.items.register(ChannelEntry, {
         'module': module,
         'actions': {
-            'data': 'channel/data',
-            'tu': 'channel/tu',
-            'publish': 'channel/publish'
+            'data': 'channel/entries/data',
+            'tu': 'channel/entries/tu',
+            'publish': 'channel/entries/publish'
         },
         'auth': true,
         'fields': ['time_updated', 'name'],
@@ -22,7 +22,7 @@ define(['libraries/plm/main/code'], function (plm) {
     registries.collections.register(ChannelEntries, ChannelEntry, {
         'module': module,
         'actions': {
-            'fetch': 'channel/list'
+            'fetch': 'channel/entries/list'
         },
         'cache': {
             'key': 'channel',

@@ -13,29 +13,27 @@ module.exports = new (function () {
             'container_id': 'user'
         },
         {
-            'id': '1',
+            'id': '2',
             'comment': 'Something to say',
             'post_id': 200,
             'entity_id': '7',
             'container_id': 'user'
         },
         {
-            'id': '1',
+            'id': '3',
             'comment': 'Something to say',
             'post_id': 100,
             'entity_id': '22',
             'container_id': '1'
         },
         {
-            'id': '1',
+            'id': '4',
             'comment': 'Something to say',
             'post_id': 200,
             'entity_id': '22',
             'container_id': '1'
         }
-
     ];
-
 
     let tu = 10;
     setInterval(function () {
@@ -46,7 +44,7 @@ module.exports = new (function () {
 
     function getPosition(value, field) {
 
-        field = (!!field) ? 'id' : field;
+        field = (field) ? field : 'id';
 
         for (let key in data) {
 
@@ -98,16 +96,17 @@ module.exports = new (function () {
             let position = getPosition(id);
             if (position) {
 
-                var entry = data[position];
+                let entry = data[position];
 
                 if (!!specs.container_id && specs.container_id != entry.container_id ||
-                    !!specs.entity_id && specs.entity_id != entry.entity_id
-                ) {
+                    !!specs.entity_id && specs.entity_id != entry.entity_id) {
                     return;
                 }
 
                 output.push(data[position]);
+
             }
+
         }
 
         return output;
@@ -128,19 +127,20 @@ module.exports = new (function () {
             for (let item of data) {
 
                 if ((!!specs.container_id && specs.container_id != item.container_id) ||
-                    !!specs.entity_id && specs.entity_id != item.entity_id
-                ) {
+                    !!specs.entity_id && specs.entity_id != item.entity_id) {
                     continue;
                 }
+
                 output.push(item);
+
             }
 
-        }
-        else {
+        } else {
             output = data;
         }
 
         return output;
 
-    }
-);
+    };
+
+});
