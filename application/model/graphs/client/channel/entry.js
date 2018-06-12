@@ -19,10 +19,10 @@ function ChannelEntry(id, session) {
         }
     });
 
-    let graph;
+    item.maps.register('graph', 'graph_id', Graph);
     Object.defineProperty(this, 'graph', {
         'get': function () {
-            return graph;
+            return item.maps.get('graph');
         }
     });
 
