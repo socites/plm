@@ -4,27 +4,9 @@ function ChannelEntry(id, session) {
     let Item = module.plm.Item;
     let item = new Item(this, id, session);
 
-    Object.defineProperty(this, 'timeUpdated', {
-        'get': function () {
-            return item.time_updated;
-        }
-    });
-
-    Object.defineProperty(this, 'comment', {
-        'get': function () {
-            return item.comment;
-        },
-        'set': function (value) {
-            item.comment = value;
-        }
-    });
-
-    item.maps.register('graph', 'graph_id', Graph);
-    Object.defineProperty(this, 'graph', {
-        'get': function () {
-            return item.maps.get('graph');
-        }
-    });
+    item.maps.register({'property': 'timeUpdated', 'source': 'time_updated', 'readOnly': true});
+    item.maps.register({'property': 'comment', 'source': 'comment'});
+    item.maps.register({'property': 'graph', 'source': 'graph_id', 'Item': Graph});
 
     this.load = function (specs) {
 
