@@ -7,32 +7,29 @@ module.exports = new (function () {
     let data = [
         {
             'id': '1',
+            'time_updated': 10,
             'comment': 'Something to say',
-            'graph_id': '1',
+            'graph_id': '1'
         },
         {
             'id': '2',
+            'time_updated': 10,
             'comment': 'Something to say',
-            'graph_id': '2',
+            'graph_id': '2'
         },
         {
             'id': '3',
+            'time_updated': 10,
             'comment': 'Something to say',
-            'graph_id': '3',
+            'graph_id': '3'
         },
         {
             'id': '4',
+            'time_updated': 10,
             'comment': 'Something to say',
-            'graph_id': '4',
+            'graph_id': '4'
         }
     ];
-
-    let tu = 10;
-    setInterval(function () {
-        let item = data[getPosition('1')];
-        item.time_updated++;
-        item.name = `Henry ${item.time_updated}`;
-    }, 10000);
 
     function getPosition(value, field) {
 

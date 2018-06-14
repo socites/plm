@@ -5,16 +5,16 @@ function Student(id, session) {
 
     Object.defineProperty(this, 'timeUpdated', {
         'get': function () {
-            return item.time_updated;
+            return item.data.time_updated;
         }
     });
 
     Object.defineProperty(this, 'name', {
         'get': function () {
-            return item.name;
+            return item.data.name;
         },
         'set': function (value) {
-            item.name = value;
+            item.data.name = value;
         }
     });
 

@@ -12,7 +12,7 @@ function ChannelEntry(id, session) {
 
         item.load(specs).then(function (specs) {
 
-            // TODO: continue loading student
+            // TODO: continue loading channel entry
 
         });
 

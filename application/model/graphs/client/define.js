@@ -15,7 +15,7 @@ define(['libraries/plm/main/code'], function (plm) {
             'publish': 'channel/entries/publish'
         },
         'auth': true,
-        'fields': ['time_updated', 'name'],
+        'fields': ['comment', 'graph_id'],
         'cache': 'chanelEntry'
     });
 
@@ -32,7 +32,7 @@ define(['libraries/plm/main/code'], function (plm) {
     });
 
     // Register Graph item
-    registries.items.register(GraphItem, {
+    registries.items.register(Graph, {
         'module': module,
         'actions': {
             'data': 'graphs/data',
@@ -45,7 +45,7 @@ define(['libraries/plm/main/code'], function (plm) {
     });
 
     // Register Graphs collection
-    registries.collections.register(GraphsCollection, GraphItem, {
+    registries.collections.register(Graphs, Graph, {
         'module': module,
         'actions': {
             'fetch': 'graphs/list'
@@ -59,8 +59,8 @@ define(['libraries/plm/main/code'], function (plm) {
     return {
         'ChannelEntries': ChannelEntries,
         'ChannelEntry': ChannelEntry,
-        'GraphsCollection': GraphsCollection,
-        'GraphItem': GraphItem
+        'GraphsCollection': Graphs,
+        'GraphItem': Graph
     };
 
 });
