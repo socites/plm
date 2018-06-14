@@ -6,9 +6,7 @@ exports = module.react.createControl({
             return null;
         }
 
+        return (<h2 className="page-header">Channel</h2>);
 
-        return (
-        <h2 className="page-header">Channel</h2>
-        );
     }
 });

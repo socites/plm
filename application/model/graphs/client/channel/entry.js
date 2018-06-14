@@ -12,7 +12,9 @@ function ChannelEntry(id, session) {
 
         item.load(specs).then(function (specs) {
 
-            // TODO: continue loading channel entry
+            if (specs.graph) {
+                item.graph.load(specs.graph);
+            }
 
         });
 

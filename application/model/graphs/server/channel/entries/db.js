@@ -6,25 +6,25 @@ module.exports = new (function () {
 
     let data = [
         {
-            'id': '1',
+            'id': 'e1',
             'time_updated': 10,
             'comment': 'Something to say',
             'graph_id': '1'
         },
         {
-            'id': '2',
+            'id': 'e2',
             'time_updated': 10,
             'comment': 'Something to say',
             'graph_id': '2'
         },
         {
-            'id': '3',
+            'id': 'e3',
             'time_updated': 10,
             'comment': 'Something to say',
             'graph_id': '3'
         },
         {
-            'id': '4',
+            'id': 'e4',
             'time_updated': 10,
             'comment': 'Something to say',
             'graph_id': '4'

@@ -14,6 +14,9 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
         }
 
         let data = db.select(params);
+        if (!data) {
+            return {};
+        }
 
         let output = {};
         for (let item of data) {
