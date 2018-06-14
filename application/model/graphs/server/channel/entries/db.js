@@ -15,19 +15,7 @@ module.exports = new (function () {
             'id': 'e2',
             'time_updated': 10,
             'comment': 'Something to say',
-            'graph_id': '2'
-        },
-        {
-            'id': 'e3',
-            'time_updated': 10,
-            'comment': 'Something to say',
             'graph_id': '3'
-        },
-        {
-            'id': 'e4',
-            'time_updated': 10,
-            'comment': 'Something to say',
-            'graph_id': '4'
         }
     ];
 
