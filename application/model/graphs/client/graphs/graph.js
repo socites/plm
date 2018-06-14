@@ -6,16 +6,16 @@ function Graph(id, session) {
 
     Object.defineProperty(this, 'timeUpdated', {
         'get': function () {
-            return item.time_updated;
+            return item.data.time_updated;
         }
     });
 
-    Object.defineProperty(this, 'name', {
+    Object.defineProperty(this, 'description', {
         'get': function () {
-            return item.name;
+            return item.data.description;
         },
         'set': function (value) {
-            item.name = value;
+            item.data.description = value;
         }
     });
 

@@ -35,14 +35,6 @@ module.exports = new (function () {
         }
     ];
 
-
-    let tu = 10;
-    setInterval(function () {
-        let item = data[getPosition('1')];
-        item.time_updated++;
-        item.name = `Henry ${item.time_updated}`;
-    }, 10000);
-
     function getPosition(id) {
 
         for (let key in data) {
@@ -102,14 +94,14 @@ module.exports = new (function () {
 
     }
 
-    this.select = function (ids) {
+    this.select = function (params) {
 
-        if (!ids) {
+        if (!params.ids) {
             return data;
         }
 
-        if (ids instanceof Array) {
-            return filter(ids);
+        if (params.ids instanceof Array) {
+            return filter(params.ids);
         }
 
     };

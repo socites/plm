@@ -40,7 +40,7 @@ define(['libraries/plm/main/code'], function (plm) {
             'publish': 'graphs/publish'
         },
         'auth': true,
-        'fields': ['time_updated', 'name'],
+        'fields': ['time_updated', 'description'],
         'cache': 'graph'
     });
 
