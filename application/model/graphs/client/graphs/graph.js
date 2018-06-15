@@ -4,18 +4,13 @@ function Graph(id, session) {
     let Item = module.plm.Item;
     let item = new Item(this, id, session);
 
-    Object.defineProperty(this, 'timeUpdated', {
-        'get': function () {
-            return item.data.time_updated;
-        }
-    });
+    item.maps.register({'property': 'timeUpdated', 'source': 'time_updated', 'readOnly': true});
+    item.maps.register({'property': 'description', 'source': 'description'});
 
-    Object.defineProperty(this, 'description', {
+    let comments = new Graphs();
+    Object.defineProperty(this, 'comments', {
         'get': function () {
-            return item.data.description;
-        },
-        'set': function (value) {
-            item.data.description = value;
+            return comments;
         }
     });
 

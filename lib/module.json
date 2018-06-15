@@ -11,6 +11,7 @@
     "collection/registry/collection.js",
     "collection/registry/registry.js",
     "load-specs.js",
+    "collection/collection/errors.js",
     "collection/collection/load/fetch.js",
     "collection/collection/load/load.js",
     "collection/collection/attributes.js",
