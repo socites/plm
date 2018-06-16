@@ -4,38 +4,43 @@
  */
 module.exports = new (function () {
 
+    let tu = 1;
+    setInterval(function () {
+        tu += 1000;
+    }, 1000);
+
     let data = [
         {
             'id': '1',
-            'time_updated': 10,
+            'time_updated': tu,
             'entity_id': '7',
             'container_id': 'user',
             'description': 'Mi primer post'
         },
         {
             'id': '2',
-            'time_updated': 10,
+            'time_updated': tu,
             'entity_id': '22',
             'container_id': '1',
             'description': 'Comentario del primer post'
         },
         {
             'id': '3',
-            'time_updated': 10,
+            'time_updated': tu,
             'entity_id': '7',
             'container_id': 'user',
             'description': 'Mi segundo post'
         },
         {
             'id': '4',
-            'time_updated': 10,
+            'time_updated': tu,
             'entity_id': '22',
-            'container_id': '1',
+            'container_id': '3',
             'description': 'Comentario del segundo post'
         }
     ];
 
-    function getPosition(id) {
+    function getIndex(id) {
 
         for (let key in data) {
 
@@ -50,16 +55,16 @@ module.exports = new (function () {
 
     this.update = function (id, params) {
 
-        let position = getPosition(id);
-        if (!position) {
+        let index = getIndex(id);
+        if (!index) {
             return;
         }
 
-        let item = Object.assign(data[position], {
+        let item = Object.assign(data[index], {
             'time_updated': tu,
             'name': params.name
         });
-        data[position] = item;
+        data[index] = item;
 
         return item;
 
@@ -79,14 +84,14 @@ module.exports = new (function () {
 
     };
 
-    function filter(ids) {
+    function filterByIds(ids) {
 
         let output = [];
         for (let id of ids) {
 
-            let position = getPosition(id);
-            if (position) {
-                output.push(data[position]);
+            let index = getIndex(id);
+            if (index) {
+                output.push(data[index]);
             }
         }
 
@@ -96,13 +101,21 @@ module.exports = new (function () {
 
     this.select = function (params) {
 
-        if (!params.ids) {
-            return data;
+        if (params.ids instanceof Array) {
+            return filterByIds(params.ids);
         }
 
-        if (params.ids instanceof Array) {
-            return filter(params.ids);
+        let output = [];
+        for (let record of data) {
+
+            if (params.container && params.container !== record.container_id) continue;
+            if (params.entity && params.entity !== record.entity_id) continue;
+
+            output.push(record);
+
         }
+
+        return output;
 
     };
 
