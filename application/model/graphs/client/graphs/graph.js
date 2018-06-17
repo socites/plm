@@ -7,7 +7,7 @@ function Graph(id, session) {
     item.maps.register({'property': 'timeUpdated', 'source': 'time_updated', 'readOnly': true});
     item.maps.register({'property': 'description', 'source': 'description'});
 
-    let comments = new Graphs({'container': this, 'entity': '22'}, session);
+    let comments = new Graphs({'container': this, 'entity': '22'}, session, {'batch': 'container'});
     Object.defineProperty(this, 'comments', {
         'get': function () {
             return comments;
