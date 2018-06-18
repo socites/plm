@@ -26,4 +26,4 @@ example :
 * id
 * name
 ### Returns
-{id, time_updated, field_1[, field_2, ...]}
+{id: {id, time_updated, field_1[, field_2, ...]}}
