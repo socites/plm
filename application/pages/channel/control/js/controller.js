@@ -11,7 +11,7 @@ function Controller(change, dependencies, properties, specs) {
     });
 
     channel.bind('change', change);
-    channel.load({'update': true, 'items': {'graph': {'comments': true}}});
+    channel.load({'update': true, 'items': {'graph': {'comments': {'update': true}}}});
 
     Object.defineProperty(this, 'ready', {
         'get': function () {

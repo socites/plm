@@ -8,13 +8,13 @@ module.exports = new (function () {
         {
             'id': 'e1',
             'time_updated': 10,
-            'comment': 'Something to say',
+            'comment': 'Post id: 1 comment',
             'graph_id': '1'
         },
         {
             'id': 'e2',
             'time_updated': 10,
-            'comment': 'Something to say',
+            'comment': 'Post id: 3 comment',
             'graph_id': '3'
         }
     ];
