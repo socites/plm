@@ -99,10 +99,33 @@ module.exports = new (function () {
 
     }
 
+    function filterByContainers(params) {
+
+        let output = [];
+
+        for (let id of params.container) {
+
+            for (let graph of data) {
+
+                if (graph.container_id !== id) continue;
+                if (params.entity && params.entity !== graph.entity_id) continue;
+                output.push(graph);
+
+            }
+
+        }
+
+        return output;
+
+    }
+
     this.select = function (params) {
 
         if (params.ids instanceof Array) {
             return filterByIds(params.ids);
+        }
+        if (params.container instanceof Array) {
+            return filterByContainers(params);
         }
 
         let output = [];

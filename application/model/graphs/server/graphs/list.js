@@ -4,7 +4,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
     let db = require('./db.js');
 
     function list() {
-console.log('graphs list', params);
+
         let data = db.select(params);
         data.sort(function (a, b) {
             return (a.id > b.id) ? -1 : 1;
