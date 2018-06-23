@@ -4,10 +4,13 @@ function Graph(id, session) {
     let Item = module.plm.Item;
     let item = new Item(this, id, session);
 
-    /*
-    item.maps.register({'property': 'timeUpdated', 'source': 'time_updated', 'readOnly': true});
-    item.maps.register({'property': 'description', 'source': 'description'});
-    */
+    item.initialise({
+        'fields': ['time_updated', 'description'],
+        'maps': {
+            'timeUpdated': {'source': 'time_updated', 'readOnly': true},
+            'description': {'source': 'description'}
+        }
+    });
 
     let children = new GraphChildren();
     let relations = new GraphRelations();

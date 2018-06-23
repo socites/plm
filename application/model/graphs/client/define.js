@@ -15,7 +15,6 @@ define(['libraries/plm/main/code'], function (plm) {
             'publish': 'channel/entries/publish'
         },
         'auth': true,
-        'fields': ['comment', 'graph_id'],
         'cache': 'chanelEntry'
     });
 
@@ -40,7 +39,6 @@ define(['libraries/plm/main/code'], function (plm) {
             'publish': 'graphs/publish'
         },
         'auth': true,
-        'fields': ['time_updated', 'description'],
         'cache': 'graph'
     });
 

@@ -14,7 +14,6 @@ define(['libraries/plm/main/code'], function (plm) {
             'publish': 'students/publish'
         },
         'auth': true,
-        'fields': ['time_updated', 'name'],
         'cache': 'student'
     });
 
