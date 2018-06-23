@@ -13,6 +13,7 @@ function Graph(id, session) {
             return comments;
         }
     });
+    comments.bind('change', item.triggerChange);
 
     this.load = function (specs) {
 
