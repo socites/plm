@@ -4,9 +4,16 @@
     "js": {
       "path": "client",
       "files": [
+        "metamodel/entities/entity.js",
+        "metamodel/entities/entities.js",
+        "metamodel/relations/relation.js",
+        "metamodel/relations/relations.js",
+        "metamodel/metamodel.js",
         "channel/entries.js",
         "channel/entry.js",
         "graphs/graphs.js",
+        "graphs/children.js",
+        "graphs/relations.js",
         "graphs/graph.js",
         "auth.js",
         "define.js"
