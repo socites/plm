@@ -4,6 +4,6 @@ function updateState(controller, state, properties) {
     let channel = controller.channel;
 
     console.log("channel", channel.items);
-    state.items = channel.items;
+    state.items = channel.items.data;
 
 }
