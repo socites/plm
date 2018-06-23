@@ -16,6 +16,7 @@
         "graphs/relations.js",
         "graphs/graph.js",
         "auth.js",
+        "register.js",
         "define.js"
       ]
     }
