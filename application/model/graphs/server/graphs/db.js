@@ -101,17 +101,22 @@ module.exports = new (function () {
 
     function filterByContainers(params) {
 
-        let output = [];
+        let output = {};
 
         for (let id of params.container) {
+
+            let records = [];
+            output[id] = {'records': records};
 
             for (let graph of data) {
 
                 if (graph.container_id !== id) continue;
                 if (params.entity && params.entity !== graph.entity_id) continue;
-                output.push(graph);
+                records.push({id: graph.id, 'time_updated': graph.time_updated});
 
             }
+
+            if (!records.length) delete output[id];
 
         }
 

@@ -6,11 +6,21 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
     function list() {
 
         let data = db.select(params);
-        data.sort(function (a, b) {
-            return (a.id > b.id) ? -1 : 1;
-        });
 
-        return {'records': data, 'next': ''};
+        if (params.ids) {
+
+            data.sort(function (a, b) {
+                return (a.id > b.id) ? -1 : 1;
+            });
+
+            return {'records': data, 'next': ''};
+
+        }
+        else {
+
+            return data;
+
+        }
 
     }
 
