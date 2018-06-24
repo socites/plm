@@ -75,16 +75,11 @@ function Metamodel() {
             return promise;
         }
 
-        return new Promise(function (resolve, reject) {
+        if (loaded) {
+            return new Promise(resolve => resolve());
+        }
 
-            if (loaded) {
-                resolve();
-                return;
-            }
-
-            return load();
-
-        });
+        return load();
 
     };
 

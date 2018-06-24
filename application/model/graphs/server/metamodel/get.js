@@ -33,11 +33,25 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
                     }
                 },
                 {
-                    'id': '23',
-                    'storage': 'contents',
-                    'name': 'post',
+                    'id': '22',
+                    'storage': 'socites',
+                    'name': 'comments',
                     'versions': {
                         52: {
+                            'fields': [
+                                'title',
+                                'description',
+                                'tags'
+                            ]
+                        }
+                    }
+                },
+                {
+                    'id': '23',
+                    'storage': 'socites',
+                    'name': 'post',
+                    'versions': {
+                        53: {
                             'fields': [
                                 'title',
                                 'description',

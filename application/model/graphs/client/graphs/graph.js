@@ -6,12 +6,12 @@ function Graph(id, session) {
 
     function initialise() {
 
+        let maps = {};
+        entity.fields.map(field => maps[field] = field);
+
         item.initialise({
-            'fields': ['time_updated', 'description'],
-            'maps': {
-                'timeUpdated': {'source': 'time_updated', 'readOnly': true},
-                'description': {'source': 'description'}
-            }
+            'fields': entity.fields,
+            'maps': maps
         });
 
     }
@@ -19,26 +19,23 @@ function Graph(id, session) {
     let entity = new GraphEntity(this);
     Object.defineProperty(this, 'entity', {
         'get': function () {
-            return entity.id;
+            return entity.key;
         },
         'set': function (value) {
-            if (/^[0-9]*$/.test(value)) {
-                entity.id = value;
-            } else {
-                entity.key = value;
-            }
+            entity.set(value);
         }
     });
 
     entity.onSet = initialise;
+
     item.onLoaded = function (data) {
 
         if (!data.entity) {
-            console.error('data.entity_id not set', data);
+            console.error('data.entity not set', data);
             return;
         }
 
-        entity.id = data.entity;
+        entity.key = data.entity;
 
         // Once the entity is set, it is not required to continue executing this function
         item.onLoaded = undefined;

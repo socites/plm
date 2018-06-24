@@ -13,28 +13,28 @@ module.exports = new (function () {
         {
             'id': '1',
             'time_updated': tu,
-            'entity_id': '7',
+            'entity': '23.53',
             'container_id': 'user',
             'description': 'Mi primer post'
         },
         {
             'id': '2',
             'time_updated': tu,
-            'entity_id': '22',
+            'entity': '22.52',
             'container_id': '1',
             'description': 'Comentario del primer post'
         },
         {
             'id': '3',
             'time_updated': tu,
-            'entity_id': '7',
+            'entity': '23.53',
             'container_id': 'user',
             'description': 'Mi segundo post'
         },
         {
             'id': '4',
             'time_updated': tu,
-            'entity_id': '22',
+            'entity': '22.52',
             'container_id': '3',
             'description': 'Comentario del segundo post'
         }
