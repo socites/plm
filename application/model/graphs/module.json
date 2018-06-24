@@ -14,6 +14,7 @@
         "graphs/graphs.js",
         "graphs/children.js",
         "graphs/relations.js",
+        "graphs/entity.js",
         "graphs/graph.js",
         "auth.js",
         "register.js",

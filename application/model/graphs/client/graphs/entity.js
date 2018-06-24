@@ -1,16 +1,24 @@
-function GraphEntity(graph) {
+function GraphEntity() {
 
-    // Graph entity key
-    let key;
+    let entity;
 
     let metamodel = module.metamodel;
 
-    Object.defineProperty(graph, 'entity', {
+    Object.defineProperty(this, 'id', {
         'get': function () {
-            return key;
+            return (entity) ? entity.id : undefined;
         },
         'set': function (value) {
+            console.log(`setting entity id "${value}"`)
+        }
+    });
 
+    Object.defineProperty(this, 'key', {
+        'get': function () {
+            return (entity) ? entity.key : undefined;
+        },
+        'set': function (value) {
+            console.log(`setting entity key "${value}"`)
         }
     });
 

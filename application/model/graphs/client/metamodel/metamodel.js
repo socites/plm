@@ -32,6 +32,13 @@ function Metamodel() {
     }
 
     let stored = localStorage.getItem('metamodel');
+
+    // Remove metamodel data from local cache if it is not valid
+    if (stored && !stored.entities) {
+        localStorage.removeItem('metamodel');
+        stored = undefined;
+    }
+
     if (stored) {
         set(stored);
     }

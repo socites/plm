@@ -17,9 +17,33 @@ function Graph(id, session) {
     }
 
     let entity = new GraphEntity(this);
+    Object.defineProperty(this, 'entity', {
+        'get': function () {
+            return entity.id;
+        },
+        'set': function (value) {
+            if (/^[0-9]*$/.test(value)) {
+                entity.id = value;
+            } else {
+                entity.key = value;
+            }
+        }
+    });
 
     entity.onSet = initialise;
-    item.onFetched = initialise;
+    item.onLoaded = function (data) {
+
+        if (!data.entity) {
+            console.error('data.entity_id not set', data);
+            return;
+        }
+
+        entity.id = data.entity;
+
+        // Once the entity is set, it is not required to continue executing this function
+        item.onLoaded = undefined;
+
+    };
 
     let children = new GraphChildren();
     let relations = new GraphRelations();

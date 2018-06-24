@@ -75,8 +75,8 @@ module.exports = new (function () {
 
                 let entry = data[position];
 
-                if (!!specs.container_id && specs.container_id != entry.container_id ||
-                    !!specs.entity_id && specs.entity_id != entry.entity_id) {
+                if (!!specs.container_id && specs.container_id !== entry.container_id ||
+                    !!specs.entity_id && specs.entity_id !== entry.entity_id) {
                     return;
                 }
 
@@ -103,8 +103,8 @@ module.exports = new (function () {
             let output = [];
             for (let item of data) {
 
-                if ((!!specs.container_id && specs.container_id != item.container_id) ||
-                    !!specs.entity_id && specs.entity_id != item.entity_id) {
+                if ((!!specs.container_id && specs.container_id !== item.container_id) ||
+                    !!specs.entity_id && specs.entity_id !== item.entity_id) {
                     continue;
                 }
 
