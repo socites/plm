@@ -10,6 +10,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
                     'versions': {
                         60: {
                             'fields': [
+                                'entity',
                                 'name',
                                 'category',
                                 'description'
@@ -23,6 +24,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
                     'versions': {
                         30: {
                             'fields': [
+                                'entity',
                                 'name',
                                 'lastname',
                                 'about',
@@ -39,6 +41,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
                     'versions': {
                         52: {
                             'fields': [
+                                'entity',
                                 'title',
                                 'description',
                                 'tags'
@@ -53,6 +56,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
                     'versions': {
                         53: {
                             'fields': [
+                                'entity',
                                 'title',
                                 'description',
                                 'tags'
