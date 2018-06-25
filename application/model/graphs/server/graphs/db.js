@@ -111,12 +111,13 @@ module.exports = new (function () {
             for (let graph of data) {
 
                 if (graph.container_id !== id) continue;
-                if (params.entity && params.entity !== graph.entity_id) continue;
+
+                let entity = graph.entity.split('.');
+
+                if (params.entity && params.entity !== entity[0]) continue;
                 records.push({id: graph.id, 'time_updated': graph.time_updated});
 
             }
-
-            if (!records.length) delete output[id];
 
         }
 
