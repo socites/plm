@@ -1,4 +1,4 @@
-function GraphChildren(item) {
+function GraphChildren(graph, item, entity, session) {
 
     let children = {};
 
@@ -13,6 +13,22 @@ function GraphChildren(item) {
     */
 
     this.initialise = function () {
+
+        entity.children.forEach(function (child) {
+
+            // Create child collection
+            let specs = {'container': graph, 'entity': child.id};
+            children[child.name] = new Graphs(specs, session, {'batch': 'container'});
+
+            children[child.name].bind('change', item.triggerChange);
+
+            Object.defineProperty(graph, child.name, {
+                'get': function () {
+                    return children[child.name];
+                }
+            });
+
+        });
 
     };
 

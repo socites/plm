@@ -20,6 +20,7 @@ function Graph(id, session) {
 
         // Initialise children
         children.initialise();
+        relations.initialise();
 
     }
 
@@ -32,6 +33,9 @@ function Graph(id, session) {
             entity.set(value);
         }
     });
+
+    let children = new GraphChildren(this, item, entity, session);
+    let relations = new GraphRelations(this, item, entity, session);
 
     entity.onSet = initialise;
 
@@ -48,9 +52,6 @@ function Graph(id, session) {
         item.onLoaded = undefined;
 
     };
-
-    let children = new GraphChildren();
-    let relations = new GraphRelations();
 
     this.load = function (specs) {
 

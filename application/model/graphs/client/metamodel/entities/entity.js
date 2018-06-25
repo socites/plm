@@ -45,7 +45,7 @@ function Entity(entity, entities) {
         }
     });
 
-    let children = [];
+    let children = new Map();
     Object.defineProperty(this, 'children', {
         'get': function () {
             return children;
@@ -55,8 +55,15 @@ function Entity(entity, entities) {
     // Process children
     entities.map(function (child) {
 
-        if (child.containers.indexOf(entity.id) !== -1) {
-            children.push(child.id);
+        if (!child.containers) return;
+
+        if (child.containers.hasOwnProperty(entity.id)) {
+
+            children.set(child.id, {
+                'id': child.id,
+                'name': child.containers[entity.id]
+            });
+
         }
 
     });

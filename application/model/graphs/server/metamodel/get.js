@@ -53,7 +53,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
                     'id': '22',
                     'storage': 'socites',
                     'name': 'comments',
-                    'containers': ['20'],
+                    'containers': {'20': 'comments'},
                     'versions': {
                         52: {
                             'fields': [
