@@ -12,6 +12,10 @@ function GraphChildren(item) {
     comments.bind('change', item.triggerChange);
     */
 
+    this.initialise = function () {
+
+    };
+
     this.load = function (specs) {
 
     };

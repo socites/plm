@@ -6,6 +6,7 @@ function Graph(id, session) {
 
     function initialise() {
 
+        // Initialise fields and maps
         let maps = {};
         entity.fields.map(function (field) {
             if (field === 'entity') return;
@@ -16,6 +17,9 @@ function Graph(id, session) {
             'fields': entity.fields,
             'maps': maps
         });
+
+        // Initialise children
+        children.initialise();
 
     }
 

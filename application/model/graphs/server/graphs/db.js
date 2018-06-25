@@ -13,7 +13,7 @@ module.exports = new (function () {
         {
             'id': '1',
             'time_updated': tu,
-            'entity': '23.53',
+            'entity': '20.50',
             'container_id': 'user',
             'description': 'Mi primer post'
         },
@@ -27,7 +27,7 @@ module.exports = new (function () {
         {
             'id': '3',
             'time_updated': tu,
-            'entity': '23.53',
+            'entity': '20.50',
             'container_id': 'user',
             'description': 'Mi segundo post'
         },

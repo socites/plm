@@ -35,11 +35,11 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
                     }
                 },
                 {
-                    'id': '22',
+                    'id': '20',
                     'storage': 'socites',
-                    'name': 'comments',
+                    'name': 'post',
                     'versions': {
-                        52: {
+                        50: {
                             'fields': [
                                 'entity',
                                 'title',
@@ -50,11 +50,12 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
                     }
                 },
                 {
-                    'id': '23',
+                    'id': '22',
                     'storage': 'socites',
-                    'name': 'post',
+                    'name': 'comments',
+                    'containers': ['20'],
                     'versions': {
-                        53: {
+                        52: {
                             'fields': [
                                 'entity',
                                 'title',
