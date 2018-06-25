@@ -14,6 +14,13 @@ function GraphEntity() {
         }
     });
 
+    let children;
+    Object.defineProperty(this, 'children', {
+        'get': function () {
+            return children;
+        }
+    });
+
     let metamodel = module.metamodel;
 
     function set(value) {
@@ -53,6 +60,7 @@ function GraphEntity() {
         }
 
         fields = entity.versions[version].fields;
+        children = entity.children;
 
     }
 

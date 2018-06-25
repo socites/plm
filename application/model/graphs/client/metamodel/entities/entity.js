@@ -1,4 +1,4 @@
-function Entity(entity) {
+function Entity(entity, entities) {
 
     let valid = true;
     Object.defineProperty(this, 'valid', {
@@ -43,6 +43,22 @@ function Entity(entity) {
         'get': function () {
             return entity.versions;
         }
+    });
+
+    let children = [];
+    Object.defineProperty(this, 'children', {
+        'get': function () {
+            return children;
+        }
+    });
+
+    // Process children
+    entities.map(function (child) {
+
+        if (child.containers.indexOf(entity.id) !== -1) {
+            children.push(child.id);
+        }
+
     });
 
 }
