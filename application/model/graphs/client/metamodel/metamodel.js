@@ -33,8 +33,22 @@ function Metamodel() {
 
     let stored = localStorage.getItem('metamodel');
 
+    if (stored) {
+
+        try {
+            stored = JSON.parse(stored);
+        }
+        catch (exc) {
+            console.warn('Invalid metamodel local cache', stored);
+            localStorage.removeItem('metamodel');
+            stored = undefined;
+        }
+
+    }
+
     // Remove metamodel data from local cache if it is not valid
     if (stored && !stored.entities) {
+        console.warn('Invalid metamodel local cache');
         localStorage.removeItem('metamodel');
         stored = undefined;
     }
@@ -52,7 +66,7 @@ function Metamodel() {
 
                 promise = undefined;
                 set(response);
-                localStorage.setItem('metamodel', response);
+                localStorage.setItem('metamodel', JSON.stringify(response));
 
                 resolve();
 

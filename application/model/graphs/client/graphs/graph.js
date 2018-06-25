@@ -7,7 +7,10 @@ function Graph(id, session) {
     function initialise() {
 
         let maps = {};
-        entity.fields.map(field => maps[field] = field);
+        entity.fields.map(function (field) {
+            if (field === 'entity') return;
+            maps[field] = field
+        });
 
         item.initialise({
             'fields': entity.fields,
