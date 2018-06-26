@@ -40,7 +40,8 @@ function Register(registries) {
     registries.collections.register(Graphs, Graph, {
         'module': module,
         'actions': {
-            'fetch': 'graphs/list'
+            'fetch': 'graphs/list',
+            'count': 'graphs/count'
         },
         'cache': {
             'key': 'graphs',

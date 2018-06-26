@@ -125,6 +125,33 @@ module.exports = new (function () {
 
     }
 
+    function countByContainers(params) {
+
+        let output = {};
+
+        for (let id of params.container) {
+
+            output[id] = 0;
+
+            for (let graph of data) {
+
+                // Filter by container
+                if (graph.container_id !== id) continue;
+
+                // Filter by entity
+                let entity = graph.entity.split('.');
+                if (params.entity && params.entity !== entity[0]) continue;
+
+                output[id]++;
+
+            }
+
+        }
+
+        return output;
+
+    }
+
     this.select = function (params) {
 
         if (params.ids instanceof Array) {
