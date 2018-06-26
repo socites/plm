@@ -4,5 +4,6 @@ module.exports = function () {
     this.list = require('./list.js');
     this.tu = require('./tu.js');
     this.data = require('./data.js');
+    this.count = require('./count.js');
 
 };
