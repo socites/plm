@@ -4,16 +4,16 @@ module.exports = new (function () {
 
     items.set('1', {
         'id': '1',
-        'time_updated': 10,
-        'comment': 'Comment of post "1"',
-        'graph_id': '1'
+        'time_updated': 20,
+        'comment': 'Share of post "1"',
+        'graph_id': '4'
     });
 
     items.set('2', {
         'id': '2',
-        'time_updated': 10,
-        'comment': 'Comment of post "3"',
-        'graph_id': '3'
+        'time_updated': 20,
+        'comment': 'Share of post "3"',
+        'graph_id': '5'
     });
 
     Object.defineProperty(this, 'size', {
