@@ -22,6 +22,8 @@ module.exports = require('async')(function* (resolve, reject, params) {
 
             });
 
+            graphs.sort((a, b) => a.time_updated - b.time_updated);
+
             graphs = graphs.map(graph => ({'id': graph.id, 'time_updated': graph.time_updated}));
 
             output[id] = {'records': graphs};
