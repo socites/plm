@@ -11,16 +11,15 @@ module.exports = require('async')(function* (resolve, reject, params) {
 
             let graphs = [...data.values];
 
-            graphs.filter(function (graph) {
+            graphs = graphs.filter(function (graph) {
 
                 // Filter by container
-                if (graph.container_id !== id) return;
+                if (graph.container_id !== id) return false;
 
                 // Filter by entity
                 let entity = graph.entity.split('.');
-                if (params.entity && params.entity !== entity[0]) return;
+                return !(params.entity && params.entity !== entity[0]);
 
-                return true;
             });
 
             graphs = graphs.map(graph => ({'id': graph.id, 'time_updated': graph.time_updated}));

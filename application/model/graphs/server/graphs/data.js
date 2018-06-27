@@ -58,6 +58,14 @@ module.exports = new (function () {
         'description': 'Comentario del segundo post'
     });
 
+    items.set('8', {
+        'id': '8',
+        'time_updated': 1,
+        'entity': '4.4',
+        'container_id': '5',
+        'description': 'Segundo comentario del segundo post'
+    });
+
     Object.defineProperty(this, 'size', {
         'get': function () {
             return items.size;

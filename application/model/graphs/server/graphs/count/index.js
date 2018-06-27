@@ -3,7 +3,7 @@ module.exports = require('async')(function* (resolve, reject, params) {
 
     let data;
     data = require('../data.js');
-    let items = [...data.values()];
+    let items = [...data.values];
 
     setTimeout(function () {
 
@@ -24,9 +24,9 @@ module.exports = require('async')(function* (resolve, reject, params) {
                     return count;
                 }
 
-                return ++count;
+                return (count + 1);
 
-            });
+            }, 0);
 
         }
 
