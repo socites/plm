@@ -1,31 +1,47 @@
-module.exports = require('async')(function* (resolve, reject, params, context) {
-    "use strict";
+module.exports = new (function () {
 
-    if (!(params.ids instanceof Array)) {
-        throw new Error('Invalid parameter ids');
-    }
+    let items = new Map();
 
-    let db = require('./db.js');
+    items.set('1', {
+        'id': '1',
+        'time_updated': 10,
+        'comment': 'Comment of post "1"',
+        'graph_id': '1'
+    });
 
-    function data() {
+    items.set('2', {
+        'id': '2',
+        'time_updated': 10,
+        'comment': 'Comment of post "3"',
+        'graph_id': '3'
+    });
 
-        if (!params.ids) {
-            return;
+    Object.defineProperty(this, 'size', {
+        'get': function () {
+            return items.size;
         }
+    });
 
-        let data = db.select(params);
-
-        let output = {};
-        for (let item of data) {
-            output[item.id] = item;
+    Object.defineProperty(this, 'values', {
+        'get': function () {
+            return items.values();
         }
+    });
 
-        return output;
+    this.get = function (id) {
+        return items.get(id);
+    };
 
-    }
+    this.has = function (id) {
+        return items.has(id);
+    };
 
-    setTimeout(function () {
-        resolve(data());
-    }, 2000);
+    this.insert = function (fields) {
+
+    };
+
+    this.update = function (id, fields) {
+
+    };
 
 });

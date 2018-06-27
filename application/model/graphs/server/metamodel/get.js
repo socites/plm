@@ -1,4 +1,4 @@
-module.exports = require('async')(function* (resolve, reject, params, context) {
+module.exports = require('async')(function* (resolve) {
     "use strict";
 
     function result() {
@@ -8,7 +8,7 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
                     'id': '1',
                     'name': 'application',
                     'versions': {
-                        60: {
+                        1: {
                             'fields': [
                                 'entity',
                                 'name',
@@ -22,24 +22,24 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
                     'id': '2',
                     'name': 'user',
                     'versions': {
-                        30: {
+                        2: {
                             'fields': [
                                 'entity',
                                 'name',
-                                'lastname',
+                                'last_name',
                                 'about',
-                                'birthDate',
+                                'birth_date',
                                 'country'
                             ]
                         }
                     }
                 },
                 {
-                    'id': '20',
+                    'id': '3',
                     'storage': 'socites',
                     'name': 'post',
                     'versions': {
-                        50: {
+                        3: {
                             'fields': [
                                 'entity',
                                 'title',
@@ -50,12 +50,12 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
                     }
                 },
                 {
-                    'id': '22',
+                    'id': '4',
                     'storage': 'socites',
                     'name': 'comments',
                     'containers': {'20': 'comments'},
                     'versions': {
-                        52: {
+                        4: {
                             'fields': [
                                 'entity',
                                 'title',
@@ -66,7 +66,26 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
                     }
                 }
             ],
-            'relations': []
+            'relations': [
+                {
+                    'id': '1',
+                    'from': {
+                        'entity': '2',
+                        'name': 'following'
+                    },
+                    'to': {
+                        'entity': '2',
+                        'name': 'followers'
+                    },
+                    'versions': {
+                        1: {
+                            'fields': [
+                                'is'
+                            ]
+                        }
+                    }
+                }
+            ]
         };
     }
 

@@ -1,34 +1,89 @@
-module.exports = require('async')(function* (resolve, reject, params, context) {
-    "use strict";
+module.exports = new (function () {
 
-    if (!(params.ids instanceof Array)) {
-        throw new Error('Invalid parameter ids');
-    }
+    let items = new Map();
 
-    let db = require('./db.js');
+    items.set('1', {
+        'id': '1',
+        'entity': '2.2',
+        'time_updated': 1,
+        'name': 'Julio',
+        'last_name': 'Rodriguez'
+    });
 
-    function data() {
+    items.set('2', {
+        'id': '2',
+        'entity': '2.2',
+        'time_updated': 1,
+        'name': 'Felix',
+        'last_name': 'Lovato'
+    });
 
-        if (!params.ids) {
-            return;
+    items.set('3', {
+        'id': '3',
+        'entity': '2.2',
+        'time_updated': 1,
+        'name': 'Andrés',
+        'last_name': 'Calamaro'
+    });
+
+    items.set('4', {
+        'id': '4',
+        'entity': '3.3',
+        'time_updated': 1,
+        'container_id': '1',
+        'description': 'Mi primer post'
+    });
+
+    items.set('5', {
+        'id': '5',
+        'time_updated': 1,
+        'entity': '3.3',
+        'container_id': '1',
+        'description': 'Mi segundo post'
+    });
+
+    items.set('6', {
+        'id': '6',
+        'time_updated': 1,
+        'entity': '4.4',
+        'container_id': '4',
+        'description': 'Comentario del primer post'
+    });
+
+    items.set('7', {
+        'id': '7',
+        'time_updated': 1,
+        'entity': '4.4',
+        'container_id': '5',
+        'description': 'Comentario del segundo post'
+    });
+
+    Object.defineProperty(this, 'size', {
+        'get': function () {
+            return items.size;
         }
+    });
 
-        let data = db.select(params);
-        if (!data) {
-            return {};
+    Object.defineProperty(this, 'values', {
+        'get': function () {
+            return items.values();
         }
+    });
 
-        let output = {};
-        for (let item of data) {
-            output[item.id] = item;
-        }
+    this.get = function (id) {
+        return items.get(id);
+    };
 
-        return output;
+    this.has = function (id) {
+        return items.has(id);
+    };
 
-    }
+    this.insert = function (fields) {
 
-    setTimeout(function () {
-        resolve(data());
-    }, 2000);
+    };
+
+    this.update = function (id, fields) {
+
+    };
 
 });
