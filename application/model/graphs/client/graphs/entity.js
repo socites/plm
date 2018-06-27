@@ -55,8 +55,9 @@ function GraphEntity() {
 
         let entity = metamodel.entities.get(id);
         if (!entity.versions[version]) {
-            console.error('Invalid entity version', value);
-            throw new Error('Invalid entity version');
+            let message = `Invalid entity version "${value}"`;
+            console.error(message, entity);
+            throw new Error(message);
         }
 
         fields = entity.versions[version].fields;

@@ -6,10 +6,10 @@ module.exports = function () {
     this.data = require('./get/data.js');
 
     // List items
-    this.list = require('./get/list');
+    this.list = require('./list');
 
     // Get count of items
-    this.count = require('./count.js');
+    this.count = require('./count');
 
     this.publish = require('./publish.js');
 

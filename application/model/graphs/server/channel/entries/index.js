@@ -6,8 +6,8 @@ module.exports = function () {
     this.data = require('./get/data.js');
 
     // List items
-    this.list = require('./list/list.js');
+    this.list = require('./list');
 
-    this.publish = require('/publish.js');
+    this.publish = require('./publish.js');
 
 };
