@@ -2,16 +2,6 @@ function GraphChildren(graph, item, entity, session) {
 
     let children = new Map();
 
-    /*
-    let comments = new Graphs({'container': this, 'entity': '22'}, session, {'batch': 'container'});
-    Object.defineProperty(this, 'comments', {
-        'get': function () {
-            return comments;
-        }
-    });
-    comments.bind('change', item.triggerChange);
-    */
-
     this.initialise = function () {
 
         entity.children.forEach(function (child) {

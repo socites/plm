@@ -1,4 +1,4 @@
-function Graph(id, session) {
+function Relation(id, session) {
 
     let Item = module.plm.Item;
     let item = new Item(this, id, session);
@@ -7,29 +7,25 @@ function Graph(id, session) {
 
         // Initialise fields and maps
         let maps = {};
-        entity.fields.map(function (field) {
+        entityRelation.fields.map(function (field) {
             if (field === 'entity') return;
             maps[field] = field
         });
 
         item.initialise({
-            'fields': entity.fields,
+            'fields': entityRelation.fields,
             'maps': maps
         });
 
-        // Initialise children
-        children.initialise();
-        relations.initialise();
-
     }
 
-    let entity = new GraphEntity(this);
-    Object.defineProperty(this, 'entity', {
+    let entityRelation = new GraphEntity(this);
+    Object.defineProperty(this, 'entityRelation', {
         'get': function () {
-            return entity.key;
+            return entityRelation.key;
         },
         'set': function (value) {
-            entity.set(value);
+            entityRelation.set(value);
         }
     });
 

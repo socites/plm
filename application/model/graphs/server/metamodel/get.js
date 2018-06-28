@@ -36,7 +36,7 @@ module.exports = require('async')(function* (resolve) {
                 },
                 {
                     'id': '3',
-                    'storage': 'socites',
+                    'storage': 'social-graphs',
                     'name': 'post',
                     'versions': {
                         3: {
@@ -51,7 +51,7 @@ module.exports = require('async')(function* (resolve) {
                 },
                 {
                     'id': '4',
-                    'storage': 'socites',
+                    'storage': 'social-graphs',
                     'name': 'comments',
                     'containers': {'3': 'comments'},
                     'versions': {
@@ -69,6 +69,8 @@ module.exports = require('async')(function* (resolve) {
             'relations': [
                 {
                     'id': '1',
+                    'storage': 'social-graphs',
+                    'name': 'follow',
                     'from': {
                         'entity': '2',
                         'name': 'following'

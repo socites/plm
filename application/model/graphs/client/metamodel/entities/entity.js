@@ -1,4 +1,11 @@
-function Entity(entity, entities) {
+/**
+ * Entity
+ *
+ * @param entity The entity data
+ * @param metamodel {object} The metamodel data
+ * @constructor
+ */
+function Entity(entity, metamodel) {
 
     let valid = true;
     Object.defineProperty(this, 'valid', {
@@ -31,7 +38,7 @@ function Entity(entity, entities) {
         }
     });
 
-    let key = (entity.id !== '1' && entity.id !== '2') ? `${entity.storage}.` : '';
+    let key = (entity.storage !== 'social-graphs') ? `${entity.storage}.` : '';
     key += entity.name;
     Object.defineProperty(this, 'key', {
         'get': function () {
@@ -53,7 +60,7 @@ function Entity(entity, entities) {
     });
 
     // Process children
-    entities.map(function (child) {
+    metamodel.entities.map(function (child) {
 
         if (!child.containers) return;
 
@@ -64,6 +71,53 @@ function Entity(entity, entities) {
                 'name': child.containers[entity.id]
             });
 
+        }
+
+    });
+
+    let relations = new Map();
+    Object.defineProperty(this, 'relations', {
+        'get': function () {
+            return relations;
+        }
+    });
+
+    // Process relations
+    metamodel.relations.map(function (relation) {
+
+        if (!relation.from || !relation.to) {
+            console.error('Invalid relation definition, from or to not set', relation);
+            return;
+        }
+
+        if (!relation.versions) {
+            console.error('Invalid relation definition, versions not set', relation);
+            return;
+        }
+
+        let from = relation.from, to = relation.to;
+
+        if (!from.entity || !to.entity) {
+            console.error('Invalid relation definition, entity not correctly set', relation);
+            return;
+        }
+
+        if (from.entity === entity.id) {
+            relations.set(from.name, {
+                'id': relation.id,
+                'name': from.name,
+                'direction': 'from',
+                'versions': relation.versions
+            });
+        }
+
+        if (to.entity === entity.id) {
+            relations.set(to.name, {
+                'id': relation.id,
+                'name': to.name,
+                'direction': 'to',
+                'versions': relation.versions
+            });
         }
 
     });

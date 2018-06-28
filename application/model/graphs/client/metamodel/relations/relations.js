@@ -9,11 +9,8 @@ function Relations() {
 
     this.set = function (data) {
 
-        if (!data) {
-            return;
-        }
         if (!(data instanceof Array)) {
-            console.warn('Invalid entities-relation parameter', data);
+            console.warn('Invalid relations parameter', data);
             return;
         }
 
