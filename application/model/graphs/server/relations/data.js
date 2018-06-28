@@ -4,19 +4,19 @@ module.exports = new function () {
 
     items.set('1', {
         'id': '1',
-        'entity_relation': '1',
+        'entity_relation': '1.1',
         'time_updated': 1,
-        'from': '1',
-        'to': '2',
+        'from_id': '1',
+        'to_id': '2',
         'is': 'friend'
     });
 
     items.set('2', {
         'id': '2',
-        'entity_relation': '1',
+        'entity_relation': '1.1',
         'time_updated': 1,
-        'from': '1',
-        'to': '3',
+        'from_id': '1',
+        'to_id': '3',
         'is': 'contact'
     });
 

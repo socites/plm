@@ -10,7 +10,6 @@ module.exports = require('async')(function* (resolve) {
                     'versions': {
                         1: {
                             'fields': [
-                                'entity',
                                 'name',
                                 'category',
                                 'description'
@@ -24,7 +23,6 @@ module.exports = require('async')(function* (resolve) {
                     'versions': {
                         2: {
                             'fields': [
-                                'entity',
                                 'name',
                                 'last_name',
                                 'about',
@@ -41,7 +39,6 @@ module.exports = require('async')(function* (resolve) {
                     'versions': {
                         3: {
                             'fields': [
-                                'entity',
                                 'title',
                                 'description',
                                 'tags'
@@ -57,7 +54,6 @@ module.exports = require('async')(function* (resolve) {
                     'versions': {
                         4: {
                             'fields': [
-                                'entity',
                                 'title',
                                 'description',
                                 'tags'

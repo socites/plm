@@ -5,15 +5,17 @@ function Graph(id, session) {
 
     function initialise() {
 
+        let fields = entity.fields.slice();
+        fields.unshift('entity');
+
         // Initialise fields and maps
         let maps = {};
         entity.fields.map(function (field) {
-            if (field === 'entity') return;
             maps[field] = field
         });
 
         item.initialise({
-            'fields': entity.fields,
+            'fields': fields,
             'maps': maps
         });
 

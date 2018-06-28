@@ -5,45 +5,49 @@ function Relation(id, session) {
 
     function initialise() {
 
+        let fields = er.fields.slice();
+        fields.unshift('entity_relation');
+        fields.unshift('from');
+        fields.unshift('to');
+
         // Initialise fields and maps
-        let maps = {};
-        entityRelation.fields.map(function (field) {
-            if (field === 'entity') return;
+        let maps = {
+            'from': {'source': 'from_id', 'Item': Graph},
+            'to': {'source': 'to_id', 'Item': Graph}
+        };
+        er.fields.map(function (field) {
             maps[field] = field
         });
 
         item.initialise({
-            'fields': entityRelation.fields,
+            'fields': er.fields,
             'maps': maps
         });
 
     }
 
-    let entityRelation = new GraphEntity(this);
+    let er = new EntityRelation(this);
     Object.defineProperty(this, 'entityRelation', {
         'get': function () {
-            return entityRelation.key;
+            return er.key;
         },
         'set': function (value) {
-            entityRelation.set(value);
+            er.set(value);
         }
     });
 
-    let children = new GraphChildren(this, item, entity, session);
-    let relations = new GraphRelations(this, item, entity, session);
-
-    entity.onSet = initialise;
+    er.onSet = initialise;
 
     item.onLoaded = function (data) {
 
-        if (!data.entity) {
-            console.error('data.entity not set', data);
+        if (!data.entity_relation) {
+            console.error('data.entity_relation not set', data);
             return;
         }
 
-        entity.key = data.entity;
+        er.key = data.entity_relation;
 
-        // Once the entity is set, it is not required to continue executing this function
+        // Once the entity relation is set, it is not required to continue executing this function
         item.onLoaded = undefined;
 
     };
@@ -56,8 +60,15 @@ function Relation(id, session) {
                 return item.load(specs);
             })
             .then(function (specs) {
-                children.load(specs);
-                relations.load(specs);
+
+                if (specs.from) {
+                    item.from.load(specs.from);
+                }
+
+                if (specs.to) {
+                    item.to.load(specs.to);
+                }
+
             });
 
     };
