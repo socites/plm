@@ -14,6 +14,23 @@ function Graph(id, session) {
             maps[field] = field
         });
 
+        // If not an application
+        if (entity.id !== '1') {
+            fields.unshift('application_id');
+            maps.application = {'source': 'application_id', 'Item': Graph, 'immutable': true};
+        }
+
+        // If not a user
+        if (entity.id !== '2') {
+            fields.unshift('owner_id');
+            maps.owner = {'source': 'owner_id', 'Item': Graph, 'immutable': true};
+        }
+
+        if (entity.id !== '1' && entity.id !== '2') {
+            fields.unshift('container_id');
+            maps.container = {'source': 'container_id', 'Item': Graph, 'immutable': true};
+        }
+
         item.initialise({
             'fields': fields,
             'maps': maps

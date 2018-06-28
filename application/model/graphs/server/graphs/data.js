@@ -30,38 +30,43 @@ module.exports = new (function () {
         'id': '4',
         'entity': '3.3',
         'time_updated': 1,
+        'owner_id': '1',
         'container_id': '1',
         'description': 'Mi primer post'
     });
 
     items.set('5', {
         'id': '5',
-        'time_updated': 1,
         'entity': '3.3',
+        'time_updated': 1,
+        'owner_id': '1',
         'container_id': '1',
         'description': 'Mi segundo post'
     });
 
     items.set('6', {
         'id': '6',
-        'time_updated': 1,
         'entity': '4.4',
+        'time_updated': 1,
+        'owner_id': '2',
         'container_id': '4',
         'description': 'Comentario del primer post'
     });
 
     items.set('7', {
         'id': '7',
-        'time_updated': 1,
         'entity': '4.4',
+        'time_updated': 1,
+        'owner_id': '2',
         'container_id': '5',
         'description': 'Comentario del segundo post'
     });
 
     items.set('8', {
         'id': '8',
-        'time_updated': 1,
         'entity': '4.4',
+        'owner_id': '3',
+        'time_updated': 1,
         'container_id': '5',
         'description': 'Segundo comentario del segundo post'
     });
