@@ -2,6 +2,12 @@ function MetamodelKey(value) {
 
     let key = value.split('.');
 
+    Object.defineProperty(this, 'value', {
+        'get': function () {
+            return value;
+        }
+    });
+
     let id, storage, name, version;
     Object.defineProperty(this, 'id', {
         'get': function () {
@@ -26,7 +32,7 @@ function MetamodelKey(value) {
 
     Object.defineProperty(this, 'valid', {
         'get': function () {
-
+            return !!((id || (storage && name)) && version);
         }
     });
 
@@ -77,10 +83,21 @@ function MetamodelKey(value) {
 
     version = (version) ? version : 'highest';
 
+    /**
+     * Find an entity or relation from a map of entities or relations.
+     *
+     * @param map {Map} The map of entities or relations.
+     * @returns {*} The entity or relation, or undefined if not found.
+     */
     this.find = function (map) {
 
-        if (!id || (!storage && !name)) {
-            console.warn('Key is not valid.', this);
+        if (!map) {
+            return;
+        }
+
+        if (!this.valid) {
+            console.warn('Trying to find an item from an invalid key', this);
+            return;
         }
 
         if (id) {
@@ -93,6 +110,10 @@ function MetamodelKey(value) {
                 id = item.id;
             }
         });
+
+        if (!id) {
+            return;
+        }
 
         return map.get(id);
 

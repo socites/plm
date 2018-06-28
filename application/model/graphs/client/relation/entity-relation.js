@@ -22,20 +22,27 @@ function EntityRelation() {
             throw new Error('Metamodel must be loaded before setting the entity relation.');
         }
 
-        let key = new MetamodelKey(value);
+        key = new MetamodelKey(value);
         if (key.error) {
             console.log(`Invalid entity relation "${value}"`);
             throw new Error('Invalid entity relation');
         }
 
-        let relation = metamodel.relations.get(key);
-        if (!relation.versions[version]) {
-            let message = `Invalid relation version "${value}"`;
-            console.error(message, relation);
+        let relation = key.find(metamodel.relations);
+        if (!relation) {
+            let message = `Entity relation "${value}" not found`;
+            console.error(message, value);
             throw new Error(message);
         }
 
-        fields = entity.versions[version].fields;
+        let version = relation.get(key.version);
+        if (!version) {
+            let message = `Version of entity relation "${value}" not found`;
+            console.error(message, value);
+            throw new Error(message);
+        }
+
+        fields = version.fields;
 
     }
 

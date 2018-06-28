@@ -38,9 +38,10 @@ function Entity(entity, metamodel) {
         }
     });
 
+    let versions = new Versions(entity.versions);
     Object.defineProperty(this, 'versions', {
         'get': function () {
-            return entity.versions;
+            return versions;
         }
     });
 

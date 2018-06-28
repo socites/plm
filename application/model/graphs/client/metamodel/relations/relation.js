@@ -31,9 +31,10 @@ function Relation(relation) {
         }
     });
 
+    let versions = new Versions(relation.versions);
     Object.defineProperty(this, 'versions', {
         'get': function () {
-            return relation.versions;
+            return versions;
         }
     });
 

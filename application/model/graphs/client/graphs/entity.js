@@ -36,38 +36,27 @@ function GraphEntity() {
             throw new Error('Metamodel must be loaded before setting the entity of the graph.');
         }
 
-        let key = value.split('.');
-
-        let id, storage, name, version;
-
-        if (key.length === 3) {
-            storage = key[0];
-            name = key[1];
-            version = key[2];
-        } else if (key.length === 2) {
-            id = key[0];
-            version = key[1];
-        } else if (key.length === 1) {
-            id = key[0];
-        } else {
-            console.error('Invalid entity value', value);
-            throw new Error('Invalid entity value');
+        key = new MetamodelKey(value);
+        if (key.error) {
+            console.log(`Invalid entity relation "${value}"`);
+            throw new Error('Invalid entity relation');
         }
 
-        version = (version) ? version : 'highest';
-        if (id && !/^[0-9]*$/.test(id)) {
-            console.error('Invalid entity id', id);
-            throw new Error('Invalid entity id');
-        }
-
-        let entity = metamodel.entities.get(id);
-        if (!entity.versions[version]) {
-            let message = `Invalid entity version "${value}"`;
-            console.error(message, entity);
+        let entity = key.find(metamodel.entities);
+        if (!entity) {
+            let message = `Entity "${value}" not found`;
+            console.error(message, value);
             throw new Error(message);
         }
 
-        fields = entity.versions[version].fields;
+        let version = entity.get(key.version);
+        if (!version) {
+            let message = `Entity version "${value}" not found`;
+            console.error(message, value);
+            throw new Error(message);
+        }
+
+        fields = version.fields;
         children = entity.children;
         relations = entity.relations;
 
@@ -76,7 +65,7 @@ function GraphEntity() {
     let key;
     Object.defineProperty(this, 'key', {
         'get': function () {
-            return key;
+            return key.value;
         },
         'set': function (value) {
 
