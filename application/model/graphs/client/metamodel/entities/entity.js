@@ -38,14 +38,6 @@ function Entity(entity, metamodel) {
         }
     });
 
-    let key = (entity.storage !== 'social-graphs') ? `${entity.storage}.` : '';
-    key += entity.name;
-    Object.defineProperty(this, 'key', {
-        'get': function () {
-            return key;
-        }
-    });
-
     Object.defineProperty(this, 'versions', {
         'get': function () {
             return entity.versions;

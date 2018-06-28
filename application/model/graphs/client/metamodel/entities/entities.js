@@ -15,7 +15,7 @@ function Entities() {
         }
 
         entities = new Map();
-        data.map(entity => entities.set(entity.id, new Entity(entity, data)));
+        data.entities.map(entity => entities.set(entity.id, new Entity(entity, data)));
 
     };
 

@@ -31,14 +31,6 @@ function Relation(relation) {
         }
     });
 
-    let key = (entity.storage !== 'social-graphs') ? `${entity.storage}.` : '';
-    key += relation.name;
-    Object.defineProperty(this, 'key', {
-        'get': function () {
-            return key;
-        }
-    });
-
     Object.defineProperty(this, 'versions', {
         'get': function () {
             return relation.versions;

@@ -6,6 +6,12 @@ function Metamodel() {
             return entities;
         }
     });
+    let relations = new Relations();
+    Object.defineProperty(this, 'relations', {
+        'get': function () {
+            return relations;
+        }
+    });
 
     let loaded;
     Object.defineProperty(this, 'loaded', {
@@ -19,6 +25,7 @@ function Metamodel() {
     function set(data) {
 
         entities.set(data);
+        relations.set(data.relations);
         loaded = true;
 
     }

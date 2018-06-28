@@ -22,67 +22,13 @@ function EntityRelation() {
             throw new Error('Metamodel must be loaded before setting the entity relation.');
         }
 
-        let key = value.split('.');
-
-        let id, storage, name, version;
-
-        if (key.length === 3) {
-
-            storage = key[0];
-            name = key[1];
-            version = key[2];
-
-        } else if (key.length === 2) {
-
-            // There are two options:
-            //   1. entity.version
-            //   2. storage.entity
-
-            if (/^[0-9]*$/.test(key[1])) {
-
-                // In this case, entity can be the id, or the name
-                if (/^[0-9]*$/.test(key[0])) {
-                    id = key[0];
-                } else {
-                    storage = 'social-graphs';
-                    name = key[0];
-                }
-
-                version = key[1];
-
-            } else {
-
-                storage = key[0];
-                name = key[1];
-
-            }
-
-        } else if (key.length === 1) {
-
-            // In this case, entity can be the id, or the name
-            if (/^[0-9]*$/.test(key[0])) {
-                id = key[0];
-            } else {
-                storage = 'social-graphs';
-                name = key[0];
-            }
-
-        } else {
-            console.error('Invalid entity value', value);
-            throw new Error('Invalid entity value');
+        let key = new MetamodelKey(value);
+        if (key.error) {
+            console.log(`Invalid entity relation "${value}"`);
+            throw new Error('Invalid entity relation');
         }
 
-        if (!id) {
-
-        }
-
-        version = (version) ? version : 'highest';
-        if (id && !/^[0-9]*$/.test(id)) {
-            console.error('Invalid entity id', id);
-            throw new Error('Invalid entity id');
-        }
-
-        let relation = metamodel.relations.get(id);
+        let relation = metamodel.relations.get(key);
         if (!relation.versions[version]) {
             let message = `Invalid relation version "${value}"`;
             console.error(message, relation);
