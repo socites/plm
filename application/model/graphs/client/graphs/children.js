@@ -9,7 +9,6 @@ function GraphChildren(graph, item, entity, session) {
             // Create child collection
             let specs = {'container': graph, 'entity': child.id};
             let collection = new Graphs(specs, session, {'batch': 'container'});
-
             collection.bind('change', item.triggerChange);
 
             // Expose child collection

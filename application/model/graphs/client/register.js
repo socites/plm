@@ -49,4 +49,29 @@ function Register(registries) {
         }
     });
 
+    // Register Relation item
+    registries.items.register(Relation, {
+        'module': module,
+        'actions': {
+            'data': 'relations/data',
+            'tu': 'relations/tu',
+            'publish': 'relations/publish'
+        },
+        'auth': true,
+        'cache': 'relation'
+    });
+
+    // Register Graphs collection
+    registries.collections.register(Relations, Relation, {
+        'module': module,
+        'actions': {
+            'fetch': 'relations/list',
+            'count': 'relations/count'
+        },
+        'cache': {
+            'key': 'relations',
+            'max': 30
+        }
+    });
+
 }

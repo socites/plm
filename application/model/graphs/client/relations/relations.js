@@ -1,4 +1,4 @@
-function Graphs(attributes, session, specs) {
+function Relations(attributes, session, specs) {
 
     specs = (specs) ? specs : {};
 
