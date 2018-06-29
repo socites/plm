@@ -1,4 +1,4 @@
-function Versions() {
+function Versions(data) {
 
     let versions = new Map();
     Object.defineProperty(this, 'keys', {
@@ -19,24 +19,6 @@ function Versions() {
         }
     });
 
-    this.set = function (value) {
-
-        for (let id in value) {
-
-            if (!value.hasOwnProperty(id)) continue;
-
-            let version = value[id];
-            versions.set(id, {
-                'id': id,
-                'fields': version.fields
-            });
-
-        }
-
-        highest = (highest > id) ? highest : id;
-
-    };
-
     this.get = function (value) {
 
         if (value === 'highest') {
@@ -49,6 +31,26 @@ function Versions() {
 
     this.has = function (id) {
         return versions.has(id);
+    };
+
+    function initialise() {
+
+        for (let id in data) {
+
+            if (!data.hasOwnProperty(id)) continue;
+
+            let version = data[id];
+            versions.set(id, {
+                'id': id,
+                'fields': version.fields
+            });
+
+            highest = (highest > id) ? highest : id;
+
+        }
+
     }
+
+    initialise();
 
 }

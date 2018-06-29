@@ -3,6 +3,8 @@ function Graph(id, session) {
     let Item = module.plm.Item;
     let item = new Item(this, id, session);
 
+    let self = this;
+
     function initialise() {
 
         let fields = entity.fields.slice();
@@ -36,13 +38,26 @@ function Graph(id, session) {
             'maps': maps
         });
 
+        // Expose entity on getters
+        Object.defineProperty(self.getters, 'entity', {
+            'get': function () {
+                return {
+                    'id': entity.id,
+                    'version': entity.version,
+                    'key': entity.key,
+                    'storage': entity.storage,
+                    'name': entity.name
+                };
+            }
+        });
+
         // Initialise children
         children.initialise();
         relations.initialise();
 
     }
 
-    let entity = new GraphEntity(this);
+    let entity = new GraphEntity();
     Object.defineProperty(this, 'entity', {
         'get': function () {
             return entity.key;

@@ -1,5 +1,7 @@
 function GraphEntity() {
 
+    let entity;
+
     let initialised;
     Object.defineProperty(this, 'initialised', {
         'get': function () {
@@ -42,17 +44,16 @@ function GraphEntity() {
             throw new Error('Invalid entity relation');
         }
 
-        let entity = key.find(metamodel.entities);
+        entity = key.find(metamodel.entities);
         if (!entity) {
             let message = `Entity "${value}" not found`;
             console.error(message, value);
             throw new Error(message);
         }
 
-        let version = entity.get(key.version);
+        let version = entity.versions.get(key.version);
         if (!version) {
-            let message = `Entity version "${value}" not found`;
-            console.error(message, value);
+            let message = `Entity version "${key.version}" of entity "${key.id}" not found`;
             throw new Error(message);
         }
 
@@ -80,6 +81,30 @@ function GraphEntity() {
                 this.onSet();
             }
 
+        }
+    });
+
+    Object.defineProperty(this, 'id', {
+        'get': function () {
+            return key.id;
+        }
+    });
+
+    Object.defineProperty(this, 'version', {
+        'get': function () {
+            return key.version;
+        }
+    });
+
+    Object.defineProperty(this, 'storage', {
+        'get': function () {
+            return entity.storage;
+        }
+    });
+
+    Object.defineProperty(this, 'name', {
+        'get': function () {
+            return entity.name;
         }
     });
 
