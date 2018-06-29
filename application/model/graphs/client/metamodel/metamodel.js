@@ -6,7 +6,7 @@ function Metamodel() {
             return entities;
         }
     });
-    let relations = new Relations();
+    let relations = new EntitiesRelations();
     Object.defineProperty(this, 'relations', {
         'get': function () {
             return relations;

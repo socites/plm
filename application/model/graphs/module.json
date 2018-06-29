@@ -18,6 +18,9 @@
         "graphs/relations.js",
         "graphs/entity.js",
         "graphs/graph.js",
+        "relations/relations.js",
+        "relations/entity-relation.js",
+        "relations/relation.js",
         "auth.js",
         "register.js",
         "define.js"

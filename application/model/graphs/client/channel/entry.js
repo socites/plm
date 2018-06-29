@@ -13,16 +13,4 @@ function ChannelEntry(id, session) {
         }
     });
 
-    this.load = function (specs) {
-
-        item.load(specs).then(function (specs) {
-
-            if (specs.graph) {
-                item.graph.load(specs.graph);
-            }
-
-        });
-
-    };
-
 }

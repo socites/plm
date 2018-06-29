@@ -1,4 +1,4 @@
-function Relation(relation) {
+function EntityRelation(relation) {
 
     let valid = true;
     Object.defineProperty(this, 'valid', {

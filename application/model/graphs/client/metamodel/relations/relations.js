@@ -1,4 +1,4 @@
-function Relations() {
+function EntitiesRelations() {
 
     let relations;
     Object.defineProperty(this, 'relations', {
@@ -15,7 +15,7 @@ function Relations() {
         }
 
         relations = new Map();
-        data.map(relation => relations.set(relation.id, new Relation(relation)));
+        data.map(relation => relations.set(relation.id, new EntityRelation(relation)));
 
     };
 
