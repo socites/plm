@@ -9,7 +9,9 @@ function Entities() {
 
     this.set = function (data) {
 
-        if (!(data instanceof Array)) {
+        if (!data || !(data.entities instanceof Array) ||
+            (data.relations && !(data.relations instanceof Array))) {
+
             console.warn('Invalid entities parameter', data);
             return;
         }

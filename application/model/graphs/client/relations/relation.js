@@ -42,7 +42,7 @@ function Relation(id, session) {
 
         if (!data.entity_relation) {
             console.error('data.entity_relation not set', data);
-            return;
+            return false;
         }
 
         er.key = data.entity_relation;

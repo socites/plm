@@ -61,7 +61,7 @@ function Graph(id, session) {
 
         if (!data.entity) {
             console.error('data.entity not set', data);
-            return;
+            return false;
         }
 
         entity.key = data.entity;

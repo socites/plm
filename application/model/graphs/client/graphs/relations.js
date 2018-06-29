@@ -1,6 +1,6 @@
 function GraphRelations(graph, item, entity, session) {
 
-    let relations = {};
+    let relations = new Map();
 
     this.initialise = function () {
 
