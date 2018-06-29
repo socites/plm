@@ -41,6 +41,11 @@ function Graph(id, session) {
         // Expose entity on getters
         Object.defineProperty(self.getters, 'entity', {
             'get': function () {
+
+                if (!entity.initialised) {
+                    return;
+                }
+
                 return {
                     'id': entity.id,
                     'version': entity.version,
@@ -48,6 +53,7 @@ function Graph(id, session) {
                     'storage': entity.storage,
                     'name': entity.name
                 };
+
             }
         });
 
