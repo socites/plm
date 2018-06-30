@@ -34,7 +34,7 @@ function Entity(entity, metamodel) {
 
     Object.defineProperty(this, 'storage', {
         'get': function () {
-            return entity.storage;
+            return (!entity.storage) ? 'social-graphs' : entity.storage;
         }
     });
 
