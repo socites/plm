@@ -16,6 +16,7 @@
         "graphs/graphs.js",
         "graphs/children.js",
         "graphs/relations/getters/relation.js",
+        "graphs/relations/getters/graph.js",
         "graphs/relations/getters/getters.js",
         "graphs/relations/relation.js",
         "graphs/relations/relations.js",

@@ -23,7 +23,7 @@ function GraphRelation(graph, item, relation, session) {
 
     // Create relation collection
     let attributes = {'entityRelationId': relation.id};
-    attributes[relation.direction] = item.id;
+    attributes[relation.direction] = graph.id;
     collection = new Relations(attributes, session, {'batch': relation.direction});
 
     // Bind to change events
@@ -37,7 +37,7 @@ function GraphRelation(graph, item, relation, session) {
     });
 
     // Expose child getters
-    let getters = new GraphRelationsGetters(collection, relation.direction);
+    let getters = new GraphRelationsGetters(this, relation.direction);
     Object.defineProperty(graph.getters, relation.name, {
         'get': function () {
             return getters.value;

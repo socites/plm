@@ -7,6 +7,8 @@ function GraphRelationGetters(relation, direction) {
         }
     });
 
+    let graph = new GraphRelationGraphGetters(getters, relation, direction);
+
     Object.defineProperty(getters, 'relation', {
         'get': function () {
             return {
@@ -28,11 +30,22 @@ function GraphRelationGetters(relation, direction) {
 
     expose('instanceId');
     expose('initialised');
-    expose('fetching');
-    expose('fetched');
-    expose('loaded');
 
-    let graph = relation[direction];
+    Object.defineProperty(this, 'fetching', {
+        'get': function () {
+            return relation.fetching || graph.fetching;
+        }
+    });
+    Object.defineProperty(this, 'fetched', {
+        'get': function () {
+            return relation.fetched && graph.fetched;
+        }
+    });
+    Object.defineProperty(this, 'loaded', {
+        'get': function () {
+            return relation.loaded && graph.loaded;
+        }
+    });
 
     // Expose properties of the relation
     for (let property of relation.properties) {
@@ -43,17 +56,6 @@ function GraphRelationGetters(relation, direction) {
         Object.defineProperty(getters, property, {
             'get': function () {
                 return relation.getters[property];
-            }
-        });
-
-    }
-
-    // Expose properties of the related graph
-    for (let property of graph.properties) {
-
-        Object.defineProperty(getters, property, {
-            'get': function () {
-                return graph.getters[property];
             }
         });
 
