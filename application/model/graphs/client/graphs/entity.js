@@ -40,21 +40,17 @@ function GraphEntity() {
 
         key = new MetamodelKey(value);
         if (key.error) {
-            console.log(`Invalid entity relation "${value}"`);
-            throw new Error('Invalid entity relation');
+            throw new Error(`Invalid entity "${value}"`);
         }
 
         entity = key.find(metamodel.entities);
         if (!entity) {
-            let message = `Entity "${value}" not found`;
-            console.error(message, value);
-            throw new Error(message);
+            throw new Error(`Entity "${value}" not found`);
         }
 
         let version = entity.versions.get(key.version);
         if (!version) {
-            let message = `Entity version "${key.version}" of entity "${key.id}" not found`;
-            throw new Error(message);
+            throw new Error(`Entity version "${key.version}" of entity "${key.id}" not found`);
         }
 
         fields = version.fields;

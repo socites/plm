@@ -1,4 +1,4 @@
-function EntityRelation() {
+function RelationEntityRelation() {
 
     let initialised;
     Object.defineProperty(this, 'initialised', {
@@ -24,20 +24,17 @@ function EntityRelation() {
 
         key = new MetamodelKey(value);
         if (key.error) {
-            console.log(`Invalid entity relation "${value}"`);
-            throw new Error('Invalid entity relation');
+            throw new Error(`Invalid entity relation "${value}"`);
         }
 
         let relation = key.find(metamodel.relations);
         if (!relation) {
-            let message = `Entity relation "${value}" not found`;
-            throw new Error(message);
+            throw new Error(`Entity relation "${value}" not found`);
         }
 
-        let version = relation.get(key.version);
+        let version = relation.versions.get(key.version);
         if (!version) {
-            let message = `Version of entity relation "${value}" not found`;
-            throw new Error(message);
+            throw new Error(`Version of entity relation "${value}" not found`);
         }
 
         fields = version.fields;

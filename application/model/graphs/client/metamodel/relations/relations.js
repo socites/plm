@@ -23,13 +23,8 @@ function EntitiesRelations() {
         return (relations) ? relations.has(id) : undefined;
     };
 
-    this.get = function (value) {
-
-        if (!relations) {
-            return;
-        }
-
-
+    this.get = function (id) {
+        return (relations) ? relations.get(id) : undefined;
     };
 
 }

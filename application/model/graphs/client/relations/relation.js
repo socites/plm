@@ -7,8 +7,8 @@ function Relation(id, session) {
 
         let fields = er.fields.slice();
         fields.unshift('entity_relation');
-        fields.unshift('from');
-        fields.unshift('to');
+        fields.unshift('from_id');
+        fields.unshift('to_id');
 
         // Initialise fields and maps
         let maps = {
@@ -20,13 +20,13 @@ function Relation(id, session) {
         });
 
         item.initialise({
-            'fields': er.fields,
+            'fields': fields,
             'maps': maps
         });
 
     }
 
-    let er = new EntityRelation(this);
+    let er = new RelationEntityRelation(this);
     Object.defineProperty(this, 'entityRelation', {
         'get': function () {
             return er.key;
