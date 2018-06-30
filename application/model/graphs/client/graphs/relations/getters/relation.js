@@ -17,7 +17,7 @@ function GraphRelationGetters(relation, direction) {
     let initialised;
     Object.defineProperty(getters, 'initialised', {
         'get': function () {
-            return !!initialised;
+            return !!initialised && !!graph.initialised;
         }
     });
 

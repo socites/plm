@@ -12,7 +12,7 @@ function GraphRelationGraphGetters(getters, relation, direction) {
     let graph;
 
     let initialised;
-    Object.defineProperty(getters, 'initialised', {
+    Object.defineProperty(this, 'initialised', {
         'get': function () {
             return !!initialised;
         }

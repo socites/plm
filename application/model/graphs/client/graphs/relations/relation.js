@@ -38,7 +38,7 @@ function GraphRelation(graph, item, relation, session) {
     });
 
     // Expose child getters
-    let getters = new GraphRelationsGetters(this, relation.direction);
+    let getters = new GraphRelationsGetters(collection, relation.direction);
     Object.defineProperty(graph.getters, relation.name, {
         'get': function () {
             return getters.value;
