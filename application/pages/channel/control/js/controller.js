@@ -15,7 +15,7 @@ function Controller(change, dependencies, properties, specs) {
         'items': {
             'graph': {
                 'owner': {
-                    'followers': {'counter': true}
+                    'following': {'counter': true}
                 },
                 'comments': {'counter': true}
             }

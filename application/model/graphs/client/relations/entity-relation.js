@@ -31,14 +31,12 @@ function EntityRelation() {
         let relation = key.find(metamodel.relations);
         if (!relation) {
             let message = `Entity relation "${value}" not found`;
-            console.error(message, value);
             throw new Error(message);
         }
 
         let version = relation.get(key.version);
         if (!version) {
             let message = `Version of entity relation "${value}" not found`;
-            console.error(message, value);
             throw new Error(message);
         }
 

@@ -8,7 +8,7 @@ function GraphRelations(graph, item, entity, session) {
 
             // Create relation collection
             let specs = {'entityRelationId': relation.id};
-            specs[relation.direction] = entity.id;
+            specs[relation.direction] = graph.id;
             let collection = new Relations(specs, session, {'batch': relation.direction});
             collection.bind('change', item.triggerChange);
 
