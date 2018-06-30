@@ -1,12 +1,7 @@
 function GraphRelationGraphGetters(getters, relation, direction) {
 
+    let graph;
     let initialised;
-
-    Object.defineProperty(this, 'graph', {
-        'get': function () {
-            return relation[direction];
-        }
-    });
 
     Object.defineProperty(this, 'fetching', {
         'get': function () {
@@ -32,10 +27,9 @@ function GraphRelationGraphGetters(getters, relation, direction) {
 
         initialised = true;
 
-        let graph = this.graph;
-
+        let graph = relation[direction];
         if (!graph) {
-            return;
+            throw new Error(`Relation does not has its "${direction}" property`);
         }
 
         // Expose properties of the related graph
