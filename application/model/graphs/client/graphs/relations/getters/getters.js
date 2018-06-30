@@ -1,3 +1,10 @@
+/**
+ * The getters wrapper for the relations of the graph.
+ *
+ * @param collection {object} The relations collection.
+ * @param direction {string} 'from' or 'to'.
+ * @constructor
+ */
 function GraphRelationsGetters(collection, direction) {
 
     let getters = {};

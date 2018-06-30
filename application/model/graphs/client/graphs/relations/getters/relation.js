@@ -1,9 +1,23 @@
+/**
+ * The getters of the item of the relations collection.
+ *
+ * @param relation {object} The relation item.
+ * @param direction {string} 'from' or 'to'.
+ * @constructor
+ */
 function GraphRelationGetters(relation, direction) {
 
     let getters = {};
     Object.defineProperty(this, 'value', {
         'get': function () {
             return getters;
+        }
+    });
+
+    let initialised;
+    Object.defineProperty(getters, 'initialised', {
+        'get': function () {
+            return !!initialised;
         }
     });
 
@@ -28,8 +42,8 @@ function GraphRelationGetters(relation, direction) {
 
     }
 
+    expose('id');
     expose('instanceId');
-    expose('initialised');
 
     Object.defineProperty(this, 'fetching', {
         'get': function () {
@@ -47,18 +61,35 @@ function GraphRelationGetters(relation, direction) {
         }
     });
 
-    // Expose properties of the relation
-    for (let property of relation.properties) {
+    /**
+     * The relation getters can be initialised once the relation is loaded.
+     */
+    function initialise() {
 
-        // Exclude to expose from and to properties
-        if (['from', 'to'].indexOf(property) !== -1) continue;
+        relation.unbind('loaded', initialise);
 
-        Object.defineProperty(getters, property, {
-            'get': function () {
-                return relation.getters[property];
-            }
-        });
+        if (initialised) {
+            throw new Error('Relation getters already initialised');
+        }
+
+        initialised = true;
+
+        // Expose properties of the relation
+        for (let property of relation.properties) {
+
+            // Exclude to expose from and to properties
+            if (['from', 'to'].indexOf(property) !== -1) continue;
+
+            Object.defineProperty(getters, property, {
+                'get': function () {
+                    return relation.getters[property];
+                }
+            });
+
+        }
 
     }
+
+    (relation.loaded) ? initialise() : relation.bind('loaded', initialise);
 
 }

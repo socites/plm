@@ -1,4 +1,5 @@
 /**
+ * This object wraps the collection of relations.
  *
  * @param graph {object} The graph
  * @param item {object} The item
@@ -44,6 +45,11 @@ function GraphRelation(graph, item, relation, session) {
         }
     });
 
+    /**
+     * Progressive loading of the items of the collection.
+     * Automatically loads the graph-from or graph-to according of the direction of the relation.
+     * @param specs
+     */
     this.load = function (specs) {
 
         // If direction is from, then load the to of the relation
