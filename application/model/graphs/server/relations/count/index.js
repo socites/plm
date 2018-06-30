@@ -14,18 +14,12 @@ module.exports = require('async')(function* (resolve, reject, params) {
         let output = {};
 
         let key = (params.from) ? 'from' : 'to';
+        let field = (params.from) ? 'from_id' : 'to_id';
 
         for (let id of params[key]) {
 
             output[id] = items.reduce(function (count, relation) {
-
-                // Filter container
-                if (relation[key] !== id) {
-                    return count;
-                }
-
-                return (count + 1);
-
+                return (relation[field] !== id) ? count : count + 1;
             }, 0);
 
         }
