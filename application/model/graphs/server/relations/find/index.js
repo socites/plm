@@ -12,6 +12,6 @@ module.exports = require('async')(function* (resolve, reject, params) {
 
         resolve(items.find(item => item.from_id === params.from && item.to_id === params.to));
 
-    }, 2000);
+    }, 1000);
 
 });

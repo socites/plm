@@ -73,28 +73,6 @@ function Relation(id, session) {
 
     };
 
-    this.set = function (from, to) {
-
-        return new Promise(function (resolve) {
-
-            from = (from instanceof Graph) ? from.id : from;
-            to = (to instanceof Graph) ? to.id : to;
-
-            if (typeof from !== 'string' || typeof to !== 'string') {
-                throw new Error('Invalid parameters');
-            }
-
-            let params = {'from': from, 'to': to};
-            let action = new module.Action('/relations/find', params);
-            action.onResponse = function (response) {
-                console.log('relation found', response);
-                resolve();
-            };
-
-            action.execute({'policy': action.POLICY.COMMUNICATION_ERRORS});
-
-        });
-
-    };
+    new RelationSet(this, item);
 
 }

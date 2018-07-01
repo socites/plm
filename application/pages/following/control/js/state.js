@@ -1,6 +1,8 @@
 function updateState(controller, state, properties) {
     "use strict";
 
-    console.log('state', state);
+    state.relation = controller.relation.getters;
+
+    console.log('state', state.relation);
 
 }
