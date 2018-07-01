@@ -1,0 +1,23 @@
+{
+  "page": {
+    "route": "/following",
+    "dependencies": {
+      "controls": [
+        "paper-toolbar",
+        "paper-spinner",
+        "paper-icon-button",
+        "iron-iconset",
+        "iron-icons",
+        "iron-form",
+        "paper-button",
+        "user-following"
+      ]
+    },
+    "js": [
+      "toolbar.js",
+      "page.js"
+    ],
+    "html": "page.html",
+    "less": "styles.less"
+  }
+}

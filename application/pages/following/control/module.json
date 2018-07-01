@@ -1,0 +1,31 @@
+{
+  "type": "control",
+  "id": "user-following",
+  "dependencies": {
+    "controls": [
+      "paper-button"
+    ],
+    "code": {
+      "application/model/graphs/code": "model"
+    }
+  },
+  "methods": [
+    "refresh"
+  ],
+  "properties": {
+    "processing": {
+      "type": "boolean",
+      "notify": true,
+      "readOnly": true
+    }
+  },
+  "js": [
+    "js/controller.js",
+    "js/state.js",
+    "js/actions.js"
+  ],
+  "jsx": {
+    "path": "jsx",
+    "files": "*"
+  }
+}

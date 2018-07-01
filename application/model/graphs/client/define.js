@@ -9,8 +9,9 @@ define(['libraries/plm/main/code'], function (plm) {
     return {
         'ChannelEntries': ChannelEntries,
         'ChannelEntry': ChannelEntry,
-        'GraphsCollection': Graphs,
-        'GraphItem': Graph
+        'Graphs': Graphs,
+        'Graph': Graph,
+        'Relation': Relation
     };
 
 });
