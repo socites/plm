@@ -1,31 +1,80 @@
-module.exports = require('async')(function* (resolve, reject, params, context) {
-    "use strict";
+module.exports = new (function () {
 
-    if (!(params.ids instanceof Array)) {
-        throw new Error('Invalid parameter ids');
-    }
+    let items = new Map();
 
-    let db = require('./db.js');
+    items.set('1', {'id': '1', 'time_updated': 10, 'name': 'Henry'});
+    items.set('2', {'id': '2', 'time_updated': 20, 'name': 'Julio'});
+    items.set('3', {'id': '3', 'time_updated': 30, 'name': 'Juan'});
+    items.set('4', {'id': '4', 'time_updated': 40, 'name': 'Felix'});
 
-    function data() {
+    let tu = 10;
+    setInterval(function () {
+        let item = items.get('1');
+        item.time_updated++;
+        item.name = `Henry ${item.time_updated}`;
+    }, 10000);
 
-        if (!params.ids) {
-            return;
+    Object.defineProperty(this, 'size', {
+        'get': function () {
+            return items.size;
+        }
+    });
+
+    Object.defineProperty(this, 'values', {
+        'get': function () {
+            return items.values();
+        }
+    });
+
+    this.get = function (id) {
+        return items.get(id);
+    };
+
+    this.has = function (id) {
+        return items.has(id);
+    };
+
+    this.insert = function (fields) {
+
+        let id = (items.size + 1).toString();
+
+        let item = {
+            'id': id,
+            'time_updated': tu,
+            'name': fields.name
+        };
+
+        items.set(id, item);
+        return item;
+
+    };
+
+    this.update = function (id, fields) {
+
+        if (!items.has(id)) {
+            throw new Error(`Student "${id}" does not exist`);
         }
 
-        let data = db.select(params.ids);
+        let item = items.get(id);
 
-        let output = {};
-        for (let item of data) {
-            output[item.id] = item;
+        item = Object.assign(item, {
+            'time_updated': tu,
+            'name': fields.name
+        });
+        items.set(id, item);
+
+        return item;
+
+    };
+
+    this.remove = function (id) {
+
+        if (!items.has(id)) {
+            throw new Error(`Student "${id}" does not exist`);
         }
 
-        return output;
+        items.delete(id);
 
-    }
-
-    setTimeout(function () {
-        resolve(data());
-    }, 2000);
+    };
 
 });

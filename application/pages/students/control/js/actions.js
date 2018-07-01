@@ -14,6 +14,15 @@ function Actions(controller, properties) {
         beyond.navigate(`/student/edit/${event.currentTarget.dataset.id}`);
     };
 
+    this.remove = function (event) {
+
+        let index = event.currentTarget.dataset.index;
+        let student = controller.students.items[index];
+
+        student.remove();
+
+    };
+
     this.refresh = function () {
         controller.students.load({'update': true});
     };

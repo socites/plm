@@ -2,9 +2,10 @@
   "server": "./server",
   "code": {
     "js": [
-      "student.js",
-      "students.js",
+      "students/student.js",
+      "students/students.js",
       "auth.js",
+      "register.js",
       "define.js"
     ]
   }

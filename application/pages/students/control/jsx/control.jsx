@@ -50,6 +50,12 @@ exports = module.react.createControl({
                 </paper-button>
             );
 
+            item.push(
+                <paper-button data-index={index} onClick={actions.remove} key="remove">
+                    remove
+                </paper-button>
+            );
+
             list.push(item);
 
         });
