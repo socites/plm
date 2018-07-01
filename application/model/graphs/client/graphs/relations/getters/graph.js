@@ -47,6 +47,9 @@ function GraphRelationGraphGetters(getters, relation, direction) {
 
         initialised = true;
 
+        console.log('graph properties being exposed', graph.properties);
+        window.asd = graph;
+
         // Expose properties of the related graph
         for (let property of graph.properties) {
 
@@ -64,10 +67,13 @@ function GraphRelationGraphGetters(getters, relation, direction) {
 
         relation.unbind('loaded', onRelationLoaded);
 
+        graph = relation[(direction === 'from') ? 'to' : 'from'];
         graph = relation[direction];
         if (!graph) {
             throw new Error(`Relation does not has its "${direction}" property`);
         }
+
+        console.log('graph loaded', graph.loaded);
 
         (graph.loaded) ? initialise() : graph.bind('loaded', initialise);
 

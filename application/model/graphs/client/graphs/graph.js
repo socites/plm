@@ -78,19 +78,37 @@ function Graph(id, session) {
 
     entity.onSet = initialise;
 
-    item.onLoaded = function (data) {
+    // Initialise the graph by setting its entity
+    if (item.loaded) {
 
-        if (!data.entity) {
-            console.error('data.entity not set', data);
-            return false;
-        }
+        // If the graph is already loaded, then set the entity
+        entity.key = item.data.entity;
 
-        entity.key = data.entity;
+    } else {
 
-        // Once the entity is set, it is not required to continue executing this function
-        item.onLoaded = undefined;
+        // Wait for the data to be loaded.
+        // The first load execution of a graph instance is responsible to
+        // initialise the fields (that are required by the base).
+        item.onLoaded = function (data) {
 
-    };
+            if (!data) {
+                entity.key = item.data.entity;
+                return;
+            }
+
+            if (!data.entity) {
+                console.error('data.entity not set', data);
+                return false;
+            }
+
+            entity.key = data.entity;
+
+            // Once the entity is set, it is not required to continue executing this function
+            item.onLoaded = undefined;
+
+        };
+
+    }
 
     this.load = function (specs) {
 
