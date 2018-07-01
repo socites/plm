@@ -3,13 +3,9 @@ function updateState(controller, state, properties) {
 
     let student = controller.student;
 
-    state.fetched = student.fetched;
-    state.student = {
-        'name': student.name
-    };
-
+    state.student = student.getters;
     state.new = controller.new;
-    properties.processing = (!state.new && !student.fetched) || student.fetching || student.publishing;
 
+    properties.processing = student.processing;
 
 }

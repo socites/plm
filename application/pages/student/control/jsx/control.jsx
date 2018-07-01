@@ -11,7 +11,7 @@ exports = module.react.createControl({
         if (!state.new) {
             output.push(
                 <h3 className="page-header" key="header">
-                    {(state.fetched) ? 'Edit form' : 'Loading...'}
+                    {(state.student.fetched) ? 'Edit form' : 'Loading...'}
                 </h3>
             );
         }
@@ -22,7 +22,7 @@ exports = module.react.createControl({
         }
 
 
-        if (state.fetched || state.new) {
+        if (state.student.fetched || state.new) {
             output.push(<react.form key="form" actions={actions} state={state}/>);
         }
 

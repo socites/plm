@@ -15,7 +15,7 @@ exports = React.createClass({
         let state = this.props.state;
 
         let disabled = {};
-        if (state.properties.processing) {
+        if (state.student.processing) {
             disabled.disabled = true;
         }
 
