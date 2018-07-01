@@ -12,8 +12,8 @@ function Controller(change, dependencies, properties, specs) {
 
     relation.bind('change', change);
 
-    // Relation from user with id='1' following user with id='2'
-    relation.set('1', '2').then(function () {
+    // Relation from user with id='1' following user with id='4'
+    relation.set('1', '4').then(function () {
         console.log('relation found');
     });
 

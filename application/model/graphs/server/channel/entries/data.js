@@ -6,14 +6,14 @@ module.exports = new (function () {
         'id': '1',
         'time_updated': 20,
         'comment': 'Share of post "1"',
-        'graph_id': '4'
+        'graph_id': '5'
     });
 
     items.set('2', {
         'id': '2',
         'time_updated': 20,
         'comment': 'Share of post "3"',
-        'graph_id': '5'
+        'graph_id': '6'
     });
 
     Object.defineProperty(this, 'size', {

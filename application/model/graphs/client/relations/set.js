@@ -1,9 +1,14 @@
 function RelationSet(relation, item) {
 
-    let setting;
-    Object.defineProperty(relation, 'setting', {
+    let searching, searched;
+    Object.defineProperty(relation, 'searching', {
         'get': function () {
-            return !!setting;
+            return !!searching;
+        }
+    });
+    Object.defineProperty(relation, 'searched', {
+        'get': function () {
+            return !!searched;
         }
     });
 
@@ -15,11 +20,11 @@ function RelationSet(relation, item) {
             throw new Error('Item already set');
         }
 
-        if (setting) {
+        if (searching) {
             return promise;
         }
 
-        setting = true;
+        searching = true;
         item.triggerChange();
 
         promise = new Promise(function (resolve) {
@@ -36,8 +41,12 @@ function RelationSet(relation, item) {
             action.onResponse = function (response) {
 
                 promise = undefined;
-                setting = false;
-                item.set(response);
+                searching = false;
+                searched = true;
+
+                if (response) {
+                    item.set(response);
+                }
 
                 resolve();
 
@@ -45,7 +54,7 @@ function RelationSet(relation, item) {
             action.onError = function (response) {
 
                 promise = undefined;
-                setting = false;
+                searching = false;
                 item.triggerChange();
 
                 reject(response);
