@@ -38,6 +38,7 @@
     "item/item/events/events.js",
     "item/item/updater.js",
     "item/item/publish.js",
+    "item/item/remove.js",
     "item/item/cache.js",
     "item/item/data/field.js",
     "item/item/data/data.js",
