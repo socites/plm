@@ -42,6 +42,7 @@
     "item/item/data/field.js",
     "item/item/data/data.js",
     "item/item/data/maps.js",
+    "item/item/destroy.js",
     "item/item/base.js",
     "item/item/getters.js",
     "item/item/proxy.js",

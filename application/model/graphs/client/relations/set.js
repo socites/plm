@@ -11,6 +11,10 @@ function RelationSet(relation, item) {
 
     relation.set = function (from, to) {
 
+        if (relation.id) {
+            throw new Error('Item already set');
+        }
+
         if (setting) {
             return promise;
         }
