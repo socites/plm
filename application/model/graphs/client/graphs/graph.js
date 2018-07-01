@@ -79,7 +79,7 @@ function Graph(id, session) {
     entity.onSet = initialise;
 
     // Initialise the graph by setting its entity
-    if (item.loaded) {
+    if (this.loaded) {
 
         // If the graph is already loaded, then set the entity
         entity.key = item.data.entity;

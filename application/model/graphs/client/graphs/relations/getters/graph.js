@@ -18,6 +18,11 @@ function GraphRelationGraphGetters(getters, relation, direction) {
         }
     });
 
+    Object.defineProperty(this, 'id', {
+        'get': function () {
+            return (graph) ? graph.id : undefined;
+        }
+    });
     Object.defineProperty(this, 'fetching', {
         'get': function () {
             return (!initialised) ? false : graph.fetching;
@@ -47,9 +52,6 @@ function GraphRelationGraphGetters(getters, relation, direction) {
 
         initialised = true;
 
-        console.log('graph properties being exposed', graph.properties);
-        window.asd = graph;
-
         // Expose properties of the related graph
         for (let property of graph.properties) {
 
@@ -72,8 +74,6 @@ function GraphRelationGraphGetters(getters, relation, direction) {
         if (!graph) {
             throw new Error(`Relation does not has its "${direction}" property`);
         }
-
-        console.log('graph loaded', graph.loaded);
 
         (graph.loaded) ? initialise() : graph.bind('loaded', initialise);
 

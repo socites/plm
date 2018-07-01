@@ -32,18 +32,17 @@ function GraphRelationGetters(relation, direction) {
         }
     });
 
-    function expose(property) {
+    Object.defineProperty(getters, 'id', {
+        'get': function () {
+            return graph.id;
+        }
+    });
 
-        Object.defineProperty(getters, property, {
-            'get': function () {
-                return relation[property];
-            }
-        });
-
-    }
-
-    expose('id');
-    expose('instanceId');
+    Object.defineProperty(getters, instanceId, {
+        'get': function () {
+            return relation.instanceId;
+        }
+    });
 
     Object.defineProperty(this, 'fetching', {
         'get': function () {
