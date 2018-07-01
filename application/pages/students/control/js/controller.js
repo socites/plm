@@ -3,7 +3,7 @@ function Controller(change, dependencies, properties, specs) {
 
     let model = dependencies.model;
 
-    let students = new model.Students();
+    let students = new model.Students(undefined, 'session.key.default');
     Object.defineProperty(this, 'students', {
         'get': function () {
             return students;

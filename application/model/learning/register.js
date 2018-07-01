@@ -6,7 +6,8 @@ function Register(registries) {
         'actions': {
             'data': 'students/data',
             'tu': 'students/tu',
-            'publish': 'students/publish'
+            'publish': 'students/publish',
+            'remove': 'students/remove'
         },
         'auth': true,
         'cache': 'student'
@@ -21,9 +22,6 @@ function Register(registries) {
         'cache': {
             'key': 'students',
             'max': 30
-        },
-        'unshift': function () {
-            return true;
         }
     });
 
