@@ -12,8 +12,8 @@ function Relation(id, session) {
 
         // Initialise fields and maps
         let maps = {
-            'from': {'source': 'from_id', 'Item': Graph},
-            'to': {'source': 'to_id', 'Item': Graph}
+            'from': {'source': 'from_id', 'Item': Graph, 'immutable': true},
+            'to': {'source': 'to_id', 'Item': Graph, 'immutable': true}
         };
         er.fields.map(function (field) {
             maps[field] = field
