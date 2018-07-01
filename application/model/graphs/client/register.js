@@ -55,7 +55,8 @@ function Register(registries) {
         'actions': {
             'data': 'relations/data',
             'tu': 'relations/tu',
-            'publish': 'relations/publish'
+            'publish': 'relations/publish',
+            'remove': 'relations/remove'
         },
         'auth': true,
         'cache': 'relation'

@@ -9,7 +9,7 @@ function RelationSet(relation, item) {
 
     let promise;
 
-    relation.set = function (from, to) {
+    function set(from, to) {
 
         if (relation.id) {
             throw new Error('Item already set');
@@ -57,6 +57,21 @@ function RelationSet(relation, item) {
         });
 
         return promise;
+
+    }
+
+    relation.set = function (from, to) {
+
+        return new Promise(function (resolve) {
+
+            let metamodel = module.metamodel;
+            metamodel.load()
+                .then(function () {
+                    return set(from, to);
+                })
+                .then(resolve);
+
+        });
 
     };
 
