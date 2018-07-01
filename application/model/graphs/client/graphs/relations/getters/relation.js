@@ -38,7 +38,7 @@ function GraphRelationGetters(relation, direction) {
         }
     });
 
-    Object.defineProperty(getters, instanceId, {
+    Object.defineProperty(getters, 'instanceId', {
         'get': function () {
             return relation.instanceId;
         }

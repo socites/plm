@@ -70,7 +70,6 @@ function GraphRelationGraphGetters(getters, relation, direction) {
         relation.unbind('loaded', onRelationLoaded);
 
         graph = relation[(direction === 'from') ? 'to' : 'from'];
-        graph = relation[direction];
         if (!graph) {
             throw new Error(`Relation does not has its "${direction}" property`);
         }

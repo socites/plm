@@ -58,7 +58,10 @@ function GraphRelation(graph, item, relation, session) {
 
         delete specs.graph;
 
-        specs[key] = (typeof specs[key] === 'undefined') ? true : specs[key];
+        specs.items = (typeof specs.items === 'undefined') ? {} : specs.items;
+        specs.items = (typeof specs.items === 'boolean' && specs.items) ? {} : specs.items;
+
+        specs.items[key] = (typeof specs.items[key] === 'undefined') ? true : specs.items[key];
 
         collection.load(specs);
 
