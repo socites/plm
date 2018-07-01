@@ -14,7 +14,7 @@ function RelationSet(relation, item) {
 
     let promise;
 
-    function set(from, to) {
+    function set(from, to, entityRelation) {
 
         if (relation.id) {
             throw new Error('Item already set');
@@ -45,10 +45,19 @@ function RelationSet(relation, item) {
                 searched = true;
 
                 if (response) {
+
+                    if (response.entity_relation !== entityRelation) {
+                        throw new Error(`Entity relation received from server "${response.entity_relation}" ` +
+                            `is different that the specified "${entityRelation}"`);
+                    }
+
                     item.set(response);
+
+                } else {
+
                 }
 
-                resolve();
+                resolve(!!response);
 
             };
             action.onError = function (response) {
@@ -69,14 +78,14 @@ function RelationSet(relation, item) {
 
     }
 
-    relation.set = function (from, to) {
+    relation.set = function (from, to, entityRelation) {
 
         return new Promise(function (resolve) {
 
             let metamodel = module.metamodel;
             metamodel.load()
                 .then(function () {
-                    return set(from, to);
+                    return set(from, to, entityRelation);
                 })
                 .then(resolve);
 
