@@ -8,6 +8,9 @@ module.exports = function () {
     // List items
     this.list = require('./list');
 
+    // Find a relation with the attributes from and to
+    this.find = require('./find');
+
     // Get count of items
     this.count = require('./count');
 

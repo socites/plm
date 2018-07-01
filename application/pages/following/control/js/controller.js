@@ -4,6 +4,8 @@ function Controller(change, dependencies, properties, specs) {
     let model = dependencies.model;
 
     let relation = new model.Relation();
+    relation.set();
+
     Object.defineProperty(this, 'relation', {
         'get': function () {
             return relation;
