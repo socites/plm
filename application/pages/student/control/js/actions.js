@@ -3,13 +3,30 @@ function Actions(controller, properties) {
 
     this.publish = function () {
 
-        controller.student.publish().then(function () {
+        let student = controller.student;
+        if (!student.isUnpublished) {
+            beyond.showMessage('Item is saved');
+            return;
+        }
+
+        student.publish().then(function () {
             beyond.showMessage('Item has been saved');
         });
 
     };
 
-    this.initialise = function (references) {
+    this.initialise = function (refs) {
+
+        refs.name.addEventListener('change', function (event) {
+
+            if (!controller.ready) {
+                return;
+            }
+
+            let student = controller.student;
+            student.name = event.currentTarget.value;
+
+        });
 
     };
 

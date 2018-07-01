@@ -25,13 +25,9 @@ exports = React.createClass({
             <form key="form" is="iron-form" ref="form">
                 <paper-input
                     {...disabled}
+                    label="Name"
                     ref="name"
                     key="name" value={state.student.name}
-                />
-                <paper-input
-                    {...disabled}
-                    ref="lastName"
-                    key="lastName" value={state.student.lastName}
                 />
                 <paper-button {...disabled} onClick={this.send}>Guardar</paper-button>
             </form>
