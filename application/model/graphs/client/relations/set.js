@@ -55,6 +55,10 @@ function RelationSet(relation, item) {
 
                 } else {
 
+                    relation.entityRelation = entityRelation;
+                    relation.from = from;
+                    relation.to = to;
+
                 }
 
                 resolve(!!response);

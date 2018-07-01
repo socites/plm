@@ -32,7 +32,7 @@ function Relation(id, session) {
             return er.key;
         },
         'set': function (value) {
-            er.set(value);
+            er.key = value;
         }
     });
 
