@@ -6,7 +6,9 @@ exports = React.createClass({
 
         let form = this.refs.form;
         let actions = this.props.actions;
-        actions.addRefs(this.refs);
+
+        actions.initialise(this.refs);
+
         form.addEventListener('iron-form-presubmit', actions.publish);
 
     },
@@ -25,6 +27,11 @@ exports = React.createClass({
                     {...disabled}
                     ref="name"
                     key="name" value={state.student.name}
+                />
+                <paper-input
+                    {...disabled}
+                    ref="lastName"
+                    key="lastName" value={state.student.lastName}
                 />
                 <paper-button {...disabled} onClick={this.send}>Guardar</paper-button>
             </form>
