@@ -1,45 +1,31 @@
-module.exports = (require('async'))(function* (resolve, reject, params) {
+module.exports = require('async')(function* (resolve, reject, params, context) {
+    "use strict";
 
     let data;
-    data = require('../data.js');
+    data = require('./data.js');
 
-    function add() {
+    function publish() {
 
-        let id = items.autoincrement;
+        console.log(params);
 
-        let item = {
-            'id': id,
-            'time_updated': data.tu,
-            'from_id': params.from,
-            'to_id': params.to
-        };
+        try {
 
-        data.items[id] = item;
+            if (params.id) {
+                return data.update(params.id, params);
+            }
+            else {
+                return data.insert(params);
+            }
 
-        return item;
-
-    }
-
-    function update() {
-
-        let id = params.id;
-
-        if (!data[id]) {
-            throw new Error(`Relation "${id}" does not exist.`);
         }
-
-        let item = Object.assign(data.items[id], {
-            'time_updated': data.tu,
-            'is': params.is
-        });
-        data[id] = item;
-
-        return item;
+        catch (exc) {
+            reject(exc);
+        }
 
     }
 
     setTimeout(function () {
-        return (params.id) ? update() : add();
+        resolve(publish());
     }, 1000);
 
 });

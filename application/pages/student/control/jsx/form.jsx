@@ -29,7 +29,7 @@ exports = React.createClass({
                     ref="name"
                     key="name" value={state.student.name}
                 />
-                <paper-button {...disabled} onClick={this.send}>Guardar</paper-button>
+                <paper-button {...disabled} onClick={this.send}>Save</paper-button>
             </form>
         );
 

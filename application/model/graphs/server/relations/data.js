@@ -20,6 +20,11 @@ module.exports = new function () {
         'is': 'contact'
     });
 
+    let tu = 10;
+    setInterval(function () {
+        tu++;
+    }, 1000);
+
     Object.defineProperty(this, 'size', {
         'get': function () {
             return items.size;
@@ -55,11 +60,11 @@ module.exports = new function () {
 
     this.insert = function (fields) {
 
-        if (typeof fields.from !== 'string' || typeof fields.to !== 'string') {
+        if (typeof fields.from_id !== 'string' || typeof fields.to_id !== 'string') {
             throw new Error(`Invalid fields 'from' and/or 'to'`);
         }
 
-        if (find(fields.from, fields.to)) {
+        if (find(fields.from_id, fields.to_id)) {
             throw new Error('Relation already exists');
         }
 
