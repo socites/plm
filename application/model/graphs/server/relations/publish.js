@@ -6,8 +6,6 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
     function publish() {
 
-        console.log(params);
-
         try {
 
             if (params.id) {

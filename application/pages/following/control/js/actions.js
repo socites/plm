@@ -24,6 +24,9 @@ function Actions(controller, properties) {
         // The third parameter is the entity relation id='1'
         relation.set('1', '4', '1').then(function (found) {
             console.log(`Relation ${(found) ? 'has been' : 'not'} found`);
+            if (found) {
+                relation.remove({'session': 'session.key.default'});
+            }
         });
 
     };
