@@ -3,6 +3,8 @@ function Relation(id, session) {
     let Item = module.plm.Item;
     let item = new Item(this, id, session);
 
+    let self = this;
+
     function initialise() {
 
         let fields = er.fields.slice();
@@ -24,9 +26,31 @@ function Relation(id, session) {
             'maps': maps
         });
 
+        // Set the entity relation id to its data field
+        item.data.entity_relation = er.id;
+
+        // Expose entity relation on getters
+        Object.defineProperty(self.getters, 'entityRelation', {
+            'get': function () {
+
+                if (!er.initialised) {
+                    return;
+                }
+
+                return {
+                    'id': er.id,
+                    'version': er.version,
+                    'key': er.key,
+                    'storage': er.storage,
+                    'name': er.name
+                };
+
+            }
+        });
+
     }
 
-    let er = new RelationEntityRelation(this);
+    let er = new RelationEntityRelation();
     Object.defineProperty(this, 'entityRelation', {
         'get': function () {
             return er.key;

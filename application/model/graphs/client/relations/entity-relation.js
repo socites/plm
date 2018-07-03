@@ -1,5 +1,7 @@
 function RelationEntityRelation() {
 
+    let relation;
+
     let initialised;
     Object.defineProperty(this, 'initialised', {
         'get': function () {
@@ -27,7 +29,7 @@ function RelationEntityRelation() {
             throw new Error(`Invalid entity relation "${value}"`);
         }
 
-        let relation = key.find(metamodel.relations);
+        relation = key.find(metamodel.relations);
         if (!relation) {
             throw new Error(`Entity relation "${value}" not found`);
         }
@@ -44,7 +46,7 @@ function RelationEntityRelation() {
     let key;
     Object.defineProperty(this, 'key', {
         'get': function () {
-            return key;
+            return key.value;
         },
         'set': function (value) {
 
@@ -59,6 +61,30 @@ function RelationEntityRelation() {
                 this.onSet();
             }
 
+        }
+    });
+
+    Object.defineProperty(this, 'id', {
+        'get': function () {
+            return key.id;
+        }
+    });
+
+    Object.defineProperty(this, 'version', {
+        'get': function () {
+            return key.version;
+        }
+    });
+
+    Object.defineProperty(this, 'storage', {
+        'get': function () {
+            return relation.storage;
+        }
+    });
+
+    Object.defineProperty(this, 'name', {
+        'get': function () {
+            return relation.name;
         }
     });
 

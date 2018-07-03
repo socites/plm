@@ -41,6 +41,9 @@ function Graph(id, session) {
             'maps': maps
         });
 
+        // Set the entity id to its data field
+        item.data.entity = entity.id;
+
         // Expose entity on getters
         Object.defineProperty(self.getters, 'entity', {
             'get': function () {
@@ -52,7 +55,7 @@ function Graph(id, session) {
                 return {
                     'id': entity.id,
                     'version': entity.version,
-                    'key': entity.key,
+                    'key': entity.key.value,
                     'storage': entity.storage,
                     'name': entity.name
                 };

@@ -60,6 +60,9 @@ module.exports = new function () {
 
     this.insert = function (fields) {
 
+        if (fields.entity_relation !== '1') {
+            throw new Error(`Entity relation "${fields.entity_relation}" is invalid`);
+        }
         if (typeof fields.from_id !== 'string' || typeof fields.to_id !== 'string') {
             throw new Error(`Invalid fields 'from' and/or 'to'`);
         }
@@ -73,10 +76,14 @@ module.exports = new function () {
         let item = {
             'id': id,
             'time_updated': tu,
+            'entity_relation': fields.entity_relation,
+            'from_id': fields.from_id,
+            'to_id': fields.to_id,
             'is': fields.is
         };
 
         items.set(id, item);
+        console.log([...items.values()]);
         return item;
 
     };
