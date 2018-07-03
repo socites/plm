@@ -10,12 +10,8 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
     function remove() {
 
-        if (params.accessToken !== '1234') {
-            throw new Error('User is not allowed to process this action.');
-        }
         if (params.id) {
-            data.remove(params.id, params);
-            return ({'removed': true});
+            return data.remove(params.id, params);
         }
 
     }

@@ -29,6 +29,10 @@ exports = module.react.createControl({
         let list = [];
         state.students.map(function (student, index) {
 
+            if (student.removed) {
+                return;
+            }
+
             let item = [];
             item.push(<div key="data">
                 {(student.id) ? student.id : 'unpublished'}
@@ -38,25 +42,13 @@ exports = module.react.createControl({
                 {(student.timeUpdated) ? ' ' + student.timeUpdated : ''}
             </div>);
 
-            item.push(
-                <paper-button data-index={index} onClick={actions.update} key="update">
-                    update
-                </paper-button>
-            );
+            if (student.removing) {
+                item.push(<div key="removing" className="removing">Item is being removed</div>);
+            } else {
+                item.push(<react.actions key="actions" index={index} actions={actions} student={student}/>);
+            }
 
-            item.push(
-                <paper-button data-id={student.id} onClick={actions.edit} key="edit">
-                    edit
-                </paper-button>
-            );
-
-            item.push(
-                <paper-button data-index={index} onClick={actions.remove} key="remove">
-                    remove
-                </paper-button>
-            );
-
-            list.push(item);
+            list.push(<div key={student.id} className="item">{item}</div>);
 
         });
 

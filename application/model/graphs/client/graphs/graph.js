@@ -9,6 +9,9 @@ function Graph(id, session) {
 
         let fields = entity.fields.slice();
         fields.unshift('entity');
+        fields.unshift('enabled');
+        fields.unshift('authorized');
+        fields.unshift('featured');
 
         // Initialise fields and maps
         let maps = {};

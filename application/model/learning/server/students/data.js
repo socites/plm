@@ -9,9 +9,13 @@ module.exports = new (function () {
 
     let tu = 10;
     setInterval(function () {
+
         let item = items.get('1');
+        if (!item) return;
+
         item.time_updated++;
         item.name = `Henry ${item.time_updated}`;
+
     }, 10000);
 
     Object.defineProperty(this, 'size', {

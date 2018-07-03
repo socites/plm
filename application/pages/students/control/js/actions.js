@@ -19,7 +19,7 @@ function Actions(controller, properties) {
         let index = event.currentTarget.dataset.index;
         let student = controller.students.items[index];
 
-        student.remove();
+        student.remove({'session': 'session.key.default'});
 
     };
 

@@ -12,5 +12,6 @@ module.exports = function () {
     this.count = require('./count');
 
     this.publish = require('./publish.js');
+    this.remove = require('./remove.js');
 
 };

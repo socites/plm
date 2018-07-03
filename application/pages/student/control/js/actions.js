@@ -9,7 +9,7 @@ function Actions(controller, properties) {
             return;
         }
 
-        student.publish().then(function () {
+        student.publish({'session': 'session.key.default'}).then(function () {
             beyond.showMessage('Item has been saved');
         });
 

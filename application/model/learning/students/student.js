@@ -4,10 +4,11 @@ function Student(id, session) {
     let item = new Item(this, id, session);
 
     item.initialise({
-        'fields': ['time_updated', 'name'],
+        'fields': ['time_updated', 'name', 'removed'],
         'maps': {
             'timeUpdated': {'source': 'time_updated', 'readOnly': true},
-            'name': 'name'
+            'name': 'name',
+            'removed': 'removed'
         }
     });
 
