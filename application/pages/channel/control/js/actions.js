@@ -1,12 +1,12 @@
 function Actions(controller, properties) {
-    "use strict";
+    'use strict';
 
     this.update = function (event) {
 
         let index = event.currentTarget.dataset.index;
         let student = controller.students.items[index];
 
-        student.update();
+        if (student.id) student.update();
 
     };
 
