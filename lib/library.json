@@ -7,5 +7,6 @@
       "path": "./"
     }
   },
+  "connect": false,
   "npm": "./npm/npm.json"
 }
