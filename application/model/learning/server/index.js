@@ -1,5 +1,4 @@
-qmodule.exports = function () {
-    "use strict";
+module.exports = function () {
 
     this.students = new (require('./students'))();
 

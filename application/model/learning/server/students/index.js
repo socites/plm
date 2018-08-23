@@ -1,5 +1,4 @@
 module.exports = function () {
-    "use strict";
 
     // Get items by id
     this.tu = require('./get/tu.js');
