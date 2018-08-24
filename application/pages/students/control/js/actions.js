@@ -24,7 +24,7 @@
     };
 
     this.refresh = function () {
-        controller.students.load({'update': true});
+        controller.students.load({'items': true, 'update': true});
     };
 
     this.add = function () {
