@@ -3,7 +3,7 @@ function Controller(change, dependencies, properties, specs) {
 
     let model = dependencies.model;
 
-    let students = new model.Students({'limit': 5}, 'session.key.default');
+    let students = new model.Students({'attributes':{'limit': 5}}, 'session.key.default');
     Object.defineProperty(this, 'students', {
         'get': function () {
             return students;
