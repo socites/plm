@@ -6,6 +6,18 @@ module.exports = new (function () {
     items.set('2', {'id': '2', 'time_updated': 20, 'name': 'Julio'});
     items.set('3', {'id': '3', 'time_updated': 30, 'name': 'Juan'});
     items.set('4', {'id': '4', 'time_updated': 40, 'name': 'Felix'});
+    items.set('5', {'id': '5', 'time_updated': 10, 'name': 'Henry'});
+    items.set('6', {'id': '6', 'time_updated': 20, 'name': 'Julio'});
+    items.set('7', {'id': '7', 'time_updated': 30, 'name': 'Juan'});
+    items.set('8', {'id': '8', 'time_updated': 40, 'name': 'Felix'});
+    items.set('9', {'id': '9', 'time_updated': 10, 'name': 'Henry'});
+    items.set('10', {'id': '10', 'time_updated': 20, 'name': 'Julio'});
+    items.set('11', {'id': '11', 'time_updated': 30, 'name': 'Juan'});
+    items.set('12', {'id': '12', 'time_updated': 40, 'name': 'Felix'});
+    items.set('13', {'id': '13', 'time_updated': 10, 'name': 'Henry'});
+    items.set('14', {'id': '14', 'time_updated': 20, 'name': 'Julio'});
+    items.set('15', {'id': '15', 'time_updated': 30, 'name': 'Juan'});
+    items.set('16', {'id': '16', 'time_updated': 40, 'name': 'Felix'});
 
     let tu = 10;
     setInterval(function () {
