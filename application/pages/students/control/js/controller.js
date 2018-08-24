@@ -15,7 +15,7 @@ function Controller(change, dependencies, properties, specs) {
 
     console.log(students);
 
-    students.load({'update': true, 'limit': 5, 'offset': 0});
+    students.load({'update': true});
 
     Object.defineProperty(this, 'ready', {
         'get': function () {
