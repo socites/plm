@@ -3,7 +3,7 @@ function Controller(change, dependencies, properties, specs) {
 
     let model = dependencies.model;
 
-    let students = new model.Students(undefined, 'session.key.default');
+    let students = new model.Students({'limit': 5}, 'session.key.default');
     Object.defineProperty(this, 'students', {
         'get': function () {
             return students;
@@ -12,7 +12,10 @@ function Controller(change, dependencies, properties, specs) {
     students.bind('change', change);
 
     // Load from cache, and update the collection.
-    students.load({'update': true});
+
+    console.log(students);
+
+    students.load({'update': true, 'limit': 5, 'offset': 0});
 
     Object.defineProperty(this, 'ready', {
         'get': function () {

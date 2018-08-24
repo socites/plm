@@ -1,4 +1,4 @@
-function Actions(controller, properties) {
+    function Actions(controller, properties) {
     'use strict';
 
     this.update = function (event) {
