@@ -6,7 +6,7 @@
     "application/"
   ],
   "dependencies": {
-    "beyond": "^0.2.48",
+    "beyond": "^0.2.53",
     "npm": "^5.10.0"
   },
   "engines": {
