@@ -1,14 +1,10 @@
 function Controller(change, dependencies, properties, specs) {
-    "use strict";
+    'use strict';
 
     let model = dependencies.model;
 
-    let students = new model.Students({'attributes':{'limit': 5}}, 'session.key.default');
-    Object.defineProperty(this, 'students', {
-        'get': function () {
-            return students;
-        }
-    });
+    let students = new model.Students({'attributes': {'limit': 5}}, 'session.key.default');
+    Object.defineProperty(this, 'students', {'get': () => students});
     students.bind('change', change);
 
     // Load from cache, and update the collection.
@@ -17,10 +13,6 @@ function Controller(change, dependencies, properties, specs) {
 
     students.load({'update': true});
 
-    Object.defineProperty(this, 'ready', {
-        'get': function () {
-            return true;
-        }
-    });
+    Object.defineProperty(this, 'ready', {'get': () => true});
 
 }
