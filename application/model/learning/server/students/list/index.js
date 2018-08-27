@@ -23,7 +23,7 @@ module.exports = require('async')(function* (resolve, reject, params) {
 
         console.log(next);
 
-        resolve({'records': records});
+        resolve({'records': records, "next": next});
 
     }, 1000);
 

@@ -27,6 +27,10 @@
         controller.students.load({'items': true, 'update': true});
     };
 
+    this.fetchMore = function () {
+        controller.students.load({'items': true, 'update': false});
+    };
+
     this.add = function () {
         beyond.navigate('/student/edit/new');
     };

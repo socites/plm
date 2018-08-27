@@ -52,6 +52,29 @@ exports = module.react.createControl({
 
         });
 
+        if (state.more) {
+
+            output.push(
+                <footer key="footer" className="container">
+                    <div className="row">
+                        <div className="footer col-xs-12 col-sm-push-3 col-sm-6 col-md-push-3 col-md-6">
+                            {(state.properties.fetching) ?
+                                <paper-spinner secondary class="secondary" active/>
+                                :
+                                <paper-button
+                                    raised
+                                    onClick={actions.fetchMore}
+                                    className="primary load-more">
+                                    Load more
+                                </paper-button>
+                            }
+                        </div>
+                    </div>
+                </footer>
+            );
+
+        }
+
         output.push(list);
 
         return (
