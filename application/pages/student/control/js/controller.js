@@ -1,26 +1,14 @@
 function Controller(change, dependencies, properties, specs) {
-    "use strict";
+    'use strict';
 
     let model = dependencies.model;
 
     let student;
     let newStudent = false;
-    Object.defineProperty(this, 'new', {
-        'get': function () {
-            return newStudent;
-        }
-    });
-    Object.defineProperty(this, 'student', {
-        'get': function () {
-            return student;
-        }
-    });
+    Object.defineProperty(this, 'new', {'get': () => newStudent});
+    Object.defineProperty(this, 'student', {'get': () => student});
 
-    Object.defineProperty(this, 'ready', {
-        'get': function () {
-            return !!student || newStudent;
-        }
-    });
+    Object.defineProperty(this, 'ready', {'get': () => !!student || newStudent});
 
     this.update = function () {
 
@@ -41,7 +29,7 @@ function Controller(change, dependencies, properties, specs) {
             return;
         }
 
-        if (properties.studentId === "new") {
+        if (properties.studentId === 'new') {
             newStudent = true;
             properties.studentId = undefined;
         }

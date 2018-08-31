@@ -13,12 +13,8 @@ function Toolbar($container) {
     control.addEventListener('processing-changed', update);
     update();
 
-    refresh.addEventListener('click', function () {
-        control.refresh();
-    });
+    refresh.addEventListener('click', () => control.refresh());
 
-    back.addEventListener('click', function () {
-        beyond.back();
-    });
+    back.addEventListener('click', () => beyond.back());
 
 }

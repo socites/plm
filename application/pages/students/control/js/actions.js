@@ -10,9 +10,7 @@ function Actions(controller, properties) {
 
     };
 
-    this.edit = function (event) {
-        beyond.navigate(`/student/edit/${event.currentTarget.dataset.id}`);
-    };
+    this.edit = (event) => beyond.navigate(`/student/edit/${event.currentTarget.dataset.id}`);
 
     this.remove = function (event) {
 
@@ -23,12 +21,8 @@ function Actions(controller, properties) {
 
     };
 
-    this.refresh = function () {
-        controller.students.load({'update': true});
-    };
+    this.refresh = () => controller.students.load({'update': true});
 
-    this.add = function () {
-        beyond.navigate('/student/edit/new');
-    };
+    this.add = () => beyond.navigate('/student/edit/new');
 
 }

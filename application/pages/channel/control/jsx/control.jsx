@@ -1,6 +1,6 @@
 exports = module.react.createControl({
     'render': function (state, actions) {
-        "use strict";
+        'use strict';
 
         if (!state.ready) {
             return null;

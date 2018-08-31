@@ -1,14 +1,10 @@
 function Controller(change, dependencies, properties, specs) {
-    "use strict";
+    'use strict';
 
     let model = dependencies.model;
 
     let channel = new model.ChannelEntries();
-    Object.defineProperty(this, 'channel', {
-        'get': function () {
-            return channel;
-        }
-    });
+    Object.defineProperty(this, 'channel', {'get': () => channel});
 
     channel.bind('change', change);
     channel.load({
@@ -22,10 +18,6 @@ function Controller(change, dependencies, properties, specs) {
         }
     });
 
-    Object.defineProperty(this, 'ready', {
-        'get': function () {
-            return true;
-        }
-    });
+    Object.defineProperty(this, 'ready', {'get': () => true});
 
 }
