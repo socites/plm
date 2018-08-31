@@ -1,0 +1,13 @@
+{
+  "version": "0.1",
+  "static": [
+    "./index.html",
+    "./vendor"
+  ],
+  "imports": {
+    "libraries": [
+      "graphs/v1"
+    ]
+  },
+  "params": {}
+}

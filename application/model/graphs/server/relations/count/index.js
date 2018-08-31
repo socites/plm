@@ -1,5 +1,4 @@
 module.exports = require('async')(function* (resolve, reject, params) {
-    "use strict";
 
     if (!params.from && !params.to) {
         throw new Error('Invalid parameters');

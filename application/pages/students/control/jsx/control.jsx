@@ -1,6 +1,5 @@
 exports = module.react.createControl({
     'render': function (state, actions) {
-        "use strict";
 
         if (!state.ready) {
             return null;
@@ -54,9 +53,7 @@ exports = module.react.createControl({
 
         output.push(list);
 
-        return (
-            <div>{output}</div>
-        );
+        return <div>{output}</div>;
 
     }
 });

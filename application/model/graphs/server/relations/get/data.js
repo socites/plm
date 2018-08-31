@@ -1,5 +1,4 @@
 module.exports = require('async')(function* (resolve, reject, params) {
-    "use strict";
 
     if (!(params.ids instanceof Array)) {
         throw new Error('Invalid parameter ids');

@@ -1,5 +1,4 @@
 function Page($container, vdir) {
-    "use strict";
 
     let texts = {'title': 'User following'};
     let $page = $(module.render('page', texts));

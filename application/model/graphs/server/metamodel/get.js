@@ -1,5 +1,4 @@
 module.exports = require('async')(function* (resolve) {
-    "use strict";
 
     function result() {
         return {
@@ -87,8 +86,6 @@ module.exports = require('async')(function* (resolve) {
         };
     }
 
-    setTimeout(function () {
-        resolve(result());
-    }, 1000);
+    setTimeout(() => resolve(result()), 1000);
 
 });

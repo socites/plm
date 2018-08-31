@@ -1,0 +1,12 @@
+{
+  "start": {
+    "js": "routing.js"
+  },
+  "code": {
+    "js": "cases/test.js"
+  },
+  "page": {
+    "route": "/tests",
+    "js": "page.js"
+  }
+}

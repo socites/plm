@@ -1,6 +1,5 @@
 exports = module.react.createControl({
     'render': function (state, actions) {
-        "use strict";
 
         if (!state.ready) {
             return null;
@@ -12,9 +11,7 @@ exports = module.react.createControl({
         output.push(<paper-button key="add" onClick={actions.add}>Add</paper-button>);
         output.push(<paper-button key="remove" onClick={actions.remove}>Remove</paper-button>);
 
-        return (
-            <div>{output}</div>
-        );
+        return <div>{output}</div>;
 
     }
 });

@@ -1,5 +1,4 @@
 module.exports = function () {
-    "use strict";
 
     this.metamodel = new (require('./metamodel'))();
 

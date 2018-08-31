@@ -1,5 +1,4 @@
 module.exports = require('async')(function* (resolve, reject, params) {
-    "use strict";
 
     let data;
     data = require('../data.js');

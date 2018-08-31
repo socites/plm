@@ -1,5 +1,4 @@
 function Page($container, vdir) {
-    "use strict";
 
     let texts = {'title': 'Student edit'};
     let $page = $(module.render('page', texts));

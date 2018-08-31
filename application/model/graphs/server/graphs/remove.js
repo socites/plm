@@ -1,5 +1,4 @@
 module.exports = require('async')(function* (resolve, reject, params, context) {
-    "use strict";
 
     let data;
     data = require('./data.js');
@@ -16,8 +15,6 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
     }
 
-    setTimeout(function () {
-        resolve(remove(params));
-    }, 1000);
+    setTimeout(() => resolve(remove(params)), 1000);
 
 });

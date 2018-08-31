@@ -1,0 +1,40 @@
+{
+  "ports": {
+    "http": 3010,
+    "rpc": 3011
+  },
+  "paths": {
+    "code": "./"
+  },
+  "types": [
+    "../node_modules/beyond/types"
+  ],
+  "applications": {
+    "tests": "./application.json"
+  },
+  "libraries": {
+    "plm": "../lib/library.json"
+  },
+  "defaults": {
+    "application": "tests",
+    "language": "spa"
+  },
+  "services": {
+    "common": {
+      "logs": {
+        "store": "files",
+        "calls": "./logs/calls.log",
+        "errors": "./logs/errors.log"
+      }
+    },
+    "common.": {
+      "logs": {
+        "store": "db",
+        "host": "localhost",
+        "user": "nodejs",
+        "password": "NodeJS21",
+        "database": "graphs_logs"
+      }
+    }
+  }
+}

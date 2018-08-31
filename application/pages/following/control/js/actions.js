@@ -1,5 +1,4 @@
 function Actions(controller, properties) {
-    "use strict";
 
     // Add relation
     this.add = function () {

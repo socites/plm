@@ -1,5 +1,4 @@
 module.exports = require('async')(function* (resolve, reject, params, context) {
-    "use strict";
 
     let data;
     data = require('./data.js');
@@ -19,8 +18,6 @@ module.exports = require('async')(function* (resolve, reject, params, context) {
 
     }
 
-    setTimeout(function () {
-        resolve(publish());
-    }, 1000);
+    setTimeout(() => publish(), 1000);
 
 });

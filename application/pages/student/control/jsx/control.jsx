@@ -1,6 +1,5 @@
 exports = module.react.createControl({
     'render': function (state, actions) {
-        "use strict";
 
         if (!state.ready) {
             return null;
@@ -26,9 +25,7 @@ exports = module.react.createControl({
             output.push(<react.form key="form" actions={actions} state={state}/>);
         }
 
-        return (
-            <div>{output}</div>
-        );
+        return <div>{output}</div>;
 
     }
 });

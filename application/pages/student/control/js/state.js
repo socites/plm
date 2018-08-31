@@ -1,5 +1,4 @@
 function updateState(controller, state, properties) {
-    "use strict";
 
     let student = controller.student;
 
