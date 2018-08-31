@@ -9,18 +9,10 @@
  */
 function GraphRelation(graph, item, relation, session) {
 
-    Object.defineProperty(this, 'name', {
-        'get': function () {
-            return relation.name;
-        }
-    });
+    Object.defineProperty(this, 'name', {'get': () => relation.name});
 
     let collection;
-    Object.defineProperty(this, 'collection', {
-        'get': function () {
-            return collection;
-        }
-    });
+    Object.defineProperty(this, 'collection', {'get': () => collection});
 
     // Create relation collection
     let attributes = {'entityRelationId': relation.id};
@@ -31,19 +23,11 @@ function GraphRelation(graph, item, relation, session) {
     collection.bind('change', item.triggerChange);
 
     // Expose child collection
-    Object.defineProperty(graph, relation.name, {
-        'get': function () {
-            return collection;
-        }
-    });
+    Object.defineProperty(graph, relation.name, {'get': () => collection});
 
     // Expose child getters
     let getters = new GraphRelationsGetters(collection, relation.direction);
-    Object.defineProperty(graph.getters, relation.name, {
-        'get': function () {
-            return getters.value;
-        }
-    });
+    Object.defineProperty(graph.getters, relation.name, {'get': () => getters.value});
 
     /**
      * Progressive loading of the items of the collection.

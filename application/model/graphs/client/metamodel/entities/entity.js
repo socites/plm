@@ -8,11 +8,7 @@
 function Entity(entity, metamodel) {
 
     let valid = true;
-    Object.defineProperty(this, 'valid', {
-        'get': function () {
-            return valid;
-        }
-    });
+    Object.defineProperty(this, 'valid', {'get': () => valid});
 
     if (!entity || !entity.id || !entity.name || !entity.versions) {
         console.error('Invalid entity definition', entity);
@@ -20,37 +16,15 @@ function Entity(entity, metamodel) {
         return;
     }
 
-    Object.defineProperty(this, 'id', {
-        'get': function () {
-            return entity.id;
-        }
-    });
-
-    Object.defineProperty(this, 'name', {
-        'get': function () {
-            return entity.name;
-        }
-    });
-
-    Object.defineProperty(this, 'storage', {
-        'get': function () {
-            return (!entity.storage) ? 'social-graphs' : entity.storage;
-        }
-    });
+    Object.defineProperty(this, 'id', {'get': () => entity.id});
+    Object.defineProperty(this, 'name', {'get': () => entity.name});
+    Object.defineProperty(this, 'storage', {'get': () => !entity.storage ? 'social-graphs' : entity.storage});
 
     let versions = new Versions(entity.versions);
-    Object.defineProperty(this, 'versions', {
-        'get': function () {
-            return versions;
-        }
-    });
+    Object.defineProperty(this, 'versions', {'get': () => versions});
 
     let children = new Map();
-    Object.defineProperty(this, 'children', {
-        'get': function () {
-            return children;
-        }
-    });
+    Object.defineProperty(this, 'children', {'get': () => children});
 
     // Process children
     metamodel.entities.map(function (child) {
@@ -69,11 +43,7 @@ function Entity(entity, metamodel) {
     });
 
     let relations = new Map();
-    Object.defineProperty(this, 'relations', {
-        'get': function () {
-            return relations;
-        }
-    });
+    Object.defineProperty(this, 'relations', {'get': () => relations});
 
     // Process relations
     metamodel.relations.map(function (relation) {

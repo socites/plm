@@ -71,12 +71,8 @@ function Graph(id, session) {
 
     let entity = new GraphEntity();
     Object.defineProperty(this, 'entity', {
-        'get': function () {
-            return entity.key;
-        },
-        'set': function (value) {
-            entity.set(value);
-        }
+        'get': () => entity.key,
+        'set': value => entity.set(value)
     });
 
     let children = new GraphChildren(this, item, entity, session);

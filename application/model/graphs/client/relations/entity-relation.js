@@ -3,18 +3,10 @@ function RelationEntityRelation() {
     let relation;
 
     let initialised;
-    Object.defineProperty(this, 'initialised', {
-        'get': function () {
-            return !!initialised;
-        }
-    });
+    Object.defineProperty(this, 'initialised', {'get': () => !!initialised});
 
     let fields;
-    Object.defineProperty(this, 'fields', {
-        'get': function () {
-            return fields;
-        }
-    });
+    Object.defineProperty(this, 'fields', {'get': () => fields});
 
     let metamodel = module.metamodel;
 
@@ -64,28 +56,9 @@ function RelationEntityRelation() {
         }
     });
 
-    Object.defineProperty(this, 'id', {
-        'get': function () {
-            return key.id;
-        }
-    });
-
-    Object.defineProperty(this, 'version', {
-        'get': function () {
-            return key.version;
-        }
-    });
-
-    Object.defineProperty(this, 'storage', {
-        'get': function () {
-            return relation.storage;
-        }
-    });
-
-    Object.defineProperty(this, 'name', {
-        'get': function () {
-            return relation.name;
-        }
-    });
+    Object.defineProperty(this, 'id', {'get': () => key.id});
+    Object.defineProperty(this, 'version', {'get': () => key.version});
+    Object.defineProperty(this, 'storage', {'get': () => relation.storage});
+    Object.defineProperty(this, 'name', {'get': () => relation.name});
 
 }

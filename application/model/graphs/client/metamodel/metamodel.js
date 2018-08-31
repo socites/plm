@@ -1,24 +1,13 @@
 function Metamodel() {
 
     let entities = new Entities();
-    Object.defineProperty(this, 'entities', {
-        'get': function () {
-            return entities;
-        }
-    });
+    Object.defineProperty(this, 'entities', {'get': () => entities});
+
     let relations = new EntitiesRelations();
-    Object.defineProperty(this, 'relations', {
-        'get': function () {
-            return relations;
-        }
-    });
+    Object.defineProperty(this, 'relations', {'get': () => relations});
 
     let loaded;
-    Object.defineProperty(this, 'loaded', {
-        'get': function () {
-            return !!loaded;
-        }
-    });
+    Object.defineProperty(this, 'loaded', {'get': () => !!loaded});
 
     let promise;
 

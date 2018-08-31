@@ -8,18 +8,10 @@
 function GraphRelationGetters(relation, direction) {
 
     let getters = {};
-    Object.defineProperty(this, 'value', {
-        'get': function () {
-            return getters;
-        }
-    });
+    Object.defineProperty(this, 'value', {'get': () => getters});
 
     let initialised;
-    Object.defineProperty(getters, 'initialised', {
-        'get': function () {
-            return !!initialised && !!graph.initialised;
-        }
-    });
+    Object.defineProperty(getters, 'initialised', {'get': () => !!initialised && !!graph.initialised});
 
     let graph = new GraphRelationGraphGetters(getters, relation, direction);
 
@@ -32,33 +24,13 @@ function GraphRelationGetters(relation, direction) {
         }
     });
 
-    Object.defineProperty(getters, 'id', {
-        'get': function () {
-            return graph.id;
-        }
-    });
+    Object.defineProperty(getters, 'id', {'get': () => graph.id});
 
-    Object.defineProperty(getters, 'instanceId', {
-        'get': function () {
-            return relation.instanceId;
-        }
-    });
+    Object.defineProperty(getters, 'instanceId', {'get': () => relation.instanceId});
 
-    Object.defineProperty(this, 'fetching', {
-        'get': function () {
-            return relation.fetching || graph.fetching;
-        }
-    });
-    Object.defineProperty(this, 'fetched', {
-        'get': function () {
-            return relation.fetched && graph.fetched;
-        }
-    });
-    Object.defineProperty(this, 'loaded', {
-        'get': function () {
-            return relation.loaded && graph.loaded;
-        }
-    });
+    Object.defineProperty(this, 'fetching', {'get': () => relation.fetching || graph.fetching});
+    Object.defineProperty(this, 'fetched', {'get': () => relation.fetched && graph.fetched});
+    Object.defineProperty(this, 'loaded', {'get': () => relation.loaded && graph.loaded});
 
     /**
      * The relation getters can be initialised once the relation is loaded.

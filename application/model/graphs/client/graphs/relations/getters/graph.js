@@ -12,32 +12,12 @@ function GraphRelationGraphGetters(getters, relation, direction) {
     let graph;
 
     let initialised;
-    Object.defineProperty(this, 'initialised', {
-        'get': function () {
-            return !!initialised;
-        }
-    });
+    Object.defineProperty(this, 'initialised', {'get': () => !!initialised});
 
-    Object.defineProperty(this, 'id', {
-        'get': function () {
-            return (graph) ? graph.id : undefined;
-        }
-    });
-    Object.defineProperty(this, 'fetching', {
-        'get': function () {
-            return (!initialised) ? false : graph.fetching;
-        }
-    });
-    Object.defineProperty(this, 'fetched', {
-        'get': function () {
-            return (!initialised) ? false : graph.fetched;
-        }
-    });
-    Object.defineProperty(this, 'loaded', {
-        'get': function () {
-            return (!initialised) ? false : graph.loaded;
-        }
-    });
+    Object.defineProperty(this, 'id', {'get': () => graph ? graph.id : undefined});
+    Object.defineProperty(this, 'fetching', {'get': () => !initialised ? false : graph.fetching});
+    Object.defineProperty(this, 'fetched', {'get': () => !initialised ? false : graph.fetched});
+    Object.defineProperty(this, 'loaded', {'get': () => !initialised ? false : graph.loaded});
 
     /**
      * The relation graph getters can be initialised once the graph is loaded.

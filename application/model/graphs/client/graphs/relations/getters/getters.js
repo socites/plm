@@ -9,24 +9,12 @@ function GraphRelationsGetters(collection, direction) {
 
     let getters = {};
 
-    function expose(property) {
-
-        Object.defineProperty(getters, property, {
-            'get': function () {
-                return collection[property];
-            }
-        });
-
-    }
+    let expose = property => Object.defineProperty(getters, property, {'get': () => collection[property]});
 
     expose('fetching');
     expose('fetched');
 
-    Object.defineProperty(getters, 'counter', {
-        'get': function () {
-            return collection.getters.counter;
-        }
-    });
+    Object.defineProperty(getters, 'counter', {'get': () => collection.getters.counter});
 
     Object.defineProperty(getters, 'items', {
         'get': function () {
@@ -45,10 +33,6 @@ function GraphRelationsGetters(collection, direction) {
         }
     });
 
-    Object.defineProperty(this, 'value', {
-        'get': function () {
-            return getters;
-        }
-    });
+    Object.defineProperty(this, 'value', {'get': () => getters});
 
 }

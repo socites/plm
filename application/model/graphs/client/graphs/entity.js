@@ -3,32 +3,12 @@ function GraphEntity() {
     let entity;
 
     let initialised;
-    Object.defineProperty(this, 'initialised', {
-        'get': function () {
-            return !!initialised;
-        }
-    });
+    Object.defineProperty(this, 'initialised', {'get': () => !!initialised});
 
-    let fields;
-    Object.defineProperty(this, 'fields', {
-        'get': function () {
-            return fields;
-        }
-    });
-
-    let children;
-    Object.defineProperty(this, 'children', {
-        'get': function () {
-            return children;
-        }
-    });
-
-    let relations;
-    Object.defineProperty(this, 'relations', {
-        'get': function () {
-            return relations;
-        }
-    });
+    let fields, children, relations;
+    Object.defineProperty(this, 'fields', {'get': () => fields});
+    Object.defineProperty(this, 'children', {'get': () => children});
+    Object.defineProperty(this, 'relations', {'get': () => relations});
 
     let metamodel = module.metamodel;
 
@@ -80,28 +60,9 @@ function GraphEntity() {
         }
     });
 
-    Object.defineProperty(this, 'id', {
-        'get': function () {
-            return key.id;
-        }
-    });
-
-    Object.defineProperty(this, 'version', {
-        'get': function () {
-            return key.version;
-        }
-    });
-
-    Object.defineProperty(this, 'storage', {
-        'get': function () {
-            return entity.storage;
-        }
-    });
-
-    Object.defineProperty(this, 'name', {
-        'get': function () {
-            return entity.name;
-        }
-    });
+    Object.defineProperty(this, 'id', {'get': () => key.id});
+    Object.defineProperty(this, 'version', {'get': () => key.version});
+    Object.defineProperty(this, 'storage', {'get': () => entity.storage});
+    Object.defineProperty(this, 'name', {'get': () => entity.name});
 
 }

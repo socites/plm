@@ -1,11 +1,7 @@
 function Entities() {
 
     let entities;
-    Object.defineProperty(this, 'entities', {
-        'get': function () {
-            return entities;
-        }
-    });
+    Object.defineProperty(this, 'entities', {'get': () => entities});
 
     this.set = function (data) {
 
@@ -21,12 +17,7 @@ function Entities() {
 
     };
 
-    this.has = function (id) {
-        return (entities) ? entities.has(id) : undefined;
-    };
-
-    this.get = function (id) {
-        return (entities) ? entities.get(id) : undefined;
-    };
+    this.has = id => entities ? entities.has(id) : undefined;
+    this.get = id => entities ? entities.get(id) : undefined;
 
 }

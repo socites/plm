@@ -2,39 +2,15 @@ function MetamodelKey(value) {
 
     let key = value.split('.');
 
-    Object.defineProperty(this, 'value', {
-        'get': function () {
-            return value;
-        }
-    });
+    Object.defineProperty(this, 'value', {'get': () => value});
 
     let id, storage, name, version;
-    Object.defineProperty(this, 'id', {
-        'get': function () {
-            return id;
-        }
-    });
-    Object.defineProperty(this, 'storage', {
-        'get': function () {
-            return storage;
-        }
-    });
-    Object.defineProperty(this, 'name', {
-        'get': function () {
-            return name;
-        }
-    });
-    Object.defineProperty(this, 'version', {
-        'get': function () {
-            return version;
-        }
-    });
+    Object.defineProperty(this, 'id', {'get': () => id});
+    Object.defineProperty(this, 'storage', {'get': () => storage});
+    Object.defineProperty(this, 'name', {'get': () => name});
+    Object.defineProperty(this, 'version', {'get': () => version});
 
-    Object.defineProperty(this, 'valid', {
-        'get': function () {
-            return !!((id || (storage && name)) && version);
-        }
-    });
+    Object.defineProperty(this, 'valid', {'get': () => !!((id || (storage && name)) && version)});
 
     if (key.length === 3) {
 

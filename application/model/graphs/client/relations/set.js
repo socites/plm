@@ -1,16 +1,8 @@
 function RelationSet(relation, item) {
 
     let searching, searched;
-    Object.defineProperty(relation, 'searching', {
-        'get': function () {
-            return !!searching;
-        }
-    });
-    Object.defineProperty(relation, 'searched', {
-        'get': function () {
-            return !!searched;
-        }
-    });
+    Object.defineProperty(relation, 'searching', {'get': () => !!searching});
+    Object.defineProperty(relation, 'searched', {'get': () => !!searched});
 
     let promise;
 

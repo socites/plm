@@ -1,23 +1,11 @@
 function Versions(data) {
 
     let versions = new Map();
-    Object.defineProperty(this, 'keys', {
-        'get': function () {
-            return versions.keys();
-        }
-    });
-    Object.defineProperty(this, 'values', {
-        'get': function () {
-            return versions.values();
-        }
-    });
+    Object.defineProperty(this, 'keys', {'get': () => versions.keys()});
+    Object.defineProperty(this, 'values', {'get': () => versions.values()});
 
     let highest;
-    Object.defineProperty(this, 'highest', {
-        'get': function () {
-            return versions.get(highest);
-        }
-    });
+    Object.defineProperty(this, 'highest', {'get': () => versions.get(highest)});
 
     this.get = function (value) {
 
@@ -29,9 +17,7 @@ function Versions(data) {
 
     };
 
-    this.has = function (id) {
-        return versions.has(id);
-    };
+    this.has = id => versions.has(id);
 
     function initialise() {
 
